@@ -9,6 +9,7 @@ import {
   buildCustomMeasure,
   type ActiveMeasure,
   type ScenarioId,
+  type CustomMeasureInput,
 } from '../lib/simulation';
 import MissionPicker from './simulator/MissionPicker';
 import Dashboard from './simulator/Dashboard';
@@ -94,7 +95,7 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
   }, []);
 
   const handleCustom = useCallback(
-    (input: { title: string; domainId: string; direction: 'plus' | 'moins'; amountMd: number }) => {
+    (input: CustomMeasureInput) => {
       const built = buildCustomMeasure(input);
       if (built) {
         setMeasures((prev) => [...prev, built]);
@@ -187,7 +188,12 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
       <Dashboard result={result} mission={mission} />
 
       <div className="simu-grid">
-        <Catalog active={measures} onAdd={handleAdd} onCustom={() => setCustomOpen(true)} />
+        <Catalog
+          active={measures}
+          sandbox={mission.id === 'libre'}
+          onAdd={handleAdd}
+          onCustom={() => setCustomOpen(true)}
+        />
         <Trajectories result={result} />
         <Bill
           measures={measures}
@@ -208,7 +214,12 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
         </button>
       </p>
 
-      <CustomMeasureModal open={customOpen} onClose={() => setCustomOpen(false)} onSubmit={handleCustom} />
+      <CustomMeasureModal
+        open={customOpen}
+        sandbox={mission.id === 'libre'}
+        onClose={() => setCustomOpen(false)}
+        onSubmit={handleCustom}
+      />
       <HypothesesModal open={hypoOpen} onClose={() => setHypoOpen(false)} />
       <CollabWall open={wallOpen} onClose={() => setWallOpen(false)} onOpenBudget={openBudget} />
       {resultsOpen && evaluation && (

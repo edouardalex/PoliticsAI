@@ -12,10 +12,15 @@ n'importe qui — sans jugement, avec des données officielles.
 ## La V2 — Le Simulateur : « Vous êtes ministre du Budget »
 
 Un jeu sérieux, à règles publiques : choisissez une mission (« Sous les 3 % », « Cap sur
-le plein emploi », « Financer la transition », ou bac à sable), composez votre budget à
-partir de **33 mesures chiffrées et sourcées** — ou **inventez les vôtres** (c'est vous
+le plein emploi », « Financer la transition », ou le bac à sable), composez votre budget à
+partir de **121 mesures chiffrées et sourcées** — ou **inventez les vôtres** (c'est vous
 qui fixez le montant, le moteur n'invente aucun chiffre) — et regardez réagir déficit,
 dette, croissance, chômage et « climat social » (jauge assumée ludique) sur 2025-2029.
+
+Le catalogue couvre 21 domaines (santé, école, écologie, transports, logement, retraites,
+défense, agriculture, numérique, territoires, fiscalité des ménages et des entreprises…)
+et propose systématiquement les mesures **et leurs symétriques** — filtres par type et par
+domaine, tri par montant, par ordre alphabétique ou par réception sociale.
 
 Le moteur est **mécanique, au premier ordre et intégralement documenté dans l'app** :
 multiplicateurs budgétaires par levier (fourchettes OFCE/FMI, trois scénarios de
@@ -24,6 +29,15 @@ pas le déficit de 20 Md€ — et une coupe de 20 Md€ ne le réduit pas d'aut
 dénominateur et charge d'intérêts sur la dette. Verdicts factuels (objectif atteint ou
 non), étoiles, **carte « Mon budget 2029 » téléchargeable en PNG** et budget partageable
 par URL.
+
+### Le bac à sable et l'atelier de mesures
+
+La mission « bac à sable » n'impose aucun objectif et ouvre **l'atelier complet** : au-delà
+du nom, du domaine et du montant, vous réglez vous-même le **levier économique** (donc le
+multiplicateur), la **montée en charge**, la **réception sociale** et les **emplois publics
+directs** créés ou supprimés — avec un aperçu de l'effet (solde, PIB, chômage) calculé en
+direct pendant que vous réglez. Les mesures inventées voyagent dans l'URL : votre
+laboratoire est partageable et rechargeable tel quel.
 
 ### V2.1 — Le Mur des budgets (collaboratif)
 
@@ -101,7 +115,8 @@ server/                Le Mur des budgets — API zéro dépendance (node:http +
 | **V1** | L'Explorateur (Sankey, Europe, tableau) | ✅ Livrée |
 | **V2** | Simulateur « Vous êtes ministre du Budget » | ✅ Livrée |
 | **V2.1** | Le Mur des budgets (publication anonyme, stats collectives) | ✅ Livrée |
-| V2.2 | Modération → affichage des mesures inventées ; déploiement public | À venir |
+| **V2.2** | Catalogue de 121 mesures, bac à sable et atelier avancé | ✅ Livrée |
+| V2.3 | Modération → affichage des mesures inventées ; déploiement public | À venir |
 | V1.5 | Ticket de caisse fiscal + quiz quotidien | Hiver 2026-2027 |
 | V3 | Chiffrage des programmes — présidentielle 2027 | Février-avril 2027 |
 

@@ -1,19 +1,34 @@
 import { useMemo, useState } from 'react';
-import { MEASURES, CATEGORY_LABELS, type MeasureDef, type MeasureKind } from '../../content/measures';
+import {
+  MEASURES,
+  CATEGORY_LABELS,
+  type MeasureDef,
+  type MeasureKind,
+  type MeasureCategory,
+} from '../../content/measures';
 import { type ActiveMeasure, soldeSign } from '../../lib/simulation';
 
 interface Props {
   active: ActiveMeasure[];
+  sandbox?: boolean;
   onAdd: (m: ActiveMeasure) => void;
   onCustom: () => void;
 }
 
+type SortId = 'amount' | 'alpha' | 'social';
+
 const KIND_FILTERS: { id: MeasureKind | 'all'; label: string }[] = [
   { id: 'all', label: 'Toutes' },
-  { id: 'depense_plus', label: 'Dépenser plus' },
-  { id: 'depense_moins', label: 'Dépenser moins' },
-  { id: 'recette_plus', label: 'Taxer plus' },
-  { id: 'recette_moins', label: 'Taxer moins' },
+  { id: 'depense_plus', label: 'Dépenser +' },
+  { id: 'depense_moins', label: 'Dépenser −' },
+  { id: 'recette_plus', label: 'Taxer +' },
+  { id: 'recette_moins', label: 'Taxer −' },
+];
+
+const SORTS: { id: SortId; label: string }[] = [
+  { id: 'amount', label: 'Montant' },
+  { id: 'alpha', label: 'A → Z' },
+  { id: 'social', label: 'Réception sociale' },
 ];
 
 function normalize(s: string): string {
@@ -22,23 +37,44 @@ function normalize(s: string): string {
 
 const nf1 = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 1 });
 
-export default function Catalog({ active, onAdd, onCustom }: Props) {
+export default function Catalog({ active, sandbox, onAdd, onCustom }: Props) {
   const [kind, setKind] = useState<MeasureKind | 'all'>('all');
+  const [category, setCategory] = useState<MeasureCategory | 'all'>('all');
+  const [sort, setSort] = useState<SortId>('amount');
   const [query, setQuery] = useState('');
   const activeIds = useMemo(() => new Set(active.map((m) => m.def.id)), [active]);
 
+  /** catégories réellement présentes, triées par libellé */
+  const categories = useMemo(() => {
+    const present = new Set(MEASURES.map((m) => m.category));
+    return (Object.keys(CATEGORY_LABELS) as MeasureCategory[])
+      .filter((c) => present.has(c))
+      .sort((a, b) => CATEGORY_LABELS[a].localeCompare(CATEGORY_LABELS[b], 'fr'));
+  }, []);
+
   const list = useMemo(() => {
     const q = normalize(query.trim());
-    return MEASURES.filter((m) => {
+    const filtered = MEASURES.filter((m) => {
       if (kind !== 'all' && m.kind !== kind) return false;
+      if (category !== 'all' && m.category !== category) return false;
       if (!q) return true;
       return (
         normalize(m.title).includes(q) ||
         normalize(m.desc).includes(q) ||
+        normalize(m.incidence).includes(q) ||
         normalize(CATEGORY_LABELS[m.category]).includes(q)
       );
-    }).sort((a, b) => b.amount - a.amount);
-  }, [kind, query]);
+    });
+    const amountOf = (m: MeasureDef) => (m.param ? m.param.default * m.param.perUnit : m.amount);
+    switch (sort) {
+      case 'alpha':
+        return filtered.sort((a, b) => a.title.localeCompare(b.title, 'fr'));
+      case 'social':
+        return filtered.sort((a, b) => b.social - a.social || amountOf(b) - amountOf(a));
+      default:
+        return filtered.sort((a, b) => amountOf(b) - amountOf(a));
+    }
+  }, [kind, category, sort, query]);
 
   const add = (def: MeasureDef) => {
     onAdd({ uid: def.id, def, intensity: def.param?.default ?? 1 });
@@ -47,14 +83,16 @@ export default function Catalog({ active, onAdd, onCustom }: Props) {
   return (
     <aside className="simu-catalog">
       <div className="cat-head">
-        <h2 className="cat-title">Les mesures</h2>
+        <h2 className="cat-title">
+          Les mesures <span className="cat-total">{MEASURES.length}</span>
+        </h2>
         <button className="btn-invent" onClick={onCustom}>
-          + Inventer la mienne
+          {sandbox ? '+ Atelier' : '+ Inventer la mienne'}
         </button>
       </div>
       <input
         className="cat-search"
-        placeholder="Chercher : retraite, TVA, hôpital…"
+        placeholder="Chercher : retraite, TVA, hôpital, climat…"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
@@ -70,6 +108,37 @@ export default function Catalog({ active, onAdd, onCustom }: Props) {
           </button>
         ))}
       </div>
+      <div className="cat-selects">
+        <select
+          className="cat-select"
+          value={category}
+          onChange={(e) => setCategory(e.target.value as MeasureCategory | 'all')}
+          aria-label="Filtrer par domaine"
+        >
+          <option value="all">Tous les domaines</option>
+          {categories.map((c) => (
+            <option key={c} value={c}>
+              {CATEGORY_LABELS[c]}
+            </option>
+          ))}
+        </select>
+        <select
+          className="cat-select"
+          value={sort}
+          onChange={(e) => setSort(e.target.value as SortId)}
+          aria-label="Trier"
+        >
+          {SORTS.map((s) => (
+            <option key={s.id} value={s.id}>
+              Tri : {s.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <p className="cat-count" aria-live="polite">
+        {list.length} mesure{list.length > 1 ? 's' : ''}
+        {list.length !== MEASURES.length ? ` sur ${MEASURES.length}` : ''}
+      </p>
 
       <div className="cat-list">
         {list.map((def) => {
@@ -113,7 +182,15 @@ export default function Catalog({ active, onAdd, onCustom }: Props) {
             </button>
           );
         })}
-        {list.length === 0 && <p className="cat-empty">Aucune mesure — inventez la vôtre !</p>}
+        {list.length === 0 && (
+          <p className="cat-empty">
+            Aucune mesure ne correspond.{' '}
+            <button className="btn-link" onClick={onCustom}>
+              Inventez la vôtre
+            </button>
+            .
+          </p>
+        )}
       </div>
     </aside>
   );

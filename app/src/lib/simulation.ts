@@ -4,8 +4,18 @@
  * et affichées dans l'app. Aucun chiffre ne sort d'un modèle d'IA.
  */
 
-import { MODEL, BASE_INDICATORS, MEASURES, CUSTOM_DOMAINS, type MeasureDef, type Mission } from '../content/measures';
+import {
+  MODEL,
+  BASE_INDICATORS,
+  MEASURES,
+  CUSTOM_DOMAINS,
+  type MeasureDef,
+  type Mission,
+  type LeverType,
+} from '../content/measures';
 import { getPerimeter } from './data';
+
+export type PhaseId = 'immediate' | 'progressive' | 'slow';
 
 export type ScenarioId = 'prudent' | 'central' | 'haut';
 
@@ -17,7 +27,20 @@ export interface ActiveMeasure {
   intensity: number;
   isCustom?: boolean;
   /** entrée d'origine d'une mesure personnalisée (pour la sérialisation) */
-  customInput?: { t: string; d: string; dir: 'plus' | 'moins'; a: number };
+  customInput?: CustomInput;
+}
+
+/** Forme sérialisée d'une mesure inventée (clés courtes : elle voyage dans l'URL). */
+export interface CustomInput {
+  t: string;
+  d: string;
+  dir: 'plus' | 'moins';
+  a: number;
+  /** réglages avancés (atelier) — optionnels */
+  lv?: LeverType;
+  ph?: PhaseId;
+  so?: number;
+  jb?: number;
 }
 
 export interface YearPoint {
@@ -251,12 +274,19 @@ export function evaluateMission(mission: Mission, result: SimResult): { goals: G
 
 let customSeq = 0;
 
-export function buildCustomMeasure(input: {
+export interface CustomMeasureInput {
   title: string;
   domainId: string;
   direction: 'plus' | 'moins';
   amountMd: number;
-}): ActiveMeasure | null {
+  /** réglages de l'atelier (bac à sable) */
+  lever?: LeverType;
+  phase?: PhaseId;
+  social?: number;
+  directJobs?: number;
+}
+
+export function buildCustomMeasure(input: CustomMeasureInput): ActiveMeasure | null {
   const domain = CUSTOM_DOMAINS.find((d) => d.id === input.domainId);
   if (!domain || !input.title.trim() || input.amountMd <= 0) return null;
   const kind =
@@ -267,8 +297,8 @@ export function buildCustomMeasure(input: {
       : input.direction === 'plus'
         ? 'recette_plus'
         : 'recette_moins';
-  // sensibilité : dépenser plus / taxer moins est mieux accueilli que l'inverse
-  const social =
+  // sensibilité par défaut : dépenser plus / taxer moins est mieux accueilli que l'inverse
+  const autoSocial =
     domain.side === 'depense'
       ? input.direction === 'plus'
         ? Math.abs(domain.social)
@@ -276,6 +306,7 @@ export function buildCustomMeasure(input: {
       : input.direction === 'plus'
         ? domain.social - 1
         : Math.abs(domain.social) + 1;
+  const social = input.social ?? autoSocial;
   const def: MeasureDef = {
     id: `custom_${customSeq++}`,
     title: input.title.trim(),
@@ -291,9 +322,10 @@ export function buildCustomMeasure(input: {
     category: domain.category,
     kind,
     amount: input.amountMd,
-    lever: domain.lever,
+    lever: input.lever ?? domain.lever,
+    directJobs: input.directJobs && input.directJobs !== 0 ? input.directJobs : undefined,
     social: Math.max(-3, Math.min(3, social)),
-    phase: 'progressive',
+    phase: input.phase ?? 'progressive',
     incidence: 'Selon le périmètre exact de votre mesure.',
     basis: 'Montant fixé par vous — le moteur applique les mêmes règles qu’aux autres mesures.',
   };
@@ -302,7 +334,16 @@ export function buildCustomMeasure(input: {
     def,
     intensity: 1,
     isCustom: true,
-    customInput: { t: input.title.trim(), d: input.domainId, dir: input.direction, a: input.amountMd },
+    customInput: {
+      t: input.title.trim(),
+      d: input.domainId,
+      dir: input.direction,
+      a: input.amountMd,
+      ...(input.lever ? { lv: input.lever } : {}),
+      ...(input.phase ? { ph: input.phase } : {}),
+      ...(input.social != null ? { so: input.social } : {}),
+      ...(input.directJobs ? { jb: input.directJobs } : {}),
+    },
   };
 }
 
@@ -312,7 +353,7 @@ export interface SimShareState {
   mission: string;
   scenario: ScenarioId;
   measures: { id: string; i: number }[];
-  custom: { t: string; d: string; dir: 'plus' | 'moins'; a: number }[];
+  custom: CustomInput[];
 }
 
 export function encodeSimState(state: SimShareState): string {
@@ -347,12 +388,19 @@ export function hydrateMeasures(state: SimShareState): ActiveMeasure[] {
       : 1;
     out.push({ uid: def.id, def, intensity });
   }
+  const LEVERS = new Set(Object.keys(MODEL.multipliers));
+  const PHASES = new Set(['immediate', 'progressive', 'slow']);
   for (const c of state.custom ?? []) {
     const built = buildCustomMeasure({
       title: String(c.t).slice(0, 80),
       domainId: c.d,
       direction: c.dir === 'moins' ? 'moins' : 'plus',
       amountMd: Math.max(0.5, Math.min(60, Number(c.a) || 0)),
+      lever: c.lv && LEVERS.has(c.lv) ? c.lv : undefined,
+      phase: c.ph && PHASES.has(c.ph) ? c.ph : undefined,
+      social: typeof c.so === 'number' ? Math.max(-3, Math.min(3, Math.round(c.so))) : undefined,
+      directJobs:
+        typeof c.jb === 'number' ? Math.max(-300_000, Math.min(300_000, Math.round(c.jb))) : undefined,
     });
     if (built) out.push(built);
   }
