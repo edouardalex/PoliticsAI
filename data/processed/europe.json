@@ -1,0 +1,281 @@
+{
+ "meta": {
+  "source": "Eurostat — dépenses des administrations publiques par fonction (gov_10a_exp)",
+  "unit": "PC_GDP",
+  "sector": "S13 (consolidé)",
+  "extracted": "2026-08-12",
+  "note": "Millésime le plus récent disponible par pays (2024, sinon 2023)."
+ },
+ "countries": [
+  {
+   "geo": "FI",
+   "label": "Finlande",
+   "year": 2024,
+   "totalPctGdp": 57.7,
+   "functions": {
+    "GF01": 7.1,
+    "GF02": 1.6,
+    "GF03": 1.3,
+    "GF04": 4.9,
+    "GF05": 0.2,
+    "GF06": 0.5,
+    "GF07": 7.7,
+    "GF08": 1.7,
+    "GF09": 6.3,
+    "GF10": 26.5
+   }
+  },
+  {
+   "geo": "FR",
+   "label": "France",
+   "year": 2024,
+   "totalPctGdp": 57.3,
+   "functions": {
+    "GF01": 6.2,
+    "GF02": 1.9,
+    "GF03": 1.8,
+    "GF04": 5.7,
+    "GF05": 1.0,
+    "GF06": 1.4,
+    "GF07": 8.9,
+    "GF08": 1.5,
+    "GF09": 5.1,
+    "GF10": 23.7
+   }
+  },
+  {
+   "geo": "AT",
+   "label": "Autriche",
+   "year": 2024,
+   "totalPctGdp": 55.2,
+   "functions": {
+    "GF01": 6.0,
+    "GF02": 0.7,
+    "GF03": 1.5,
+    "GF04": 7.1,
+    "GF05": 0.7,
+    "GF06": 0.4,
+    "GF07": 9.5,
+    "GF08": 1.3,
+    "GF09": 5.3,
+    "GF10": 22.8
+   }
+  },
+  {
+   "geo": "BE",
+   "label": "Belgique",
+   "year": 2024,
+   "totalPctGdp": 54.1,
+   "functions": {
+    "GF01": 7.1,
+    "GF02": 1.3,
+    "GF03": 1.7,
+    "GF04": 6.4,
+    "GF05": 1.2,
+    "GF06": 0.4,
+    "GF07": 8.0,
+    "GF08": 1.2,
+    "GF09": 6.3,
+    "GF10": 20.4
+   }
+  },
+  {
+   "geo": "SE",
+   "label": "Suède",
+   "year": 2024,
+   "totalPctGdp": 50.5,
+   "functions": {
+    "GF01": 5.5,
+    "GF02": 2.0,
+    "GF03": 1.6,
+    "GF04": 4.8,
+    "GF05": 0.5,
+    "GF06": 0.8,
+    "GF07": 7.4,
+    "GF08": 1.4,
+    "GF09": 7.3,
+    "GF10": 19.1
+   }
+  },
+  {
+   "geo": "IT",
+   "label": "Italie",
+   "year": 2024,
+   "totalPctGdp": 50.4,
+   "functions": {
+    "GF01": 7.7,
+    "GF02": 1.3,
+    "GF03": 1.8,
+    "GF04": 5.1,
+    "GF05": 0.9,
+    "GF06": 0.8,
+    "GF07": 6.6,
+    "GF08": 0.9,
+    "GF09": 4.0,
+    "GF10": 21.3
+   }
+  },
+  {
+   "geo": "DE",
+   "label": "Allemagne",
+   "year": 2024,
+   "totalPctGdp": 49.4,
+   "functions": {
+    "GF01": 6.4,
+    "GF02": 1.4,
+    "GF03": 1.6,
+    "GF04": 5.4,
+    "GF05": 0.6,
+    "GF06": 0.5,
+    "GF07": 7.6,
+    "GF08": 1.1,
+    "GF09": 4.5,
+    "GF10": 20.4
+   }
+  },
+  {
+   "geo": "PL",
+   "label": "Pologne",
+   "year": 2024,
+   "totalPctGdp": 49.4,
+   "functions": {
+    "GF01": 5.2,
+    "GF02": 2.9,
+    "GF03": 2.4,
+    "GF04": 6.1,
+    "GF05": 0.7,
+    "GF06": 0.6,
+    "GF07": 6.1,
+    "GF08": 1.4,
+    "GF09": 5.6,
+    "GF10": 18.3
+   }
+  },
+  {
+   "geo": "EU27_2020",
+   "label": "Union européenne",
+   "year": 2024,
+   "totalPctGdp": 49.1,
+   "functions": {
+    "GF01": 6.1,
+    "GF02": 1.5,
+    "GF03": 1.7,
+    "GF04": 5.3,
+    "GF05": 0.8,
+    "GF06": 0.7,
+    "GF07": 7.4,
+    "GF08": 1.2,
+    "GF09": 4.8,
+    "GF10": 19.6
+   }
+  },
+  {
+   "geo": "EL",
+   "label": "Grèce",
+   "year": 2024,
+   "totalPctGdp": 48.2,
+   "functions": {
+    "GF01": 8.3,
+    "GF02": 2.2,
+    "GF03": 2.0,
+    "GF04": 6.0,
+    "GF05": 0.9,
+    "GF06": 0.5,
+    "GF07": 5.7,
+    "GF08": 1.0,
+    "GF09": 3.9,
+    "GF10": 17.7
+   }
+  },
+  {
+   "geo": "DK",
+   "label": "Danemark",
+   "year": 2024,
+   "totalPctGdp": 47.3,
+   "functions": {
+    "GF01": 5.7,
+    "GF02": 1.8,
+    "GF03": 1.0,
+    "GF04": 3.1,
+    "GF05": 0.4,
+    "GF06": 0.3,
+    "GF07": 8.3,
+    "GF08": 1.5,
+    "GF09": 5.6,
+    "GF10": 19.6
+   }
+  },
+  {
+   "geo": "ES",
+   "label": "Espagne",
+   "year": 2024,
+   "totalPctGdp": 45.5,
+   "functions": {
+    "GF01": 5.8,
+    "GF02": 0.9,
+    "GF03": 1.8,
+    "GF04": 5.1,
+    "GF05": 1.0,
+    "GF06": 0.5,
+    "GF07": 6.5,
+    "GF08": 1.2,
+    "GF09": 4.1,
+    "GF10": 18.7
+   }
+  },
+  {
+   "geo": "NL",
+   "label": "Pays-Bas",
+   "year": 2024,
+   "totalPctGdp": 44.4,
+   "functions": {
+    "GF01": 4.1,
+    "GF02": 1.6,
+    "GF03": 1.9,
+    "GF04": 4.4,
+    "GF05": 1.6,
+    "GF06": 0.6,
+    "GF07": 7.3,
+    "GF08": 1.2,
+    "GF09": 5.1,
+    "GF10": 16.6
+   }
+  },
+  {
+   "geo": "PT",
+   "label": "Portugal",
+   "year": 2024,
+   "totalPctGdp": 42.4,
+   "functions": {
+    "GF01": 5.8,
+    "GF02": 0.9,
+    "GF03": 1.6,
+    "GF04": 3.6,
+    "GF05": 0.7,
+    "GF06": 0.6,
+    "GF07": 6.8,
+    "GF08": 0.8,
+    "GF09": 4.3,
+    "GF10": 17.1
+   }
+  },
+  {
+   "geo": "IE",
+   "label": "Irlande",
+   "year": 2024,
+   "totalPctGdp": 22.4,
+   "functions": {
+    "GF01": 2.0,
+    "GF02": 0.1,
+    "GF03": 0.7,
+    "GF04": 2.1,
+    "GF05": 0.4,
+    "GF06": 0.6,
+    "GF07": 5.4,
+    "GF08": 0.4,
+    "GF09": 2.7,
+    "GF10": 7.8
+   }
+  }
+ ]
+}

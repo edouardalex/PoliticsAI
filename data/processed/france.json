@@ -1,0 +1,1527 @@
+{
+ "meta": {
+  "source": "Eurostat — comptes nationaux des administrations publiques (SEC 2010)",
+  "datasets": [
+   "gov_10a_exp",
+   "gov_10a_main",
+   "nama_10_gdp"
+  ],
+  "url": "https://ec.europa.eu/eurostat/fr/web/government-finance-statistics",
+  "extracted": "2026-08-12",
+  "unit": "MIO_EUR",
+  "note": "Dépenses par fonction : nomenclature CFAP/COFOG. Les sous-secteurs (État, collectivités, sécurité sociale) sont non consolidés entre eux : les transferts entre administrations y figurent. Le total toutes administrations (S13) est consolidé."
+ },
+ "perimeters": {
+  "S13": {
+   "label": "Toutes administrations publiques",
+   "year": 2024,
+   "gdp": 2935236.2,
+   "expenditureTotal": 1671793.8,
+   "expenditurePctGdp": 57.3,
+   "revenueTotal": 1503590.1,
+   "netLending": -169118.1,
+   "deficit": 168203.7,
+   "functions": [
+    {
+     "code": "GF10",
+     "label": "Protection sociale",
+     "value": 693028.8,
+     "pctGdp": 23.7,
+     "children": [
+      {
+       "code": "GF1002",
+       "label": "Vieillesse",
+       "value": 391954.3
+      },
+      {
+       "code": "GF1001",
+       "label": "Maladie et invalidité",
+       "value": 83898.9
+      },
+      {
+       "code": "GF1004",
+       "label": "Famille et enfants",
+       "value": 66711.4
+      },
+      {
+       "code": "GF1005",
+       "label": "Chômage",
+       "value": 48520.9
+      },
+      {
+       "code": "GF1003",
+       "label": "Survivants",
+       "value": 40608.3
+      },
+      {
+       "code": "GF1007",
+       "label": "Exclusion sociale n.c.a.",
+       "value": 36460.8
+      },
+      {
+       "code": "GF1006",
+       "label": "Logement",
+       "value": 21146.7
+      },
+      {
+       "code": "GF1009",
+       "label": "Protection sociale n.c.a.",
+       "value": 3727.6
+      }
+     ]
+    },
+    {
+     "code": "GF07",
+     "label": "Santé",
+     "value": 261156.3,
+     "pctGdp": 8.9,
+     "children": [
+      {
+       "code": "GF0703",
+       "label": "Services hospitaliers",
+       "value": 109338.1
+      },
+      {
+       "code": "GF0702",
+       "label": "Services ambulatoires",
+       "value": 91789.0
+      },
+      {
+       "code": "GF0701",
+       "label": "Produits, appareils et matériels médicaux",
+       "value": 43714.6
+      },
+      {
+       "code": "GF0704",
+       "label": "Services de santé publique",
+       "value": 7958.3
+      },
+      {
+       "code": "GF0705",
+       "label": "R & D dans le domaine de la santé",
+       "value": 6708.3
+      },
+      {
+       "code": "GF0706",
+       "label": "Santé n.c.a.",
+       "value": 1647.9
+      }
+     ]
+    },
+    {
+     "code": "GF01",
+     "label": "Services généraux des administrations publiques",
+     "value": 181103.2,
+     "pctGdp": 6.2,
+     "children": [
+      {
+       "code": "GF0107",
+       "label": "Opérations concernant la dette publique",
+       "value": 58870.2
+      },
+      {
+       "code": "GF0103",
+       "label": "Services généraux",
+       "value": 53780.4
+      },
+      {
+       "code": "GF0101",
+       "label": "Fonctionnement des organes exécutifs et législatifs, affaires financières et fiscales, affaires étrangères",
+       "value": 42818.4
+      },
+      {
+       "code": "GF0104",
+       "label": "Recherche fondamentale",
+       "value": 19880.5
+      },
+      {
+       "code": "GF0102",
+       "label": "Aide économique extérieure",
+       "value": 4880.9
+      },
+      {
+       "code": "GF0106",
+       "label": "Services généraux des administrations publiques n.c.a.",
+       "value": 866.6
+      },
+      {
+       "code": "GF0105",
+       "label": "R & D concernant des services généraux des administrations publiques",
+       "value": 6.1
+      },
+      {
+       "code": "GF0108",
+       "label": "Transferts de caractère général entre administrations publiques",
+       "value": 0.1
+      }
+     ]
+    },
+    {
+     "code": "GF04",
+     "label": "Affaires économiques",
+     "value": 166072.8,
+     "pctGdp": 5.7,
+     "children": [
+      {
+       "code": "GF0405",
+       "label": "Transports",
+       "value": 60688.9
+      },
+      {
+       "code": "GF0401",
+       "label": "Tutelle de l'économie générale, des échanges et de l'emploi",
+       "value": 45256.9
+      },
+      {
+       "code": "GF0408",
+       "label": "R & D concernant les affaires économiques",
+       "value": 21428.7
+      },
+      {
+       "code": "GF0403",
+       "label": "Combustibles et énergie",
+       "value": 15460.8
+      },
+      {
+       "code": "GF0407",
+       "label": "Autres branches d'activité",
+       "value": 11183.0
+      },
+      {
+       "code": "GF0402",
+       "label": "Agriculture, sylviculture, pêche et chasse",
+       "value": 6198.7
+      },
+      {
+       "code": "GF0409",
+       "label": "Affaires économiques n.c.a.",
+       "value": 2609.3
+      },
+      {
+       "code": "GF0404",
+       "label": "Industries extractives et manufacturières, construction",
+       "value": 1625.4
+      },
+      {
+       "code": "GF0406",
+       "label": "Communications",
+       "value": 1621.1
+      }
+     ]
+    },
+    {
+     "code": "GF09",
+     "label": "Enseignement",
+     "value": 148639.6,
+     "pctGdp": 5.1,
+     "children": [
+      {
+       "code": "GF0902",
+       "label": "Enseignement secondaire",
+       "value": 63778.9
+      },
+      {
+       "code": "GF0901",
+       "label": "Enseignement préélémentaire et primaire",
+       "value": 42176.4
+      },
+      {
+       "code": "GF0906",
+       "label": "Services annexes à l'enseignement",
+       "value": 20022.9
+      },
+      {
+       "code": "GF0904",
+       "label": "Enseignement supérieur",
+       "value": 12307.9
+      },
+      {
+       "code": "GF0905",
+       "label": "Enseignement non défini par niveau",
+       "value": 8622.3
+      },
+      {
+       "code": "GF0903",
+       "label": "Enseignement postsecondaire non supérieur",
+       "value": 1156.4
+      },
+      {
+       "code": "GF0908",
+       "label": "Enseignement n.c.a.",
+       "value": 574.7
+      }
+     ]
+    },
+    {
+     "code": "GF02",
+     "label": "Défense",
+     "value": 54199.0,
+     "pctGdp": 1.9,
+     "children": [
+      {
+       "code": "GF0201",
+       "label": "Défense militaire",
+       "value": 47701.9
+      },
+      {
+       "code": "GF0205",
+       "label": "Défense n.c.a.",
+       "value": 2580.0
+      },
+      {
+       "code": "GF0203",
+       "label": "Aide militaire à des pays étrangers",
+       "value": 2006.6
+      },
+      {
+       "code": "GF0204",
+       "label": "R & D concernant la défense",
+       "value": 1682.0
+      },
+      {
+       "code": "GF0202",
+       "label": "Défense civile",
+       "value": 228.6
+      }
+     ]
+    },
+    {
+     "code": "GF03",
+     "label": "Ordre et sécurité publics",
+     "value": 52113.0,
+     "pctGdp": 1.8,
+     "children": [
+      {
+       "code": "GF0301",
+       "label": "Services de police",
+       "value": 28896.2
+      },
+      {
+       "code": "GF0303",
+       "label": "Tribunaux",
+       "value": 8295.0
+      },
+      {
+       "code": "GF0302",
+       "label": "Services de protection civile",
+       "value": 7937.4
+      },
+      {
+       "code": "GF0304",
+       "label": "Administration pénitentiaire",
+       "value": 5119.8
+      },
+      {
+       "code": "GF0306",
+       "label": "Ordre et sécurité publics n.c.a.",
+       "value": 1864.6
+      }
+     ]
+    },
+    {
+     "code": "GF08",
+     "label": "Loisirs, culture et culte",
+     "value": 43067.6,
+     "pctGdp": 1.5,
+     "children": [
+      {
+       "code": "GF0802",
+       "label": "Services culturels",
+       "value": 18963.0
+      },
+      {
+       "code": "GF0801",
+       "label": "Services récréatifs et sportifs",
+       "value": 15568.6
+      },
+      {
+       "code": "GF0803",
+       "label": "Services de radiodiffusion, de télévision et d'édition",
+       "value": 7560.4
+      },
+      {
+       "code": "GF0804",
+       "label": "Culte et autres services communautaires",
+       "value": 744.2
+      },
+      {
+       "code": "GF0806",
+       "label": "Loisirs, culture et culte n.c.a.",
+       "value": 231.5
+      }
+     ]
+    },
+    {
+     "code": "GF06",
+     "label": "Logements et équipements collectifs",
+     "value": 42128.6,
+     "pctGdp": 1.4,
+     "children": [
+      {
+       "code": "GF0602",
+       "label": "Équipements collectifs",
+       "value": 27229.9
+      },
+      {
+       "code": "GF0601",
+       "label": "Logements",
+       "value": 8415.0
+      },
+      {
+       "code": "GF0603",
+       "label": "Alimentation en eau",
+       "value": 2847.8
+      },
+      {
+       "code": "GF0604",
+       "label": "Éclairage public",
+       "value": 1819.2
+      },
+      {
+       "code": "GF0606",
+       "label": "Logement et équipements collectifs n.c.a.",
+       "value": 1816.7
+      }
+     ]
+    },
+    {
+     "code": "GF05",
+     "label": "Protection de l'environnement",
+     "value": 30285.1,
+     "pctGdp": 1.0,
+     "children": [
+      {
+       "code": "GF0501",
+       "label": "Gestion des déchets",
+       "value": 15862.4
+      },
+      {
+       "code": "GF0502",
+       "label": "Gestion des eaux usées",
+       "value": 5200.0
+      },
+      {
+       "code": "GF0503",
+       "label": "Lutte contre la pollution",
+       "value": 4268.6
+      },
+      {
+       "code": "GF0505",
+       "label": "R & D dans le domaine de la protection de l'environnement",
+       "value": 1759.8
+      },
+      {
+       "code": "GF0504",
+       "label": "Préservation de la diversité biologique et protection de la nature",
+       "value": 1678.4
+      },
+      {
+       "code": "GF0506",
+       "label": "Protection de l'environnement n.c.a.",
+       "value": 1515.9
+      }
+     ]
+    }
+   ],
+   "revenues": [
+    {
+     "code": "D61",
+     "label": "Cotisations sociales",
+     "value": 483631.0
+    },
+    {
+     "code": "D51A",
+     "label": "Impôts sur le revenu des ménages",
+     "value": 274981.0,
+     "detail": "IR, CSG, CRDS…"
+    },
+    {
+     "code": "D211",
+     "label": "TVA",
+     "value": 207753.0
+    },
+    {
+     "code": "D29",
+     "label": "Impôts sur la production",
+     "value": 129947.0,
+     "detail": "Taxe foncière des entreprises, CFE, versement mobilité…"
+    },
+    {
+     "code": "SALES",
+     "label": "Ventes et redevances",
+     "value": 126130.9,
+     "detail": "Cantines, musées, redevances, production pour compte propre…"
+    },
+    {
+     "code": "D21X",
+     "label": "Accises et taxes sur les produits",
+     "value": 118433.0,
+     "detail": "TICPE, tabac, alcool, assurances…"
+    },
+    {
+     "code": "D51B",
+     "label": "Impôt sur les sociétés",
+     "value": 83699.0
+    },
+    {
+     "code": "OTHER",
+     "label": "Autres recettes",
+     "value": 50542.2,
+     "detail": "Revenus du patrimoine, transferts divers, aides à l'investissement…"
+    },
+    {
+     "code": "D5X_D91",
+     "label": "Autres impôts (patrimoine, successions…)",
+     "value": 28473.0,
+     "detail": "Taxe foncière des ménages, IFI, droits de succession…"
+    }
+   ]
+  },
+  "S1311": {
+   "label": "État et organismes centraux",
+   "year": 2024,
+   "gdp": 2935236.2,
+   "expenditureTotal": 670299.3,
+   "expenditurePctGdp": 23.0,
+   "revenueTotal": 518788.9,
+   "netLending": -152464.3,
+   "deficit": 151510.4,
+   "functions": [
+    {
+     "code": "GF01",
+     "label": "Services généraux des administrations publiques",
+     "value": 160020.7,
+     "pctGdp": 5.5,
+     "children": [
+      {
+       "code": "GF0107",
+       "label": "Opérations concernant la dette publique",
+       "value": 46691.3
+      },
+      {
+       "code": "GF0108",
+       "label": "Transferts de caractère général entre administrations publiques",
+       "value": 45697.7
+      },
+      {
+       "code": "GF0101",
+       "label": "Fonctionnement des organes exécutifs et législatifs, affaires financières et fiscales, affaires étrangères",
+       "value": 40000.4
+      },
+      {
+       "code": "GF0104",
+       "label": "Recherche fondamentale",
+       "value": 19881.3
+      },
+      {
+       "code": "GF0102",
+       "label": "Aide économique extérieure",
+       "value": 4880.9
+      },
+      {
+       "code": "GF0103",
+       "label": "Services généraux",
+       "value": 2465.1
+      },
+      {
+       "code": "GF0106",
+       "label": "Services généraux des administrations publiques n.c.a.",
+       "value": 399.0
+      },
+      {
+       "code": "GF0105",
+       "label": "R & D concernant des services généraux des administrations publiques",
+       "value": 5.1
+      }
+     ]
+    },
+    {
+     "code": "GF10",
+     "label": "Protection sociale",
+     "value": 143473.4,
+     "pctGdp": 4.9,
+     "children": [
+      {
+       "code": "GF1002",
+       "label": "Vieillesse",
+       "value": 75642.2
+      },
+      {
+       "code": "GF1006",
+       "label": "Logement",
+       "value": 21539.9
+      },
+      {
+       "code": "GF1007",
+       "label": "Exclusion sociale n.c.a.",
+       "value": 19481.3
+      },
+      {
+       "code": "GF1001",
+       "label": "Maladie et invalidité",
+       "value": 18047.1
+      },
+      {
+       "code": "GF1005",
+       "label": "Chômage",
+       "value": 4408.6
+      },
+      {
+       "code": "GF1004",
+       "label": "Famille et enfants",
+       "value": 3533.8
+      },
+      {
+       "code": "GF1003",
+       "label": "Survivants",
+       "value": 814.2
+      },
+      {
+       "code": "GF1009",
+       "label": "Protection sociale n.c.a.",
+       "value": 6.3
+      }
+     ]
+    },
+    {
+     "code": "GF04",
+     "label": "Affaires économiques",
+     "value": 123826.5,
+     "pctGdp": 4.2,
+     "children": [
+      {
+       "code": "GF0401",
+       "label": "Tutelle de l'économie générale, des échanges et de l'emploi",
+       "value": 50912.2
+      },
+      {
+       "code": "GF0405",
+       "label": "Transports",
+       "value": 25866.4
+      },
+      {
+       "code": "GF0408",
+       "label": "R & D concernant les affaires économiques",
+       "value": 21508.0
+      },
+      {
+       "code": "GF0403",
+       "label": "Combustibles et énergie",
+       "value": 12880.6
+      },
+      {
+       "code": "GF0402",
+       "label": "Agriculture, sylviculture, pêche et chasse",
+       "value": 4148.6
+      },
+      {
+       "code": "GF0407",
+       "label": "Autres branches d'activité",
+       "value": 3838.0
+      },
+      {
+       "code": "GF0409",
+       "label": "Affaires économiques n.c.a.",
+       "value": 2334.0
+      },
+      {
+       "code": "GF0404",
+       "label": "Industries extractives et manufacturières, construction",
+       "value": 1573.8
+      },
+      {
+       "code": "GF0406",
+       "label": "Communications",
+       "value": 765.1
+      }
+     ]
+    },
+    {
+     "code": "GF09",
+     "label": "Enseignement",
+     "value": 106078.3,
+     "pctGdp": 3.6,
+     "children": [
+      {
+       "code": "GF0902",
+       "label": "Enseignement secondaire",
+       "value": 45012.9
+      },
+      {
+       "code": "GF0901",
+       "label": "Enseignement préélémentaire et primaire",
+       "value": 27944.1
+      },
+      {
+       "code": "GF0906",
+       "label": "Services annexes à l'enseignement",
+       "value": 14990.1
+      },
+      {
+       "code": "GF0904",
+       "label": "Enseignement supérieur",
+       "value": 11914.4
+      },
+      {
+       "code": "GF0905",
+       "label": "Enseignement non défini par niveau",
+       "value": 5235.7
+      },
+      {
+       "code": "GF0908",
+       "label": "Enseignement n.c.a.",
+       "value": 574.7
+      },
+      {
+       "code": "GF0903",
+       "label": "Enseignement postsecondaire non supérieur",
+       "value": 406.4
+      }
+     ]
+    },
+    {
+     "code": "GF02",
+     "label": "Défense",
+     "value": 54201.6,
+     "pctGdp": 1.9,
+     "children": [
+      {
+       "code": "GF0201",
+       "label": "Défense militaire",
+       "value": 47701.9
+      },
+      {
+       "code": "GF0205",
+       "label": "Défense n.c.a.",
+       "value": 2582.6
+      },
+      {
+       "code": "GF0203",
+       "label": "Aide militaire à des pays étrangers",
+       "value": 2006.6
+      },
+      {
+       "code": "GF0204",
+       "label": "R & D concernant la défense",
+       "value": 1682.0
+      },
+      {
+       "code": "GF0202",
+       "label": "Défense civile",
+       "value": 228.6
+      }
+     ]
+    },
+    {
+     "code": "GF03",
+     "label": "Ordre et sécurité publics",
+     "value": 42175.9,
+     "pctGdp": 1.4,
+     "children": [
+      {
+       "code": "GF0301",
+       "label": "Services de police",
+       "value": 25717.1
+      },
+      {
+       "code": "GF0303",
+       "label": "Tribunaux",
+       "value": 8351.9
+      },
+      {
+       "code": "GF0304",
+       "label": "Administration pénitentiaire",
+       "value": 5120.0
+      },
+      {
+       "code": "GF0306",
+       "label": "Ordre et sécurité publics n.c.a.",
+       "value": 1864.7
+      },
+      {
+       "code": "GF0302",
+       "label": "Services de protection civile",
+       "value": 1122.1
+      }
+     ]
+    },
+    {
+     "code": "GF07",
+     "label": "Santé",
+     "value": 13901.2,
+     "pctGdp": 0.5,
+     "children": [
+      {
+       "code": "GF0704",
+       "label": "Services de santé publique",
+       "value": 10017.8
+      },
+      {
+       "code": "GF0705",
+       "label": "R & D dans le domaine de la santé",
+       "value": 2657.7
+      },
+      {
+       "code": "GF0703",
+       "label": "Services hospitaliers",
+       "value": 913.1
+      },
+      {
+       "code": "GF0706",
+       "label": "Santé n.c.a.",
+       "value": 312.6
+      }
+     ]
+    },
+    {
+     "code": "GF08",
+     "label": "Loisirs, culture et culte",
+     "value": 13758.7,
+     "pctGdp": 0.5,
+     "children": [
+      {
+       "code": "GF0803",
+       "label": "Services de radiodiffusion, de télévision et d'édition",
+       "value": 6506.3
+      },
+      {
+       "code": "GF0802",
+       "label": "Services culturels",
+       "value": 6054.7
+      },
+      {
+       "code": "GF0801",
+       "label": "Services récréatifs et sportifs",
+       "value": 1197.7
+      }
+     ]
+    },
+    {
+     "code": "GF06",
+     "label": "Logements et équipements collectifs",
+     "value": 7349.4,
+     "pctGdp": 0.3,
+     "children": [
+      {
+       "code": "GF0601",
+       "label": "Logements",
+       "value": 5474.6
+      },
+      {
+       "code": "GF0602",
+       "label": "Équipements collectifs",
+       "value": 1753.2
+      },
+      {
+       "code": "GF0604",
+       "label": "Éclairage public",
+       "value": 62.0
+      },
+      {
+       "code": "GF0606",
+       "label": "Logement et équipements collectifs n.c.a.",
+       "value": 59.6
+      }
+     ]
+    },
+    {
+     "code": "GF05",
+     "label": "Protection de l'environnement",
+     "value": 5513.6,
+     "pctGdp": 0.2,
+     "children": [
+      {
+       "code": "GF0503",
+       "label": "Lutte contre la pollution",
+       "value": 2476.2
+      },
+      {
+       "code": "GF0506",
+       "label": "Protection de l'environnement n.c.a.",
+       "value": 1448.3
+      },
+      {
+       "code": "GF0504",
+       "label": "Préservation de la diversité biologique et protection de la nature",
+       "value": 939.6
+      },
+      {
+       "code": "GF0505",
+       "label": "R & D dans le domaine de la protection de l'environnement",
+       "value": 646.1
+      },
+      {
+       "code": "GF0501",
+       "label": "Gestion des déchets",
+       "value": 3.4
+      }
+     ]
+    }
+   ],
+   "revenues": [
+    {
+     "code": "D51A",
+     "label": "Impôts sur le revenu des ménages",
+     "value": 111760.0,
+     "detail": "IR, CSG, CRDS…"
+    },
+    {
+     "code": "D211",
+     "label": "TVA",
+     "value": 97893.0
+    },
+    {
+     "code": "D51B",
+     "label": "Impôt sur les sociétés",
+     "value": 73836.0
+    },
+    {
+     "code": "D61",
+     "label": "Cotisations sociales",
+     "value": 56937.0
+    },
+    {
+     "code": "SALES",
+     "label": "Ventes et redevances",
+     "value": 51005.5,
+     "detail": "Cantines, musées, redevances, production pour compte propre…"
+    },
+    {
+     "code": "D21X",
+     "label": "Accises et taxes sur les produits",
+     "value": 41762.0,
+     "detail": "TICPE, tabac, alcool, assurances…"
+    },
+    {
+     "code": "OTHER",
+     "label": "Autres recettes",
+     "value": 30159.4,
+     "detail": "Revenus du patrimoine, transferts divers, aides à l'investissement…"
+    },
+    {
+     "code": "D29",
+     "label": "Impôts sur la production",
+     "value": 25298.0,
+     "detail": "Taxe foncière des entreprises, CFE, versement mobilité…"
+    },
+    {
+     "code": "D5X_D91",
+     "label": "Autres impôts (patrimoine, successions…)",
+     "value": 24856.0,
+     "detail": "Taxe foncière des ménages, IFI, droits de succession…"
+    },
+    {
+     "code": "D73",
+     "label": "Transferts d'autres administrations",
+     "value": 5282.0,
+     "detail": "Dotations et transferts reçus des autres administrations publiques"
+    }
+   ]
+  },
+  "S1313": {
+   "label": "Collectivités locales",
+   "year": 2024,
+   "gdp": 2935236.2,
+   "expenditureTotal": 329745.6,
+   "expenditurePctGdp": 11.3,
+   "revenueTotal": 312690.1,
+   "netLending": -17793.9,
+   "deficit": 17055.5,
+   "functions": [
+    {
+     "code": "GF01",
+     "label": "Services généraux des administrations publiques",
+     "value": 62860.3,
+     "pctGdp": 2.2,
+     "children": [
+      {
+       "code": "GF0103",
+       "label": "Services généraux",
+       "value": 53303.1
+      },
+      {
+       "code": "GF0107",
+       "label": "Opérations concernant la dette publique",
+       "value": 6154.9
+      },
+      {
+       "code": "GF0101",
+       "label": "Fonctionnement des organes exécutifs et législatifs, affaires financières et fiscales, affaires étrangères",
+       "value": 2919.8
+      },
+      {
+       "code": "GF0106",
+       "label": "Services généraux des administrations publiques n.c.a.",
+       "value": 482.5
+      }
+     ]
+    },
+    {
+     "code": "GF10",
+     "label": "Protection sociale",
+     "value": 59355.9,
+     "pctGdp": 2.0,
+     "children": [
+      {
+       "code": "GF1007",
+       "label": "Exclusion sociale n.c.a.",
+       "value": 19070.5
+      },
+      {
+       "code": "GF1004",
+       "label": "Famille et enfants",
+       "value": 17391.0
+      },
+      {
+       "code": "GF1001",
+       "label": "Maladie et invalidité",
+       "value": 10089.0
+      },
+      {
+       "code": "GF1002",
+       "label": "Vieillesse",
+       "value": 9024.6
+      },
+      {
+       "code": "GF1009",
+       "label": "Protection sociale n.c.a.",
+       "value": 3722.2
+      },
+      {
+       "code": "GF1006",
+       "label": "Logement",
+       "value": 58.6
+      }
+     ]
+    },
+    {
+     "code": "GF04",
+     "label": "Affaires économiques",
+     "value": 56428.3,
+     "pctGdp": 1.9,
+     "children": [
+      {
+       "code": "GF0405",
+       "label": "Transports",
+       "value": 36968.1
+      },
+      {
+       "code": "GF0407",
+       "label": "Autres branches d'activité",
+       "value": 7490.2
+      },
+      {
+       "code": "GF0401",
+       "label": "Tutelle de l'économie générale, des échanges et de l'emploi",
+       "value": 4248.1
+      },
+      {
+       "code": "GF0402",
+       "label": "Agriculture, sylviculture, pêche et chasse",
+       "value": 3028.4
+      },
+      {
+       "code": "GF0403",
+       "label": "Combustibles et énergie",
+       "value": 2855.0
+      },
+      {
+       "code": "GF0406",
+       "label": "Communications",
+       "value": 904.6
+      },
+      {
+       "code": "GF0408",
+       "label": "R & D concernant les affaires économiques",
+       "value": 582.0
+      },
+      {
+       "code": "GF0409",
+       "label": "Affaires économiques n.c.a.",
+       "value": 300.2
+      },
+      {
+       "code": "GF0404",
+       "label": "Industries extractives et manufacturières, construction",
+       "value": 51.7
+      }
+     ]
+    },
+    {
+     "code": "GF09",
+     "label": "Enseignement",
+     "value": 45962.7,
+     "pctGdp": 1.6,
+     "children": [
+      {
+       "code": "GF0902",
+       "label": "Enseignement secondaire",
+       "value": 18870.9
+      },
+      {
+       "code": "GF0901",
+       "label": "Enseignement préélémentaire et primaire",
+       "value": 14340.6
+      },
+      {
+       "code": "GF0906",
+       "label": "Services annexes à l'enseignement",
+       "value": 7073.4
+      },
+      {
+       "code": "GF0905",
+       "label": "Enseignement non défini par niveau",
+       "value": 4275.3
+      },
+      {
+       "code": "GF0903",
+       "label": "Enseignement postsecondaire non supérieur",
+       "value": 770.9
+      },
+      {
+       "code": "GF0904",
+       "label": "Enseignement supérieur",
+       "value": 631.6
+      }
+     ]
+    },
+    {
+     "code": "GF06",
+     "label": "Logements et équipements collectifs",
+     "value": 36382.5,
+     "pctGdp": 1.2,
+     "children": [
+      {
+       "code": "GF0602",
+       "label": "Équipements collectifs",
+       "value": 26848.7
+      },
+      {
+       "code": "GF0601",
+       "label": "Logements",
+       "value": 3080.3
+      },
+      {
+       "code": "GF0603",
+       "label": "Alimentation en eau",
+       "value": 2847.8
+      },
+      {
+       "code": "GF0604",
+       "label": "Éclairage public",
+       "value": 1822.8
+      },
+      {
+       "code": "GF0606",
+       "label": "Logement et équipements collectifs n.c.a.",
+       "value": 1783.0
+      }
+     ]
+    },
+    {
+     "code": "GF08",
+     "label": "Loisirs, culture et culte",
+     "value": 29960.4,
+     "pctGdp": 1.0,
+     "children": [
+      {
+       "code": "GF0801",
+       "label": "Services récréatifs et sportifs",
+       "value": 14588.9
+      },
+      {
+       "code": "GF0802",
+       "label": "Services culturels",
+       "value": 13335.5
+      },
+      {
+       "code": "GF0803",
+       "label": "Services de radiodiffusion, de télévision et d'édition",
+       "value": 1060.2
+      },
+      {
+       "code": "GF0804",
+       "label": "Culte et autres services communautaires",
+       "value": 744.2
+      },
+      {
+       "code": "GF0806",
+       "label": "Loisirs, culture et culte n.c.a.",
+       "value": 231.6
+      }
+     ]
+    },
+    {
+     "code": "GF05",
+     "label": "Protection de l'environnement",
+     "value": 26024.6,
+     "pctGdp": 0.9,
+     "children": [
+      {
+       "code": "GF0501",
+       "label": "Gestion des déchets",
+       "value": 15859.9
+      },
+      {
+       "code": "GF0502",
+       "label": "Gestion des eaux usées",
+       "value": 5201.3
+      },
+      {
+       "code": "GF0503",
+       "label": "Lutte contre la pollution",
+       "value": 2544.1
+      },
+      {
+       "code": "GF0505",
+       "label": "R & D dans le domaine de la protection de l'environnement",
+       "value": 1138.0
+      },
+      {
+       "code": "GF0504",
+       "label": "Préservation de la diversité biologique et protection de la nature",
+       "value": 1021.0
+      },
+      {
+       "code": "GF0506",
+       "label": "Protection de l'environnement n.c.a.",
+       "value": 260.2
+      }
+     ]
+    },
+    {
+     "code": "GF03",
+     "label": "Ordre et sécurité publics",
+     "value": 10325.0,
+     "pctGdp": 0.4,
+     "children": [
+      {
+       "code": "GF0302",
+       "label": "Services de protection civile",
+       "value": 7090.1
+      },
+      {
+       "code": "GF0301",
+       "label": "Services de police",
+       "value": 3234.9
+      }
+     ]
+    },
+    {
+     "code": "GF07",
+     "label": "Santé",
+     "value": 2445.9,
+     "pctGdp": 0.1,
+     "children": [
+      {
+       "code": "GF0704",
+       "label": "Services de santé publique",
+       "value": 1410.8
+      },
+      {
+       "code": "GF0706",
+       "label": "Santé n.c.a.",
+       "value": 1035.1
+      }
+     ]
+    },
+    {
+     "code": "GF02",
+     "label": "Défense",
+     "value": 0.0,
+     "pctGdp": 0.0,
+     "children": []
+    }
+   ],
+   "revenues": [
+    {
+     "code": "D29",
+     "label": "Impôts sur la production",
+     "value": 69914.0,
+     "detail": "Taxe foncière des entreprises, CFE, versement mobilité…"
+    },
+    {
+     "code": "D73",
+     "label": "Transferts d'autres administrations",
+     "value": 60522.0,
+     "detail": "Dotations et transferts reçus des autres administrations publiques"
+    },
+    {
+     "code": "D211",
+     "label": "TVA",
+     "value": 52077.0
+    },
+    {
+     "code": "D21X",
+     "label": "Accises et taxes sur les produits",
+     "value": 48753.0,
+     "detail": "TICPE, tabac, alcool, assurances…"
+    },
+    {
+     "code": "SALES",
+     "label": "Ventes et redevances",
+     "value": 48510.5,
+     "detail": "Cantines, musées, redevances, production pour compte propre…"
+    },
+    {
+     "code": "OTHER",
+     "label": "Autres recettes",
+     "value": 28375.6,
+     "detail": "Revenus du patrimoine, transferts divers, aides à l'investissement…"
+    },
+    {
+     "code": "D5X_D91",
+     "label": "Autres impôts (patrimoine, successions…)",
+     "value": 3589.0,
+     "detail": "Taxe foncière des ménages, IFI, droits de succession…"
+    },
+    {
+     "code": "D61",
+     "label": "Cotisations sociales",
+     "value": 906.0
+    },
+    {
+     "code": "D51B",
+     "label": "Impôt sur les sociétés",
+     "value": 27.0
+    },
+    {
+     "code": "D51A",
+     "label": "Impôts sur le revenu des ménages",
+     "value": 16.0,
+     "detail": "IR, CSG, CRDS…"
+    }
+   ]
+  },
+  "S1314": {
+   "label": "Administrations de sécurité sociale",
+   "year": 2024,
+   "gdp": 2935236.2,
+   "expenditureTotal": 778426.9,
+   "expenditurePctGdp": 26.7,
+   "revenueTotal": 778428.1,
+   "netLending": 1140.1,
+   "deficit": -1.2,
+   "functions": [
+    {
+     "code": "GF10",
+     "label": "Protection sociale",
+     "value": 519366.7,
+     "pctGdp": 17.8,
+     "children": [
+      {
+       "code": "GF1002",
+       "label": "Vieillesse",
+       "value": 322210.5
+      },
+      {
+       "code": "GF1001",
+       "label": "Maladie et invalidité",
+       "value": 62197.0
+      },
+      {
+       "code": "GF1004",
+       "label": "Famille et enfants",
+       "value": 49691.0
+      },
+      {
+       "code": "GF1005",
+       "label": "Chômage",
+       "value": 44664.8
+      },
+      {
+       "code": "GF1003",
+       "label": "Survivants",
+       "value": 39794.1
+      },
+      {
+       "code": "GF1009",
+       "label": "Protection sociale n.c.a.",
+       "value": 809.4
+      }
+     ]
+    },
+    {
+     "code": "GF07",
+     "label": "Santé",
+     "value": 250596.0,
+     "pctGdp": 8.6,
+     "children": [
+      {
+       "code": "GF0703",
+       "label": "Services hospitaliers",
+       "value": 109972.1
+      },
+      {
+       "code": "GF0702",
+       "label": "Services ambulatoires",
+       "value": 91789.0
+      },
+      {
+       "code": "GF0701",
+       "label": "Produits, appareils et matériels médicaux",
+       "value": 43714.6
+      },
+      {
+       "code": "GF0705",
+       "label": "R & D dans le domaine de la santé",
+       "value": 4058.0
+      },
+      {
+       "code": "GF0704",
+       "label": "Services de santé publique",
+       "value": 707.2
+      },
+      {
+       "code": "GF0706",
+       "label": "Santé n.c.a.",
+       "value": 355.1
+      }
+     ]
+    },
+    {
+     "code": "GF01",
+     "label": "Services généraux des administrations publiques",
+     "value": 7904.2,
+     "pctGdp": 0.3,
+     "children": [
+      {
+       "code": "GF0107",
+       "label": "Opérations concernant la dette publique",
+       "value": 6213.0
+      },
+      {
+       "code": "GF0101",
+       "label": "Fonctionnement des organes exécutifs et législatifs, affaires financières et fiscales, affaires étrangères",
+       "value": 1655.0
+      },
+      {
+       "code": "GF0108",
+       "label": "Transferts de caractère général entre administrations publiques",
+       "value": 35.2
+      },
+      {
+       "code": "GF0105",
+       "label": "R & D concernant des services généraux des administrations publiques",
+       "value": 1.0
+      }
+     ]
+    },
+    {
+     "code": "GF04",
+     "label": "Affaires économiques",
+     "value": 560.0,
+     "pctGdp": 0.0,
+     "children": [
+      {
+       "code": "GF0401",
+       "label": "Tutelle de l'économie générale, des échanges et de l'emploi",
+       "value": 560.0
+      }
+     ]
+    },
+    {
+     "code": "GF02",
+     "label": "Défense",
+     "value": 0.0,
+     "pctGdp": 0.0,
+     "children": []
+    },
+    {
+     "code": "GF03",
+     "label": "Ordre et sécurité publics",
+     "value": 0.0,
+     "pctGdp": 0.0,
+     "children": []
+    },
+    {
+     "code": "GF05",
+     "label": "Protection de l'environnement",
+     "value": 0.0,
+     "pctGdp": 0.0,
+     "children": []
+    },
+    {
+     "code": "GF06",
+     "label": "Logements et équipements collectifs",
+     "value": 0.0,
+     "pctGdp": 0.0,
+     "children": []
+    },
+    {
+     "code": "GF08",
+     "label": "Loisirs, culture et culte",
+     "value": 0.0,
+     "pctGdp": 0.0,
+     "children": []
+    },
+    {
+     "code": "GF09",
+     "label": "Enseignement",
+     "value": 0.0,
+     "pctGdp": 0.0,
+     "children": []
+    }
+   ],
+   "revenues": [
+    {
+     "code": "D61",
+     "label": "Cotisations sociales",
+     "value": 425788.0
+    },
+    {
+     "code": "D51A",
+     "label": "Impôts sur le revenu des ménages",
+     "value": 163205.0,
+     "detail": "IR, CSG, CRDS…"
+    },
+    {
+     "code": "D211",
+     "label": "TVA",
+     "value": 57783.0
+    },
+    {
+     "code": "D29",
+     "label": "Impôts sur la production",
+     "value": 34735.0,
+     "detail": "Taxe foncière des entreprises, CFE, versement mobilité…"
+    },
+    {
+     "code": "D21X",
+     "label": "Accises et taxes sur les produits",
+     "value": 27918.0,
+     "detail": "TICPE, tabac, alcool, assurances…"
+    },
+    {
+     "code": "SALES",
+     "label": "Ventes et redevances",
+     "value": 26614.9,
+     "detail": "Cantines, musées, redevances, production pour compte propre…"
+    },
+    {
+     "code": "D73",
+     "label": "Transferts d'autres administrations",
+     "value": 24646.0,
+     "detail": "Dotations et transferts reçus des autres administrations publiques"
+    },
+    {
+     "code": "D51B",
+     "label": "Impôt sur les sociétés",
+     "value": 9836.0
+    },
+    {
+     "code": "OTHER",
+     "label": "Autres recettes",
+     "value": 7874.2,
+     "detail": "Revenus du patrimoine, transferts divers, aides à l'investissement…"
+    },
+    {
+     "code": "D5X_D91",
+     "label": "Autres impôts (patrimoine, successions…)",
+     "value": 28.0,
+     "detail": "Taxe foncière des ménages, IFI, droits de succession…"
+    }
+   ]
+  }
+ }
+}
