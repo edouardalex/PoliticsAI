@@ -1,0 +1,62 @@
+/* ————————————————————————————————————————————————
+   PoliticsAI — design tokens (thème sombre unique, assumé)
+   Palette catégorielle validée (validate_palette.js, surface #0C0F17,
+   mode dark) : ΔE CVD adjacent 8,4 · vision normale 19,3 · contraste ≥ 3:1.
+   ———————————————————————————————————————————————— */
+
+:root {
+  color-scheme: dark;
+
+  /* Plans */
+  --bg-page: #07090f;
+  --bg-surface: #0c0f17;
+  --bg-raised: #121724;
+  --bg-overlay: #0a0d15f2;
+
+  /* Encres */
+  --ink-primary: #f2f4f8;
+  --ink-secondary: #a8b0c2;
+  --ink-muted: #6b7386;
+  --hairline: #1e2433;
+  --hairline-strong: #2a3145;
+
+  /* Marque */
+  --accent: #3987e5;
+  --accent-soft: #3987e526;
+
+  /* Recettes : une seule teinte calme (l'argent qui entre est fongible) */
+  --rev: #5e729b;
+  --rev-bright: #7d92bd;
+
+  /* Nœud central */
+  --spine: #c9d4e8;
+
+  /* Déficit : rouge réservé, distinct du slot catégoriel rouge */
+  --deficit: #d03b3b;
+
+  /* Slots catégoriels (fonctions de dépense, ordre gelé par taille) */
+  --f-gf10: #3987e5; /* Protection sociale */
+  --f-gf07: #d95926; /* Santé */
+  --f-gf01: #199e70; /* Services publics généraux */
+  --f-gf04: #c98500; /* Affaires économiques */
+  --f-gf09: #d55181; /* Enseignement */
+  --f-gf02: #008300; /* Défense */
+  --f-gf03: #9085e9; /* Ordre et sécurité */
+  --f-gf08: #e66767; /* Loisirs, culture et culte */
+  --f-gf06: #6c7a93; /* Logement (queue, dé-emphase) */
+  --f-gf05: #4d5a73; /* Environnement (queue, dé-emphase) */
+
+  /* Typographie */
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --font-text: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Géométrie */
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow-raised: 0 12px 40px #00000059, 0 2px 8px #00000040;
+
+  /* Mouvements */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+}
