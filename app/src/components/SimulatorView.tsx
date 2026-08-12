@@ -18,6 +18,8 @@ import Bill from './simulator/Bill';
 import CustomMeasureModal from './simulator/CustomMeasureModal';
 import ResultsOverlay from './simulator/ResultsOverlay';
 import HypothesesModal from './simulator/HypothesesModal';
+import CollabWall from './simulator/CollabWall';
+import { collabAvailable, type RecentBudget } from '../lib/collab';
 
 interface Props {
   sim: string | null;
@@ -45,6 +47,12 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
   const [customOpen, setCustomOpen] = useState(false);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [hypoOpen, setHypoOpen] = useState(false);
+  const [wallOpen, setWallOpen] = useState(false);
+  const [wallOk, setWallOk] = useState(false);
+
+  useEffect(() => {
+    collabAvailable().then(setWallOk);
+  }, []);
 
   const mission: Mission | null = useMemo(
     () => MISSIONS.find((m) => m.id === missionId) ?? null,
@@ -102,8 +110,29 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
     setResultsOpen(false);
   }, []);
 
+  const openBudget = useCallback((b: RecentBudget) => {
+    setMissionId(MISSIONS.some((m) => m.id === b.mission) ? b.mission : 'libre');
+    if (b.scenario === 'prudent' || b.scenario === 'central' || b.scenario === 'haut') {
+      setScenario(b.scenario);
+    }
+    setMeasures(hydrateMeasures({ mission: b.mission, scenario: 'central', measures: b.measures, custom: [] }));
+    setWallOpen(false);
+    setResultsOpen(false);
+  }, []);
+
   if (!mission) {
-    return <MissionPicker onPick={(id) => setMissionId(id)} onHypotheses={() => setHypoOpen(true)} hypoOpen={hypoOpen} onCloseHypo={() => setHypoOpen(false)} />;
+    return (
+      <>
+        <MissionPicker
+          onPick={(id) => setMissionId(id)}
+          onHypotheses={() => setHypoOpen(true)}
+          hypoOpen={hypoOpen}
+          onCloseHypo={() => setHypoOpen(false)}
+          onWall={wallOk ? () => setWallOpen(true) : undefined}
+        />
+        <CollabWall open={wallOpen} onClose={() => setWallOpen(false)} onOpenBudget={openBudget} />
+      </>
+    );
   }
 
   return (
@@ -141,6 +170,11 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
               </button>
             ))}
           </div>
+          {wallOk && (
+            <button className="btn-ghost" onClick={() => setWallOpen(true)}>
+              Le mur
+            </button>
+          )}
           <button className="btn-ghost" onClick={() => setHypoOpen(true)}>
             Hypothèses
           </button>
@@ -176,6 +210,7 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
 
       <CustomMeasureModal open={customOpen} onClose={() => setCustomOpen(false)} onSubmit={handleCustom} />
       <HypothesesModal open={hypoOpen} onClose={() => setHypoOpen(false)} />
+      <CollabWall open={wallOpen} onClose={() => setWallOpen(false)} onOpenBudget={openBudget} />
       {resultsOpen && evaluation && (
         <ResultsOverlay
           mission={mission}
@@ -183,9 +218,14 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
           evaluation={evaluation}
           measures={measures}
           scenarioLabel={SCENARIO_LABELS[scenario]}
+          scenarioId={scenario}
           onClose={() => setResultsOpen(false)}
           onReset={reset}
           onToast={onToast}
+          onOpenWall={() => {
+            setResultsOpen(false);
+            setWallOpen(true);
+          }}
         />
       )}
     </div>

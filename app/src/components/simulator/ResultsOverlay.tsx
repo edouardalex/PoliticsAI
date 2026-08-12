@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Mission } from '../../content/measures';
 import type { ActiveMeasure, SimResult, GoalResult } from '../../lib/simulation';
 import { downloadBudgetCard } from '../../lib/budgetCard';
+import { collabAvailable, publishBudget } from '../../lib/collab';
 
 interface Props {
   mission: Mission;
@@ -9,9 +10,11 @@ interface Props {
   evaluation: { goals: GoalResult[]; stars: number; sandbox: boolean };
   measures: ActiveMeasure[];
   scenarioLabel: string;
+  scenarioId: string;
   onClose: () => void;
   onReset: () => void;
   onToast: (msg: string) => void;
+  onOpenWall: () => void;
 }
 
 const nf1 = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 1 });
@@ -22,15 +25,48 @@ export default function ResultsOverlay({
   evaluation,
   measures,
   scenarioLabel,
+  scenarioId,
   onClose,
   onReset,
   onToast,
+  onOpenWall,
 }: Props) {
   const [downloading, setDownloading] = useState(false);
+  const [wallOk, setWallOk] = useState(false);
+  const [publishState, setPublishState] = useState<'idle' | 'sending' | 'done'>('idle');
   const f = result.final;
   const fb = result.finalBaseline;
   const b0 = result.baseline[0];
   const allMet = evaluation.goals.length > 0 && evaluation.goals.every((g) => g.met);
+
+  useEffect(() => {
+    collabAvailable().then(setWallOk);
+  }, []);
+
+  const publish = async () => {
+    setPublishState('sending');
+    const res = await publishBudget({
+      mission: mission.id,
+      scenario: scenarioId,
+      stars: evaluation.stars,
+      met: evaluation.sandbox ? null : allMet,
+      customCount: measures.filter((m) => m.isCustom).length,
+      measures: measures.filter((m) => !m.isCustom).map((m) => ({ id: m.def.id, i: m.intensity })),
+      results: {
+        deficit: f.deficitPct,
+        debt: f.debtPct,
+        unemp: f.unemployment,
+        social: result.socialGauge,
+      },
+    });
+    if (res.ok) {
+      setPublishState('done');
+      onToast('Budget publié sur le mur — merci !');
+    } else {
+      setPublishState('idle');
+      onToast(res.error ?? 'Publication impossible');
+    }
+  };
 
   const copyLink = async () => {
     try {
@@ -119,8 +155,21 @@ export default function ResultsOverlay({
           <button className="btn-primary" onClick={download} disabled={downloading}>
             {downloading ? 'Génération…' : 'Télécharger ma carte (PNG)'}
           </button>
+          {wallOk && measures.length > 0 && (
+            <button
+              className="btn-ghost"
+              onClick={publishState === 'done' ? onOpenWall : publish}
+              disabled={publishState === 'sending'}
+            >
+              {publishState === 'done'
+                ? 'Voir le mur →'
+                : publishState === 'sending'
+                  ? 'Publication…'
+                  : 'Publier sur le mur (anonyme)'}
+            </button>
+          )}
           <button className="btn-ghost" onClick={copyLink}>
-            Copier le lien de mon budget
+            Copier le lien
           </button>
           <button className="btn-ghost" onClick={onClose}>
             Continuer à ajuster

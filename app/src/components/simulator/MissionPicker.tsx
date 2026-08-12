@@ -9,11 +9,12 @@ interface Props {
   onHypotheses: () => void;
   hypoOpen: boolean;
   onCloseHypo: () => void;
+  onWall?: () => void;
 }
 
 const fmtPct = (x: number) => `${x.toFixed(1).replace('.', ',')} %`;
 
-export default function MissionPicker({ onPick, onHypotheses, hypoOpen, onCloseHypo }: Props) {
+export default function MissionPicker({ onPick, onHypotheses, hypoOpen, onCloseHypo, onWall }: Props) {
   return (
     <div className="mission-picker">
       <motion.div
@@ -66,6 +67,14 @@ export default function MissionPicker({ onPick, onHypotheses, hypoOpen, onCloseH
       <p className="mp-note">
         Simulation mécanique au premier ordre, à règles publiques — des ordres de grandeur pour
         comprendre les arbitrages, pas des prédictions.
+        {onWall && (
+          <>
+            {' '}
+            <button className="btn-link" onClick={onWall}>
+              Voir les budgets publiés →
+            </button>
+          </>
+        )}
       </p>
       <HypothesesModal open={hypoOpen} onClose={onCloseHypo} />
     </div>

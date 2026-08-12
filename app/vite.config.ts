@@ -8,5 +8,9 @@ export default defineConfig({
   base: './',
   server: {
     fs: { allow: ['..'] },
+    // mur collaboratif (server/index.mjs) — absent = dégradation gracieuse
+    proxy: {
+      '/api': 'http://localhost:8787',
+    },
   },
 })

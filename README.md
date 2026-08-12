@@ -25,6 +25,21 @@ dénominateur et charge d'intérêts sur la dette. Verdicts factuels (objectif a
 non), étoiles, **carte « Mon budget 2029 » téléchargeable en PNG** et budget partageable
 par URL.
 
+### V2.1 — Le Mur des budgets (collaboratif)
+
+Publiez votre budget **anonymement** (pas de compte, pas de cookie, aucune donnée
+personnelle) et découvrez ceux des autres : **les mesures les plus choisies** (avec
+intensité moyenne), le taux de réussite par mission, la distribution des déficits, et
+les budgets récents — chacun ré-ouvrable d'un clic dans votre simulateur. Les titres
+des mesures inventées sont comptés mais pas republiés tant qu'il n'y a pas de
+modération. Le serveur ([server/index.mjs](server/index.mjs)) est **zéro dépendance**
+(node:http + JSONL append-only) : ~250 lignes auditables. L'app fonctionne
+intégralement sans lui (hébergement statique → le mur se masque).
+
+```bash
+node server/index.mjs   # le mur, sur :8787 (le dev server Vite proxifie /api)
+```
+
 ## La V1 — L'Explorateur
 
 Un **diagramme de flux animé** (Sankey) qui montre d'où vient l'argent public et où
@@ -67,6 +82,7 @@ data/
   processed/           JSON versionnés consommés par l'app (source de vérité)
   DATA.md              Sources, millésimes, choix méthodologiques, limites
 app/                   Application web (Vite + React + TypeScript + d3-sankey)
+server/                Le Mur des budgets — API zéro dépendance (node:http + JSONL)
 ```
 
 ## Les règles du projet (constitution de neutralité)
@@ -84,7 +100,8 @@ app/                   Application web (Vite + React + TypeScript + d3-sankey)
 |---|---|---|
 | **V1** | L'Explorateur (Sankey, Europe, tableau) | ✅ Livrée |
 | **V2** | Simulateur « Vous êtes ministre du Budget » | ✅ Livrée |
-| V2.1 | Simulateur collaboratif (mesures les plus proposées, budgets partagés) | À venir |
+| **V2.1** | Le Mur des budgets (publication anonyme, stats collectives) | ✅ Livrée |
+| V2.2 | Modération → affichage des mesures inventées ; déploiement public | À venir |
 | V1.5 | Ticket de caisse fiscal + quiz quotidien | Hiver 2026-2027 |
 | V3 | Chiffrage des programmes — présidentielle 2027 | Février-avril 2027 |
 
