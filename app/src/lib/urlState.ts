@@ -1,7 +1,7 @@
 import type { DisplayMode } from './format';
 import type { PerimeterId } from './data';
 
-export type ViewId = 'explore' | 'europe' | 'table';
+export type ViewId = 'explore' | 'simu' | 'europe' | 'table';
 
 export interface AppState {
   perimeter: PerimeterId;
@@ -13,6 +13,8 @@ export interface AppState {
   zoom: string | null;
   /** l'intro a été vue */
   seen: boolean;
+  /** état sérialisé du simulateur (opaque, géré par SimulatorView) */
+  sim: string | null;
 }
 
 export const DEFAULT_STATE: AppState = {
@@ -22,11 +24,12 @@ export const DEFAULT_STATE: AppState = {
   selected: null,
   zoom: null,
   seen: false,
+  sim: null,
 };
 
 const PERIMETERS = new Set(['S13', 'S1311', 'S1314', 'S1313']);
 const MODES = new Set(['eur', 'per1000', 'pctGdp']);
-const VIEWS = new Set(['explore', 'europe', 'table']);
+const VIEWS = new Set(['explore', 'simu', 'europe', 'table']);
 
 export function parseHash(hash: string): Partial<AppState> {
   const out: Partial<AppState> = {};
@@ -43,7 +46,9 @@ export function parseHash(hash: string): Partial<AppState> {
   if (sel && /^[A-Z0-9_]{2,12}$/.test(sel)) out.selected = sel;
   const zm = params.get('zm');
   if (zm && /^GF\d{2}$/.test(zm)) out.zoom = zm;
-  if (params.has('p') || params.has('v') || params.has('sel')) out.seen = true;
+  const sim = params.get('sim');
+  if (sim && /^[A-Za-z0-9_-]{2,4000}$/.test(sim)) out.sim = sim;
+  if (params.has('p') || params.has('v') || params.has('sel') || params.has('sim')) out.seen = true;
   return out;
 }
 
@@ -54,6 +59,7 @@ export function serialize(state: AppState): string {
   if (state.view !== 'explore') params.set('v', state.view);
   if (state.selected) params.set('sel', state.selected);
   if (state.zoom) params.set('zm', state.zoom);
+  if (state.sim && state.view === 'simu') params.set('sim', state.sim);
   const s = params.toString();
   return s ? `#${s}` : '';
 }

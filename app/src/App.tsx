@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import TopBar from './components/TopBar';
 import SankeyView from './components/SankeyView';
+import SimulatorView from './components/SimulatorView';
 import MobileFlow from './components/MobileFlow';
 import DetailPanel from './components/DetailPanel';
 import EuropeView from './components/EuropeView';
@@ -40,6 +41,10 @@ export default function App() {
 
   const patch = useCallback((p: Partial<AppState>) => {
     setState((s) => ({ ...s, ...p }));
+  }, []);
+
+  const onSimChange = useCallback((sim: string | null) => {
+    setState((s) => (s.sim === sim ? s : { ...s, sim }));
   }, []);
 
   useEffect(() => {
@@ -157,6 +162,10 @@ export default function App() {
               onZoom={(z) => patch({ zoom: z, selected: null })}
             />
           ))}
+
+        {state.view === 'simu' && (
+          <SimulatorView sim={state.sim} onSimChange={onSimChange} onToast={notify} />
+        )}
 
         {state.view === 'europe' && (
           <EuropeView

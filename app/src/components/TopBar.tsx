@@ -18,6 +18,7 @@ interface Props {
 const MODES: DisplayMode[] = ['eur', 'per1000', 'pctGdp'];
 const VIEWS: { id: ViewId; label: string }[] = [
   { id: 'explore', label: 'Le flux' },
+  { id: 'simu', label: 'Le simulateur' },
   { id: 'europe', label: 'L’Europe' },
   { id: 'table', label: 'Le tableau' },
 ];
@@ -75,7 +76,7 @@ export default function TopBar({
         </div>
       </div>
 
-      <div className="tb-row tb-sub">
+      <div className="tb-row tb-sub" style={view === 'simu' ? { display: 'none' } : undefined}>
         <div className="perimeter-tabs" role="tablist" aria-label="Périmètre">
           {PERIMETER_IDS.map((p) => (
             <button
