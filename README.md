@@ -30,6 +30,27 @@ dénominateur et charge d'intérêts sur la dette. Verdicts factuels (objectif a
 non), étoiles, **carte « Mon budget 2029 » téléchargeable en PNG** et budget partageable
 par URL.
 
+### V2.3 — Proposer avec ses mots, sans IA
+
+Un champ libre : écrivez « la retraite à 67 ans », « augmenter la TVA de 2 points »,
+« recruter 50 000 profs » — le simulateur comprend et calcule. **Aucune intelligence
+artificielle** : un [parseur déterministe](app/src/lib/parser.ts) tourne dans votre
+navigateur (mots-clés, extraction des nombres, ancres publiques : l'âge légal est à
+64 ans, la TVA à 20 %…). Rien n'est envoyé nulle part, rien n'est deviné.
+
+**Le domaine de validité**, surtout : chaque mesure réglable porte la plage où son
+chiffrage est défendable, et la raison de cette plage. Tapez « la retraite à 80 ans » et
+le simulateur **refuse de calculer** — en expliquant que les chiffrages du COR portent
+sur 1 à 3 ans, qu'à 80 ans la quasi-totalité des personnes seraient déjà hors de l'emploi
+et que les économies de pensions seraient absorbées par l'invalidité, le chômage et les
+minima. Puis il propose la version calculable. *Un modèle qui répond à tout est un modèle
+qui ment quelque part.*
+
+Hors catalogue ? La proposition part dans **la file citoyenne** : les idées y sont
+regroupées et classées par nombre de demandes, **n'importe qui peut proposer un chiffrage
+à condition de citer ses sources**, rien n'est publié avant relecture — et un chiffrage
+validé devient une mesure utilisable dans le simulateur.
+
 ### Le bac à sable et l'atelier de mesures
 
 La mission « bac à sable » n'impose aucun objectif et ouvre **l'atelier complet** : au-delà
@@ -51,7 +72,13 @@ modération. Le serveur ([server/index.mjs](server/index.mjs)) est **zéro dépe
 intégralement sans lui (hébergement statique → le mur se masque).
 
 ```bash
-node server/index.mjs   # le mur, sur :8787 (le dev server Vite proxifie /api)
+node server/index.mjs   # le mur + la file, sur :8787 (Vite proxifie /api)
+```
+
+Pour activer la modération des chiffrages citoyens, lancer avec un jeton :
+
+```bash
+PAI_ADMIN_TOKEN=votre-jeton node server/index.mjs
 ```
 
 ## La V1 — L'Explorateur
@@ -116,7 +143,8 @@ server/                Le Mur des budgets — API zéro dépendance (node:http +
 | **V2** | Simulateur « Vous êtes ministre du Budget » | ✅ Livrée |
 | **V2.1** | Le Mur des budgets (publication anonyme, stats collectives) | ✅ Livrée |
 | **V2.2** | Catalogue de 121 mesures, bac à sable et atelier avancé | ✅ Livrée |
-| V2.3 | Modération → affichage des mesures inventées ; déploiement public | À venir |
+| **V2.3** | Champ libre déterministe, domaine de validité, file citoyenne | ✅ Livrée |
+| V2.4 | Déploiement public, nom définitif, licence | À venir |
 | V1.5 | Ticket de caisse fiscal + quiz quotidien | Hiver 2026-2027 |
 | V3 | Chiffrage des programmes — présidentielle 2027 | Février-avril 2027 |
 

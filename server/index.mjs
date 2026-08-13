@@ -23,7 +23,12 @@ import crypto from 'node:crypto';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, 'data');
 const DATA_FILE = path.join(DATA_DIR, 'budgets.jsonl');
+const PROPOSALS_FILE = path.join(DATA_DIR, 'proposals.jsonl');
 const PORT = Number(process.env.PORT ?? 8787);
+
+/** Jeton de modération : `PAI_ADMIN_TOKEN=… node server/index.mjs`.
+ *  Sans jeton, aucune validation n'est possible — rien ne peut être publié. */
+const ADMIN_TOKEN = process.env.PAI_ADMIN_TOKEN ?? '';
 
 const MISSIONS = new Set(['maastricht', 'emploi', 'transition', 'libre']);
 const SCENARIOS = new Set(['prudent', 'central', 'haut']);
@@ -47,7 +52,60 @@ const state = {
   deficits: [0, 0, 0, 0, 0],
   /** derniers budgets (les plus récents en premier) */
   recent: [],
+  /** file citoyenne : empreinte du texte → proposition */
+  proposals: new Map(),
 };
+
+/* ————— File citoyenne ————— */
+
+/** Mots vides ignorés dans l'empreinte : « 500 € » et « 500 euros » doivent se rejoindre. */
+const FP_STOP = new Set(
+  ('les des une aux par pour dans avec sans plus moins euro euros eur euros€ ' +
+    'faut faudrait doit devrait que qui est sont cette ces son ses leur leurs ' +
+    'notre nos votre vos mettre passer faire tout tous toute toutes etre avoir ' +
+    'instaurer creer mois annee annees par an').split(' '),
+);
+
+/** Empreinte permettant de regrouper les propositions équivalentes. */
+function fingerprint(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/€/g, ' euros ')
+    .replace(/[^a-z0-9 ]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length > 2 && !FP_STOP.has(w))
+    .sort()
+    .join(' ')
+    .slice(0, 160);
+}
+
+function ingestProposal(rec) {
+  const existing = state.proposals.get(rec.fp);
+  if (!existing) {
+    state.proposals.set(rec.fp, { ...rec, count: 1, chiffrages: rec.chiffrages ?? [] });
+    return;
+  }
+  // même demande : on incrémente et on garde la formulation la plus ancienne
+  existing.count += 1;
+  existing.updated = rec.created;
+  if (rec.chiffrages?.length) existing.chiffrages.push(...rec.chiffrages);
+}
+
+function ingestChiffrage(fp, ch) {
+  const p = state.proposals.get(fp);
+  if (!p) return false;
+  p.chiffrages.push(ch);
+  return true;
+}
+
+function setProposalStatus(fp, status) {
+  const p = state.proposals.get(fp);
+  if (!p) return false;
+  p.status = status;
+  return true;
+}
 
 function bucketOf(deficit) {
   if (deficit <= 3) return 0;
@@ -129,6 +187,57 @@ function validate(body) {
   };
 }
 
+/** Valide une proposition citoyenne (texte libre). */
+function validateProposal(body) {
+  if (!body || typeof body !== 'object') return null;
+  const text = typeof body.text === 'string' ? body.text.trim().replace(/\s+/g, ' ') : '';
+  if (text.length < 6 || text.length > 180) return null;
+  // pas de lien : la file est une boîte à idées, pas un canal de diffusion
+  if (/https?:\/\/|www\.|@[a-z0-9]/i.test(text)) return null;
+  const fp = fingerprint(text);
+  if (fp.length < 4) return null;
+  return {
+    fp,
+    id: crypto.randomUUID().slice(0, 8),
+    created: Date.now(),
+    text,
+    /** en_attente → chiffree (au moins un chiffrage) → validee (modération) */
+    status: 'en_attente',
+    chiffrages: [],
+  };
+}
+
+/** Valide un chiffrage proposé par un contributeur — sources OBLIGATOIRES. */
+function validateChiffrage(body) {
+  if (!body || typeof body !== 'object') return null;
+  const fp = typeof body.fp === 'string' ? body.fp.slice(0, 160) : '';
+  if (!fp) return null;
+  const amount = Number(body.amountMd);
+  if (!Number.isFinite(amount) || amount <= 0 || amount > 200) return null;
+  const LEVERS = new Set([
+    'invest_public', 'social_cible', 'fonctionnement', 'tax_menages',
+    'tax_menages_aises', 'tax_entreprises', 'tax_conso', 'cotisations',
+  ]);
+  if (!LEVERS.has(body.lever)) return null;
+  if (!['depense_plus', 'depense_moins', 'recette_plus', 'recette_moins'].includes(body.kind)) return null;
+  const sources = Array.isArray(body.sources)
+    ? body.sources.map((s) => String(s).trim().slice(0, 240)).filter((s) => s.length > 8)
+    : [];
+  if (sources.length === 0) return null; // pas de source, pas de chiffrage
+  const note = typeof body.note === 'string' ? body.note.trim().slice(0, 400) : '';
+  return {
+    fp,
+    id: crypto.randomUUID().slice(0, 8),
+    created: Date.now(),
+    amountMd: Math.round(amount * 100) / 100,
+    lever: body.lever,
+    kind: body.kind,
+    sources,
+    note,
+    validated: false,
+  };
+}
+
 /* ————— Rate-limit éphémère ————— */
 
 const hits = new Map(); // ip → { count, resetAt }
@@ -148,22 +257,44 @@ function allowed(ip) {
 /* ————— Persistance ————— */
 
 async function load() {
-  if (!existsSync(DATA_FILE)) return;
-  const raw = await readFile(DATA_FILE, 'utf8');
-  const lines = raw.split('\n').filter(Boolean);
-  // rejoue dans l'ordre chronologique, ingest gère `recent` (unshift)
-  for (const line of lines) {
-    try {
-      ingest(JSON.parse(line));
-    } catch {
-      // ligne corrompue : ignorée
+  if (existsSync(DATA_FILE)) {
+    const raw = await readFile(DATA_FILE, 'utf8');
+    for (const line of raw.split('\n').filter(Boolean)) {
+      try {
+        ingest(JSON.parse(line));
+      } catch {
+        // ligne corrompue : ignorée
+      }
     }
+    console.log(`↻ ${state.total} budget(s) rechargés`);
   }
-  console.log(`↻ ${state.total} budget(s) rechargés depuis ${path.relative(process.cwd(), DATA_FILE)}`);
+  if (existsSync(PROPOSALS_FILE)) {
+    const raw = await readFile(PROPOSALS_FILE, 'utf8');
+    for (const line of raw.split('\n').filter(Boolean)) {
+      try {
+        const e = JSON.parse(line);
+        if (e.type === 'proposal') ingestProposal(e.rec);
+        else if (e.type === 'chiffrage') ingestChiffrage(e.rec.fp, e.rec);
+        else if (e.type === 'status') setProposalStatus(e.fp, e.status);
+        else if (e.type === 'validate') {
+          const p = state.proposals.get(e.fp);
+          const ch = p?.chiffrages.find((c) => c.id === e.chiffrageId);
+          if (ch) ch.validated = true;
+        }
+      } catch {
+        // ligne corrompue : ignorée
+      }
+    }
+    console.log(`↻ ${state.proposals.size} proposition(s) citoyenne(s) rechargée(s)`);
+  }
 }
 
 async function persist(rec) {
   await appendFile(DATA_FILE, JSON.stringify(rec) + '\n', 'utf8');
+}
+
+async function persistProposalEvent(event) {
+  await appendFile(PROPOSALS_FILE, JSON.stringify(event) + '\n', 'utf8');
 }
 
 /* ————— Réponses ————— */
@@ -217,37 +348,137 @@ function recentPayload() {
   };
 }
 
+function proposalsPayload() {
+  const list = [...state.proposals.values()]
+    .map((p) => ({
+      id: p.id,
+      fp: p.fp,
+      text: p.text,
+      count: p.count,
+      created: p.created,
+      status: p.status,
+      // seuls les chiffrages VALIDÉS sont republiés ; les autres sont comptés
+      chiffrages: p.chiffrages.filter((c) => c.validated).map((c) => ({
+        id: c.id,
+        amountMd: c.amountMd,
+        lever: c.lever,
+        kind: c.kind,
+        sources: c.sources,
+        note: c.note,
+      })),
+      pendingChiffrages: p.chiffrages.filter((c) => !c.validated).length,
+    }))
+    .sort((a, b) => b.count - a.count || b.created - a.created)
+    .slice(0, 60);
+  return { total: state.proposals.size, proposals: list };
+}
+
+/* ————— Corps de requête ————— */
+
+function readBody(req, res, handler) {
+  let size = 0;
+  const chunks = [];
+  req.on('data', (c) => {
+    size += c.length;
+    if (size > MAX_BODY) {
+      req.destroy();
+      return;
+    }
+    chunks.push(c);
+  });
+  req.on('end', async () => {
+    let parsed;
+    try {
+      parsed = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+    } catch {
+      return json(res, 400, { error: 'JSON invalide' });
+    }
+    await handler(parsed);
+  });
+}
+
 /* ————— Serveur ————— */
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', 'http://localhost');
   const route = `${req.method} ${url.pathname}`;
+  const ip = req.socket.remoteAddress ?? '?';
 
-  if (route === 'GET /api/health') return json(res, 200, { ok: true, budgets: state.total });
+  if (route === 'GET /api/health') {
+    return json(res, 200, { ok: true, budgets: state.total, proposals: state.proposals.size });
+  }
   if (route === 'GET /api/stats') return json(res, 200, statsPayload());
   if (route === 'GET /api/recent') return json(res, 200, recentPayload());
+  if (route === 'GET /api/proposals') return json(res, 200, proposalsPayload());
+
+  /* — file citoyenne : déposer une proposition — */
+  if (route === 'POST /api/proposals') {
+    if (!allowed(ip)) return json(res, 429, { error: 'Trop de propositions — réessayez plus tard.' });
+    return readBody(req, res, async (body) => {
+      const rec = validateProposal(body);
+      if (!rec) {
+        return json(res, 422, {
+          error: 'Proposition invalide (6 à 180 caractères, sans lien).',
+        });
+      }
+      const known = state.proposals.get(rec.fp);
+      ingestProposal(rec);
+      await persistProposalEvent({ type: 'proposal', rec }).catch((e) => console.error(e));
+      return json(res, 201, {
+        ok: true,
+        merged: !!known,
+        count: state.proposals.get(rec.fp).count,
+      });
+    });
+  }
+
+  /* — proposer un chiffrage (sources obligatoires) — */
+  if (route === 'POST /api/chiffrages') {
+    if (!allowed(ip)) return json(res, 429, { error: 'Trop de contributions — réessayez plus tard.' });
+    return readBody(req, res, async (body) => {
+      const rec = validateChiffrage(body);
+      if (!rec) {
+        return json(res, 422, {
+          error: 'Chiffrage invalide : montant, levier, sens et au moins une source sont requis.',
+        });
+      }
+      if (!ingestChiffrage(rec.fp, rec)) return json(res, 404, { error: 'Proposition introuvable' });
+      setProposalStatus(rec.fp, 'chiffree');
+      await persistProposalEvent({ type: 'chiffrage', rec }).catch((e) => console.error(e));
+      await persistProposalEvent({ type: 'status', fp: rec.fp, status: 'chiffree' }).catch(() => {});
+      return json(res, 201, { ok: true, id: rec.id });
+    });
+  }
+
+  /* — modération : valider un chiffrage (jeton requis) — */
+  if (route === 'POST /api/moderate') {
+    if (!ADMIN_TOKEN) return json(res, 503, { error: 'Modération non configurée sur ce serveur.' });
+    if (req.headers['x-admin-token'] !== ADMIN_TOKEN) return json(res, 401, { error: 'Jeton invalide' });
+    return readBody(req, res, async (body) => {
+      const { fp, chiffrageId, status } = body ?? {};
+      const p = typeof fp === 'string' ? state.proposals.get(fp) : null;
+      if (!p) return json(res, 404, { error: 'Proposition introuvable' });
+      if (chiffrageId) {
+        const ch = p.chiffrages.find((c) => c.id === chiffrageId);
+        if (!ch) return json(res, 404, { error: 'Chiffrage introuvable' });
+        ch.validated = true;
+        setProposalStatus(fp, 'validee');
+        await persistProposalEvent({ type: 'validate', fp, chiffrageId }).catch(() => {});
+        await persistProposalEvent({ type: 'status', fp, status: 'validee' }).catch(() => {});
+        return json(res, 200, { ok: true });
+      }
+      if (['en_attente', 'chiffree', 'validee', 'rejetee'].includes(status)) {
+        setProposalStatus(fp, status);
+        await persistProposalEvent({ type: 'status', fp, status }).catch(() => {});
+        return json(res, 200, { ok: true });
+      }
+      return json(res, 422, { error: 'Requête de modération invalide' });
+    });
+  }
 
   if (route === 'POST /api/budgets') {
-    const ip = req.socket.remoteAddress ?? '?';
     if (!allowed(ip)) return json(res, 429, { error: 'Trop de publications — réessayez plus tard.' });
-
-    let size = 0;
-    const chunks = [];
-    req.on('data', (c) => {
-      size += c.length;
-      if (size > MAX_BODY) {
-        req.destroy();
-        return;
-      }
-      chunks.push(c);
-    });
-    req.on('end', async () => {
-      let parsed;
-      try {
-        parsed = JSON.parse(Buffer.concat(chunks).toString('utf8'));
-      } catch {
-        return json(res, 400, { error: 'JSON invalide' });
-      }
+    return readBody(req, res, async (parsed) => {
       const rec = validate(parsed);
       if (!rec) return json(res, 422, { error: 'Budget invalide' });
       ingest(rec);
@@ -258,7 +489,6 @@ const server = http.createServer((req, res) => {
       }
       return json(res, 201, { ok: true, id: rec.id });
     });
-    return;
   }
 
   return json(res, 404, { error: 'introuvable' });
@@ -267,5 +497,9 @@ const server = http.createServer((req, res) => {
 await mkdir(DATA_DIR, { recursive: true });
 await load();
 server.listen(PORT, () => {
-  console.log(`▲ Mur PoliticsAI sur http://localhost:${PORT} — ${state.total} budget(s)`);
+  console.log(
+    `▲ Mur PoliticsAI sur http://localhost:${PORT} — ${state.total} budget(s), ` +
+      `${state.proposals.size} proposition(s)` +
+      (ADMIN_TOKEN ? ' · modération activée' : ' · modération désactivée (PAI_ADMIN_TOKEN absent)'),
+  );
 });

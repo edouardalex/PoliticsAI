@@ -76,6 +76,81 @@ export async function publishBudget(payload: PublishPayload): Promise<{ ok: bool
   }
 }
 
+/* ————— File citoyenne ————— */
+
+export interface CitizenChiffrage {
+  id: string;
+  amountMd: number;
+  lever: string;
+  kind: string;
+  sources: string[];
+  note: string;
+}
+
+export interface CitizenProposal {
+  id: string;
+  fp: string;
+  text: string;
+  count: number;
+  created: number;
+  status: 'en_attente' | 'chiffree' | 'validee' | 'rejetee';
+  chiffrages: CitizenChiffrage[];
+  pendingChiffrages: number;
+}
+
+export async function submitProposal(
+  text: string,
+): Promise<{ ok: boolean; merged?: boolean; count?: number; error?: string }> {
+  try {
+    const r = await fetch(`${API}/proposals`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ text }),
+      signal: withTimeout(5000),
+    });
+    const data = (await r.json().catch(() => null)) as
+      | { merged?: boolean; count?: number; error?: string }
+      | null;
+    if (r.ok) return { ok: true, merged: data?.merged, count: data?.count };
+    return { ok: false, error: data?.error ?? `Erreur ${r.status}` };
+  } catch {
+    return { ok: false, error: 'La file est injoignable' };
+  }
+}
+
+export async function fetchProposals(): Promise<CitizenProposal[] | null> {
+  try {
+    const r = await fetch(`${API}/proposals`, { signal: withTimeout(4000) });
+    if (!r.ok) return null;
+    return ((await r.json()) as { proposals: CitizenProposal[] }).proposals;
+  } catch {
+    return null;
+  }
+}
+
+export async function submitChiffrage(input: {
+  fp: string;
+  amountMd: number;
+  lever: string;
+  kind: string;
+  sources: string[];
+  note: string;
+}): Promise<{ ok: boolean; error?: string }> {
+  try {
+    const r = await fetch(`${API}/chiffrages`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(input),
+      signal: withTimeout(5000),
+    });
+    if (r.ok) return { ok: true };
+    const data = (await r.json().catch(() => null)) as { error?: string } | null;
+    return { ok: false, error: data?.error ?? `Erreur ${r.status}` };
+  } catch {
+    return { ok: false, error: 'La file est injoignable' };
+  }
+}
+
 export async function fetchWall(): Promise<{ stats: WallStats; recent: RecentBudget[] } | null> {
   try {
     const [statsRes, recentRes] = await Promise.all([

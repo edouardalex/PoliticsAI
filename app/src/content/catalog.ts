@@ -23,6 +23,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'recette_plus',
     amount: 8,
     param: { unit: 'pt', min: 0.5, max: 3, step: 0.5, default: 1, perUnit: 8 },
+    validityNote:
+      'Au-delà de 3 points, le rendement cesse d’être proportionnel : arbitrages de consommation, report vers l’épargne et achats transfrontaliers déforment l’assiette.',
     lever: 'tax_conso',
     social: -2,
     phase: 'immediate',
@@ -37,6 +39,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'recette_plus',
     amount: 3,
     param: { unit: 'pt', min: 1, max: 5, step: 1, default: 1, perUnit: 3 },
+    validityNote:
+      'Au-delà de 5 points, le taux réduit rejoint le taux normal : la mesure change de nature et l’assiette se déforme.',
     lever: 'tax_conso',
     social: -2,
     phase: 'immediate',
@@ -51,6 +55,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'recette_plus',
     amount: 7,
     param: { unit: 'pt', min: 0.5, max: 2, step: 0.5, default: 0.5, perUnit: 14 },
+    validityNote:
+      'Au-delà de 2 points, l’effet sur le revenu disponible et sur les comportements d’activité sort du champ d’un chiffrage proportionnel.',
     lever: 'tax_menages',
     social: -2,
     phase: 'immediate',
@@ -117,6 +123,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'recette_plus',
     amount: 2,
     param: { unit: 'pt', min: 2, max: 10, step: 2, default: 5, perUnit: 0.5 },
+    validityNote:
+      'Au-delà de 10 points, les arbitrages des détenteurs de capital (report de distribution, expatriation) dominent le rendement, qui devient très incertain — voire décroissant.',
     lever: 'tax_menages_aises',
     social: 0,
     phase: 'immediate',
@@ -183,6 +191,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'recette_plus',
     amount: 3,
     param: { unit: 'pt', min: 1, max: 8, step: 1, default: 3, perUnit: 3 },
+    validityNote:
+      'Au-delà de 8 points, les décisions de localisation des bénéfices et de l’investissement pèsent davantage que le taux lui-même.',
     lever: 'tax_entreprises',
     social: 0,
     phase: 'immediate',
@@ -353,6 +363,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'recette_plus',
     amount: 8,
     param: { unit: 'pt', min: 0.5, max: 2, step: 0.5, default: 1, perUnit: 8 },
+    validityNote:
+      'Au-delà de 2 points, l’effet sur le coût du travail et sur l’emploi sort du champ d’un chiffrage au premier ordre.',
     lever: 'cotisations',
     social: -2,
     phase: 'immediate',
@@ -424,6 +436,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'recette_moins',
     amount: 5,
     param: { unit: 'pt', min: 1, max: 4, step: 1, default: 2, perUnit: 2.5 },
+    validityNote:
+      'Au-delà de 4 points, la tranche à 30 % disparaît de fait : c’est une refonte du barème, plus un ajustement.',
     lever: 'tax_menages',
     social: 2,
     phase: 'immediate',
@@ -742,6 +756,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'depense_plus',
     amount: 20,
     param: { unit: 'Md€', min: 5, max: 40, step: 5, default: 20, perUnit: 1 },
+    validityNote:
+      'Au-delà de 40 Md€ par an, la contrainte n’est plus budgétaire mais physique : main-d’œuvre qualifiée, matériaux, capacités des filières. Le multiplicateur suppose une économie capable d’absorber la dépense.',
     lever: 'invest_public',
     social: 1,
     phase: 'progressive',
@@ -1146,6 +1162,8 @@ export const MEASURES: MeasureDef[] = [
     kind: 'depense_plus',
     amount: 10,
     param: { unit: '%', min: 1, max: 5, step: 1, default: 3, perUnit: 3.3 },
+    validityNote:
+      'Au-delà de 5 %, la mesure interagit avec l’ensemble des grilles indiciaires et les négociations salariales du privé : le chiffrage proportionnel ne tient plus.',
     lever: 'fonctionnement',
     social: 2,
     phase: 'immediate',
@@ -1300,7 +1318,9 @@ export const MEASURES: MeasureDef[] = [
     category: 'retraites',
     kind: 'depense_moins',
     amount: 10,
-    param: { unit: 'an', min: 1, max: 2, step: 1, default: 1, perUnit: 10 },
+    param: { unit: 'an', min: 1, max: 3, step: 1, default: 1, perUnit: 10 },
+    validityNote:
+      'Les chiffrages du COR portent sur des reports de 1 à 3 ans. Au-delà, l’extrapolation perd son sens : la quasi-totalité des personnes concernées seraient déjà sorties de l’emploi, et les économies de pensions seraient largement absorbées par l’invalidité, le chômage et les minima sociaux.',
     lever: 'social_cible',
     social: -3,
     phase: 'slow',

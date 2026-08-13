@@ -66,6 +66,12 @@ export interface MeasureDef {
   /** effet budgétaire brut en Md€/an à plein régime (>0 toujours ; le sens vient de `kind`) */
   amount: number;
   param?: MeasureParam;
+  /**
+   * Domaine de validité : `param.min`–`param.max` délimite la plage où le
+   * chiffrage est défendable. Cette note dit POURQUOI le modèle ne répond plus
+   * au-delà — elle est affichée telle quelle quand une demande sort de la plage.
+   */
+  validityNote?: string;
   lever: LeverType;
   /** emplois publics directs créés (+) ou supprimés (−) à plein régime */
   directJobs?: number;
@@ -262,6 +268,21 @@ export const HYPOTHESES = [
     title: 'Le climat social est une jauge de jeu',
     body:
       'Elle part de 50 et réagit mécaniquement à la sensibilité de chaque mesure (de −3 à +3, pondérée par le montant). Ce n’est ni un sondage ni une prédiction — c’est une contrainte ludique qui rappelle qu’un budget se fait avec un pays, pas seulement avec un tableur.',
+  },
+  {
+    title: 'Le domaine de validité — et le droit de dire « je ne sais pas »',
+    body:
+      'Chaque mesure réglable porte une plage où son chiffrage est défendable, et la raison de cette plage. Au-delà, le simulateur refuse de calculer et explique pourquoi plutôt que de produire un nombre. Exemple : les chiffrages du COR sur l’âge de départ portent sur 1 à 3 ans ; à 80 ans, la quasi-totalité des personnes seraient déjà hors de l’emploi et les économies de pensions seraient absorbées par l’invalidité, le chômage et les minima. Un modèle qui répond à tout est un modèle qui ment quelque part.',
+  },
+  {
+    title: 'Le champ libre ne contient aucune intelligence artificielle',
+    body:
+      'Vos phrases sont analysées dans votre navigateur par un programme déterministe : reconnaissance de mots-clés, extraction des nombres, conversion par des ancres publiques (l’âge légal est à 64 ans, la TVA à 20 %…). Rien n’est envoyé à un modèle de langage, rien n’est deviné. Quand aucune mesure ne correspond, le simulateur le dit et vous propose l’atelier ou la file citoyenne — plutôt que d’inventer une réponse plausible.',
+  },
+  {
+    title: 'La file citoyenne et les chiffrages contributeurs',
+    body:
+      'Les propositions hors catalogue sont regroupées par idée et classées par nombre de demandes. N’importe qui peut proposer un chiffrage, à condition de citer ses sources et d’expliquer sa méthode. Aucun chiffrage n’est publié avant relecture : tant qu’il n’est pas validé, il est compté mais invisible. Une fois validé, il est affiché avec ses sources et devient utilisable dans le simulateur — la même exigence que pour les mesures du catalogue.',
   },
   {
     title: 'Ce que le modèle ignore',

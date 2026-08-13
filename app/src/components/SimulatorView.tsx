@@ -20,7 +20,9 @@ import CustomMeasureModal from './simulator/CustomMeasureModal';
 import ResultsOverlay from './simulator/ResultsOverlay';
 import HypothesesModal from './simulator/HypothesesModal';
 import CollabWall from './simulator/CollabWall';
-import { collabAvailable, type RecentBudget } from '../lib/collab';
+import ProposalBox from './simulator/ProposalBox';
+import CitizenQueue from './simulator/CitizenQueue';
+import { collabAvailable, submitProposal, type RecentBudget } from '../lib/collab';
 
 interface Props {
   sim: string | null;
@@ -49,6 +51,7 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
   const [resultsOpen, setResultsOpen] = useState(false);
   const [hypoOpen, setHypoOpen] = useState(false);
   const [wallOpen, setWallOpen] = useState(false);
+  const [queueOpen, setQueueOpen] = useState(false);
   const [wallOk, setWallOk] = useState(false);
 
   useEffect(() => {
@@ -111,6 +114,22 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
     setResultsOpen(false);
   }, []);
 
+  const sendToQueue = useCallback(
+    async (text: string) => {
+      const res = await submitProposal(text);
+      if (res.ok) {
+        onToast(
+          res.merged && res.count
+            ? `Proposition transmise — ${res.count} personnes l'ont déjà demandée`
+            : 'Proposition transmise à la file citoyenne',
+        );
+      } else {
+        onToast(res.error ?? 'Envoi impossible');
+      }
+    },
+    [onToast],
+  );
+
   const openBudget = useCallback((b: RecentBudget) => {
     setMissionId(MISSIONS.some((m) => m.id === b.mission) ? b.mission : 'libre');
     if (b.scenario === 'prudent' || b.scenario === 'central' || b.scenario === 'haut') {
@@ -172,9 +191,14 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
             ))}
           </div>
           {wallOk && (
-            <button className="btn-ghost" onClick={() => setWallOpen(true)}>
-              Le mur
-            </button>
+            <>
+              <button className="btn-ghost" onClick={() => setWallOpen(true)}>
+                Le mur
+              </button>
+              <button className="btn-ghost" onClick={() => setQueueOpen(true)}>
+                La file
+              </button>
+            </>
           )}
           <button className="btn-ghost" onClick={() => setHypoOpen(true)}>
             Hypothèses
@@ -186,6 +210,13 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
       </div>
 
       <Dashboard result={result} mission={mission} />
+
+      <ProposalBox
+        onAdd={handleAdd}
+        onAtelier={() => setCustomOpen(true)}
+        onQueue={sendToQueue}
+        queueAvailable={wallOk}
+      />
 
       <div className="simu-grid">
         <Catalog
@@ -222,6 +253,12 @@ export default function SimulatorView({ sim, onSimChange, onToast }: Props) {
       />
       <HypothesesModal open={hypoOpen} onClose={() => setHypoOpen(false)} />
       <CollabWall open={wallOpen} onClose={() => setWallOpen(false)} onOpenBudget={openBudget} />
+      <CitizenQueue
+        open={queueOpen}
+        onClose={() => setQueueOpen(false)}
+        onAdopt={handleAdd}
+        onToast={onToast}
+      />
       {resultsOpen && evaluation && (
         <ResultsOverlay
           mission={mission}

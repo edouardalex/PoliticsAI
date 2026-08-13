@@ -3123,3 +3123,370 @@
     flex-direction: column;
   }
 }
+
+/* ═══════════════ Champ libre (proposition) ═══════════════ */
+
+.proposal-box {
+  margin: 4px 0 14px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #131a2b, var(--bg-surface));
+  overflow: hidden;
+}
+
+.pb-main {
+  padding: 14px 18px 13px;
+}
+
+.pb-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.pb-input {
+  width: 100%;
+  background: var(--bg-page);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 10px;
+  color: var(--ink-primary);
+  font: inherit;
+  font-size: 14.5px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color var(--t-fast);
+}
+
+.pb-input:focus {
+  border-color: #3987e5a0;
+}
+
+.pb-input::placeholder {
+  color: var(--ink-muted);
+}
+
+.pb-hint {
+  font-size: 11px;
+  color: var(--ink-muted);
+  margin-top: 8px;
+  line-height: 1.55;
+  max-width: 780px;
+}
+
+.pb-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 9px;
+}
+
+.pb-result {
+  border-top: 1px solid var(--hairline);
+  padding: 13px 18px 14px;
+  background: #0e131f;
+}
+
+.pb-result.out_of_range {
+  background: #1a1114;
+}
+
+.pbr-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pbr-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.pbr-tag.ok {
+  color: #7fd48a;
+  background: #0ca30c22;
+  box-shadow: inset 0 0 0 1px #0ca30c55;
+}
+
+.pbr-tag.limit {
+  color: #f0a08a;
+  background: #d03b3b22;
+  box-shadow: inset 0 0 0 1px #d03b3b55;
+}
+
+.pbr-tag.ask,
+.pbr-tag.none {
+  color: var(--ink-secondary);
+  background: #ffffff0d;
+  box-shadow: inset 0 0 0 1px var(--hairline-strong);
+}
+
+.pbr-text {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.pbr-detail {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin-top: 8px;
+  max-width: 860px;
+}
+
+.pbr-detail.strong {
+  color: var(--ink-primary);
+}
+
+.pbr-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.btn-sm {
+  font-size: 12.5px;
+  padding: 8px 14px;
+  border-radius: 9px;
+}
+
+.pbr-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.pbr-choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  text-align: left;
+  padding: 9px 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 9px;
+  background: var(--bg-surface);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+
+.pbr-choice:hover {
+  border-color: #3987e57a;
+  background: #ffffff08;
+}
+
+.pbrc-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pbrc-amount {
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--ink-secondary);
+}
+
+/* ═══════════════ File citoyenne ═══════════════ */
+
+.cq-intro {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+}
+
+.cq-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 52vh;
+  overflow-y: auto;
+}
+
+.cq-item {
+  border: 1px solid var(--hairline);
+  border-radius: 11px;
+  background: var(--bg-surface);
+  padding: 11px 13px;
+}
+
+.cq-item.validee {
+  border-color: #0ca30c44;
+}
+
+.cq-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cq-count {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.cq-text {
+  flex: 1;
+  min-width: 180px;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.cq-status {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 99px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.cq-status.validee {
+  color: #7fd48a;
+  border-color: #0ca30c66;
+}
+
+.cq-chiffrage {
+  border-left: 2px solid #3987e566;
+  margin-top: 10px;
+  padding-left: 12px;
+}
+
+.cqc-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.cqc-head strong {
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+
+.cqc-lever {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.cqc-note {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+}
+
+.cqc-sources {
+  list-style: none;
+  margin: 7px 0 9px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cqc-sources li {
+  font-size: 11px;
+  color: var(--ink-muted);
+  padding-left: 12px;
+  position: relative;
+}
+
+.cqc-sources li::before {
+  content: '·';
+  position: absolute;
+  left: 3px;
+}
+
+.cq-pending {
+  font-size: 11px;
+  color: var(--ink-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.cq-propose {
+  margin-top: 9px;
+}
+
+.cq-form {
+  margin-top: 11px;
+  padding-top: 11px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.cqf-row {
+  display: flex;
+  gap: 10px;
+}
+
+.cq-form label,
+.cqf-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  flex: 1;
+}
+
+.cq-form input[type='number'],
+.cqf-textarea {
+  background: var(--bg-page);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  color: var(--ink-primary);
+  font: inherit;
+  font-size: 12.5px;
+  padding: 7px 10px;
+  outline: none;
+  text-transform: none;
+  letter-spacing: 0;
+  resize: vertical;
+}
+
+.cq-form input:focus,
+.cqf-textarea:focus {
+  border-color: #3987e57a;
+}
+
+.cqf-unit {
+  font-size: 10px;
+  color: var(--ink-muted);
+  text-transform: none;
+}
+
+.cqf-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .cqf-row {
+    flex-direction: column;
+  }
+}
