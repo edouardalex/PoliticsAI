@@ -60,6 +60,32 @@ GEOS_EU = {
 COFOG_L1 = ["GF01", "GF02", "GF03", "GF04", "GF05",
             "GF06", "GF07", "GF08", "GF09", "GF10"]
 
+# Décomposition par NATURE de dépense (opérations SEC 2010), additive : la somme
+# des dix postes ci-dessous reconstitue exactement le total des dépenses (TE),
+# pour chaque fonction et chaque sous-fonction COFOG. Vérifié à l'exécution.
+# Libellés reformulés pour le grand public ; le code SEC reste affiché.
+NATURES: dict[str, tuple[str, str]] = {
+    "D62": ("Prestations sociales en argent",
+            "Retraites, allocations chômage, RSA, prestations familiales…"),
+    "D1": ("Salaires des agents publics",
+           "Traitements et cotisations employeur de la fonction publique"),
+    "D632": ("Soins et biens remboursés",
+             "Remboursements de soins, médicaments, aides achetées à des producteurs marchands"),
+    "P2": ("Achats de biens et services",
+           "Fournitures, énergie, entretien, prestations externes…"),
+    "OP5ANP": ("Investissement",
+               "Construction et équipement (FBCF), acquisitions de terrains"),
+    "D7": ("Autres transferts courants",
+           "Transferts entre administrations, contribution à l'Union européenne…"),
+    "D4": ("Intérêts et revenus de la propriété",
+           "Charge de la dette publique pour l'essentiel"),
+    "D3": ("Subventions aux producteurs",
+           "Aides à l'exploitation versées aux entreprises"),
+    "D9": ("Transferts en capital",
+           "Aides à l'investissement versées à d'autres acteurs"),
+    "D29_D5_D8": ("Impôts et ajustements divers payés", None),
+}
+
 
 def fetch(dataset: str, **params) -> dict:
     """Interroge l'API Eurostat, labels en français."""
@@ -132,6 +158,12 @@ def build_france() -> dict:
         unit=["MIO_EUR", "PC_GDP"], sector=list(SECTORS), time=years,
     ))
 
+    print("→ gov_10a_exp (croisement fonction × nature de dépense)…")
+    nat = Cube(fetch(
+        "gov_10a_exp", freq="A", na_item=list(NATURES), geo="FR",
+        unit="MIO_EUR", sector=list(SECTORS), time=years,
+    ))
+
     print("→ gov_10a_main (recettes et agrégats, France, 4 secteurs)…")
     main = Cube(fetch(
         "gov_10a_main", freq="A", geo="FR", unit="MIO_EUR",
@@ -164,6 +196,23 @@ def build_france() -> dict:
         total_rev = m("TR")
         b9 = m("B9")
 
+        # --- Décomposition par nature, additive et vérifiée ---
+        def natures_of(cofog: str, total: float) -> list[dict]:
+            parts = []
+            for code, (label, detail) in NATURES.items():
+                v = nat.get(sector=sector, cofog99=cofog, na_item=code, time=t)
+                # On garde les valeurs négatives : ce sont des corrections réelles
+                # (SIFIM sur la gestion de la dette, cessions nettes d'actifs).
+                # Les écarter casserait l'additivité.
+                if v is not None and abs(v) > 0.5:
+                    parts.append({"code": code, "label": label, "value": round(v, 1),
+                                  **({"detail": detail} if detail else {})})
+            s = sum(p["value"] for p in parts)
+            if total and abs(s - total) > 1 and abs(s - total) / abs(total) > 0.005:
+                print(f"  ⚠ {sector}/{cofog}: natures ({s:,.0f}) ≠ total ({total:,.0f})")
+            parts.sort(key=lambda p: -p["value"])
+            return parts
+
         # --- Dépenses par fonction (niveau 1 + enfants niveau 2) ---
         functions = []
         l1_sum = 0.0
@@ -181,6 +230,7 @@ def build_france() -> dict:
                             "code": code,
                             "label": exp.label("cofog99", code),
                             "value": round(cv, 1),
+                            "natures": natures_of(code, cv),
                         })
             children.sort(key=lambda c: -c["value"])
             functions.append({
@@ -188,6 +238,7 @@ def build_france() -> dict:
                 "label": exp.label("cofog99", gf),
                 "value": round(v, 1),
                 "pctGdp": round(e(gf, "PC_GDP"), 2) if e(gf, "PC_GDP") is not None else None,
+                "natures": natures_of(gf, v),
                 "children": children,
             })
         functions.sort(key=lambda f: -f["value"])
@@ -257,6 +308,7 @@ def build_france() -> dict:
             "revenueTotal": round(total_rev, 1) if total_rev else None,
             "netLending": round(b9, 1) if b9 is not None else None,
             "deficit": deficit,
+            "natures": natures_of("TOTAL", total_exp) if total_exp else [],
             "functions": functions,
             "revenues": cats,
         }

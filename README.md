@@ -81,6 +81,54 @@ Pour activer la modération des chiffrages citoyens, lancer avec un jeton :
 PAI_ADMIN_TOKEN=votre-jeton node server/index.mjs
 ```
 
+## La profondeur — descendre jusqu'au plus petit niveau publié
+
+Le COFOG s'arrête au niveau 2 : 64 postes pour 1 672 Md€, soit 26 Md€ par ligne
+en moyenne. Deux mouvements ont été ajoutés pour aller au-delà.
+
+**Une deuxième dimension, dans la même source.** Chaque fonction et
+sous-fonction porte sa décomposition par nature d'opération — salaires,
+prestations, remboursements, achats, investissement, intérêts. Même millésime,
+même consolidation, additivité exacte vérifiée à chaque exécution du pipeline.
+« Enseignement : 148,6 Md€, dont 103,8 Md€ de salaires » devient dicible.
+
+**Des vues qui changent de source.** Sous un poste, l'application propose de
+descendre dans une autre comptabilité — et le dit avant d'afficher le moindre
+chiffre :
+
+- **Santé → par maladie** (CNAM) : 1 240 lignes, quatre niveaux, du groupe de
+  pathologies au poste de soin, avec le coût moyen par patient. 72 % de la
+  fonction santé de la sécurité sociale.
+- **Fonctions de l'État → budget LOLF** : exécution 2024, mission → programme →
+  action → ligne, sur 41 points d'entrée.
+- **Le budget invisible** : 350 dépenses fiscales (89,4 Md€) et 62 taxes
+  affectées (20,8 Md€), dispositif par dispositif.
+- **Collectivités → votre commune** : structure de la dépense locale par niveau
+  et par nature, puis les 34 869 communes en euros par habitant, comparées à la
+  médiane de leur strate.
+- **Protection sociale → par prestation** (ESSPROS) : retraites, famille,
+  chômage, invalidité, logement et minima sociaux décomposés en prestations
+  nommées, avec la part versée sous conditions de ressources — une question à
+  laquelle le COFOG seul ne permet pas de répondre.
+
+Chaque vue affiche son **passage de relais** : référentiel quitté, référentiel
+rejoint, millésime, part du parent réellement expliquée, qualité du
+rattachement. Ce qui n'est pas expliqué reste visible comme « non détaillé ».
+Rien n'est remis à l'échelle pour faire coïncider les totaux — quand une vue
+dépasse son parent, l'application le dit plutôt que de le corriger.
+
+- **Recettes → impôt par impôt** : cotisations par type de payeur, accises,
+  taxes sur les assurances, droits de succession — la nomenclature fiscale du
+  SEC 2010, dans la même source que le diagramme.
+
+Chaque vue publie aussi de quoi se passer de nous : **l'URL exactement
+interrogée** à la source, le nombre de lignes lues, une **empreinte SHA-256** de
+l'arbre publié et un **export CSV** dont l'en-tête reporte les trois. Le
+manifeste `data/processed/deep/manifest.json` récapitule les provenances et
+porte l'empreinte de la table de correspondance.
+
+Total : **5 829 nœuds** dans 120 vues, chargés à la demande.
+
 ## La V1 — L'Explorateur
 
 Un **diagramme de flux animé** (Sankey) qui montre d'où vient l'argent public et où
@@ -111,7 +159,8 @@ npm run dev          # → http://localhost:5173
 Rafraîchir les données (aucune dépendance, Python ≥ 3.9) :
 
 ```bash
-python3 data/pipeline/fetch_data.py
+python3 data/pipeline/fetch_data.py   # Eurostat : fonctions × natures
+python3 data/pipeline/fetch_deep.py   # vues de zoom (CNAM, ESSPROS, LOLF, fiscal, OFGL)
 ```
 
 ## Structure
@@ -119,8 +168,10 @@ python3 data/pipeline/fetch_data.py
 ```
 VISION.md              Le document fondateur (vision, roadmap 2027, ligne éditoriale)
 data/
-  pipeline/            Script d'extraction Eurostat (stdlib uniquement)
+  pipeline/            Extraction Eurostat + vues de zoom (stdlib uniquement)
+  crosswalk/           Table programme LOLF → COFOG, publiée pour être contestée
   processed/           JSON versionnés consommés par l'app (source de vérité)
+    deep/              Une vue de zoom par fichier + annuaire communal par département
   DATA.md              Sources, millésimes, choix méthodologiques, limites
 app/                   Application web (Vite + React + TypeScript + d3-sankey)
 server/                Le Mur des budgets — API zéro dépendance (node:http + JSONL)

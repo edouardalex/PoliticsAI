@@ -3,10 +3,20 @@ import europeRaw from '../../../data/processed/europe.json';
 
 /* ————— Types du pipeline ————— */
 
+/** Décomposition par nature de dépense (opérations SEC 2010).
+ *  Additive : la somme reconstitue exactement le total du nœud. */
+export interface Nature {
+  code: string;
+  label: string;
+  value: number; // M€ — peut être négatif (SIFIM, cessions nettes)
+  detail?: string;
+}
+
 export interface CofogChild {
   code: string;
   label: string;
   value: number; // M€
+  natures: Nature[];
 }
 
 export interface CofogFunction {
@@ -14,6 +24,7 @@ export interface CofogFunction {
   label: string;
   value: number; // M€
   pctGdp: number | null;
+  natures: Nature[];
   children: CofogChild[];
 }
 
@@ -33,6 +44,7 @@ export interface Perimeter {
   revenueTotal: number;
   netLending: number | null;
   deficit: number; // TE - TR (positif = déficit)
+  natures: Nature[];
   functions: CofogFunction[];
   revenues: RevenueCategory[];
 }

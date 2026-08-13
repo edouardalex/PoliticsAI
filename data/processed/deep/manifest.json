@@ -1,0 +1,1993 @@
+{
+ "extracted": "2026-08-13",
+ "note": "Manifeste d'audit. Chaque vue publie la ou les URL exactement interrogées, le nombre de lignes lues à la source et l'empreinte SHA-256 de l'arbre publié. Rejouer une requête doit redonner les mêmes montants.",
+ "inputs": [
+  {
+   "path": "data/crosswalk/programme_cofog.csv",
+   "sha256": "9029467508a778abf8e32830ddfe3f2cec127f3661a844314c9bc8cca94556ff",
+   "lines": 159
+  }
+ ],
+ "views": [
+  {
+   "id": "cnam-especes",
+   "anchor": "S1314:GF10",
+   "basis": "CNAM",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.0619,
+   "amount": 32164.09,
+   "nodeCount": 259,
+   "sourceRows": 2160,
+   "source": "data.ameli.fr / depenses",
+   "queries": [
+    "https://data.ameli.fr/api/explore/v2.1/catalog/datasets/depenses/exports/json?limit=-1&where=year%28annee%29%3D2024+and+type_somme%3D%27Partiel%27&select=patho_niv1%2Cpatho_niv2%2Cpatho_niv3%2Ctop%2Cdep_niv_1%2Cdep_niv_2%2Cmontant%2Cntop%2Cn_recourant_au_poste%2Cniveau_prioritaire"
+   ],
+   "fingerprint": "961ebb0cf0c0fa1678bc0380b4b1921d245c47ac828ff8115193ebb5ae1106b4"
+  },
+  {
+   "id": "cnam-pathologies",
+   "anchor": "S1314:GF07",
+   "basis": "CNAM",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.7199,
+   "amount": 180415.32,
+   "nodeCount": 1240,
+   "sourceRows": 2160,
+   "source": "data.ameli.fr / depenses",
+   "queries": [
+    "https://data.ameli.fr/api/explore/v2.1/catalog/datasets/depenses/exports/json?limit=-1&where=year%28annee%29%3D2024+and+type_somme%3D%27Partiel%27&select=patho_niv1%2Cpatho_niv2%2Cpatho_niv3%2Ctop%2Cdep_niv_1%2Cdep_niv_2%2Cmontant%2Cntop%2Cn_recourant_au_poste%2Cniveau_prioritaire"
+   ],
+   "fingerprint": "65448a3b90d5e03956719cacc3bedffcf28338f6c14b4c9e5e7e69cd8b22b3d3"
+  },
+  {
+   "id": "depenses-fiscales",
+   "anchor": "S1311",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": null,
+   "amount": 89405.8,
+   "nodeCount": 359,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "117f875a36b94cff378d6e4e5fb2fcc366e95718c726b86500f32a0db2e56e75"
+  },
+  {
+   "id": "depenses-fiscales-gf01",
+   "anchor": "S1311:GF01",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 15376.0,
+   "nodeCount": 36,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "f7411de9e2a9a949605293b678383013eab8c94d63c078b9fe385c0d43e14bf5"
+  },
+  {
+   "id": "depenses-fiscales-gf0101",
+   "anchor": "S1311:GF0101",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 7516.0,
+   "nodeCount": 31,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "1ba45df62e043194009795636ecbc395187681f135b5ee1488a785d74d7261d6"
+  },
+  {
+   "id": "depenses-fiscales-gf0102",
+   "anchor": "S1311:GF0102",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 1.0,
+   "nodeCount": 2,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "2158d4d2a5d94b276a5b33cb2f0ce8930149ef04334935e5c565d23f8e29849b"
+  },
+  {
+   "id": "depenses-fiscales-gf0104",
+   "anchor": "S1311:GF0104",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 7859.0,
+   "nodeCount": 5,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "ad0133b4fdd654bfde66a9aed443dbb9d50d28d8cffbce0d6b3e03cdb12c7769"
+  },
+  {
+   "id": "depenses-fiscales-gf02",
+   "anchor": "S1311:GF02",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 736.0,
+   "nodeCount": 9,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "570adb85b867317733316e71208a0b47d36594d86001cf0b79932e6faf517aff"
+  },
+  {
+   "id": "depenses-fiscales-gf0201",
+   "anchor": "S1311:GF0201",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 121.0,
+   "nodeCount": 3,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "5f61e7dae9b970c2589a773c96d9db293d36e248b38f7ce9a703a23cb09b9baa"
+  },
+  {
+   "id": "depenses-fiscales-gf03",
+   "anchor": "S1311:GF03",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 107.0,
+   "nodeCount": 5,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "40daf759b645922ecd0128ec3cae59dff898d19b0b2f016dd6c90712c6fdd9a1"
+  },
+  {
+   "id": "depenses-fiscales-gf0301",
+   "anchor": "S1311:GF0301",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 15.0,
+   "nodeCount": 2,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "a0d89e039a27890573de6bbb3410deca5e049d49294476eb1c141973270f9f79"
+  },
+  {
+   "id": "depenses-fiscales-gf0302",
+   "anchor": "S1311:GF0302",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 79.0,
+   "nodeCount": 2,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "d0f00d8551612adb992fff18a7300331b1900101ddb41936a846866e80e2daf2"
+  },
+  {
+   "id": "depenses-fiscales-gf0303",
+   "anchor": "S1311:GF0303",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 13.0,
+   "nodeCount": 2,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "e9c42417cd1e448570bf845ae489aade97850e54b9b0c1ab560be0875ce8f957"
+  },
+  {
+   "id": "depenses-fiscales-gf04",
+   "anchor": "S1311:GF04",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 37629.0,
+   "nodeCount": 151,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "94f4cf1e37daf60a4bc9d57b78187906ce07318715931b74d256b203bec44ae5"
+  },
+  {
+   "id": "depenses-fiscales-gf0401",
+   "anchor": "S1311:GF0401",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 24781.0,
+   "nodeCount": 68,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "39b0a17650298a505e5bdfd0c8ef6b42be68aeeea3b2ced1af40562e2f823b11"
+  },
+  {
+   "id": "depenses-fiscales-gf0402",
+   "anchor": "S1311:GF0402",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 3391.0,
+   "nodeCount": 35,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "77d41e6282c91b9f19096850c1185efa43834225796be4feac8d89af45d64adc"
+  },
+  {
+   "id": "depenses-fiscales-gf0403",
+   "anchor": "S1311:GF0403",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 5923.0,
+   "nodeCount": 32,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "fa06342a6eee8fee5783501c44607a6c90478694c056daea5df0b5371f01f867"
+  },
+  {
+   "id": "depenses-fiscales-gf0405",
+   "anchor": "S1311:GF0405",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 2320.0,
+   "nodeCount": 16,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "68f6818787ecf6a4f0196c34d6cc0d02153d6d34967813b66032aceb02cc05d7"
+  },
+  {
+   "id": "depenses-fiscales-gf0408",
+   "anchor": "S1311:GF0408",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 396.0,
+   "nodeCount": 7,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "ec487039907578eb3871e595bfde3ad811cc02c44bcf43d91187c777a67278d2"
+  },
+  {
+   "id": "depenses-fiscales-gf05",
+   "anchor": "S1311:GF05",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 118.0,
+   "nodeCount": 13,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "4b814a560f1168684949a7b4c274bee974b3bf14871ee66beedd1531f2301196"
+  },
+  {
+   "id": "depenses-fiscales-gf0504",
+   "anchor": "S1311:GF0504",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 14.0,
+   "nodeCount": 6,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "2cfe91c4abec92bc0a54482b987ef7056108b70e64b434ea634b647f625c54be"
+  },
+  {
+   "id": "depenses-fiscales-gf06",
+   "anchor": "S1311:GF06",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 14510.8,
+   "nodeCount": 82,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "9a780d13870eaf3f4a923eea48e52d827cf43837a5aaaaaa0310f21f04d25047"
+  },
+  {
+   "id": "depenses-fiscales-gf0601",
+   "anchor": "S1311:GF0601",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 9658.8,
+   "nodeCount": 54,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "71ba1554fda7c4f30fdb96f05f52169e9bce22d4162b15216726062f3f5fa2d8"
+  },
+  {
+   "id": "depenses-fiscales-gf07",
+   "anchor": "S1311:GF07",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 1314.0,
+   "nodeCount": 10,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b792eee4b4dc770caa12bbb74a97007d8e4fefdf4aa470309e2be8ae912077d5"
+  },
+  {
+   "id": "depenses-fiscales-gf0704",
+   "anchor": "S1311:GF0704",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 785.0,
+   "nodeCount": 8,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "4350a516486b538b53a14f3630f7060d1620afbef5fcba29a48d1f680e603145"
+  },
+  {
+   "id": "depenses-fiscales-gf08",
+   "anchor": "S1311:GF08",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 6204.0,
+   "nodeCount": 52,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "44b50551fc48cd8944eadc532fea0cc9770f6fe1a99282cad223115d750dbe6a"
+  },
+  {
+   "id": "depenses-fiscales-gf0801",
+   "anchor": "S1311:GF0801",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 4303.0,
+   "nodeCount": 18,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "4e4e45b15f531d88f329118245c432c1802042b0c14dee9e73d715c240917d09"
+  },
+  {
+   "id": "depenses-fiscales-gf0802",
+   "anchor": "S1311:GF0802",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 1683.0,
+   "nodeCount": 34,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "693da963e823b95511d0d7136cdc505f43872eab6a28218a7915ea7254749176"
+  },
+  {
+   "id": "depenses-fiscales-gf0803",
+   "anchor": "S1311:GF0803",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 218.0,
+   "nodeCount": 6,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "459ed786ae1891a79983207f94efe98c7a45ee9da2a076a3298fded352367a8b"
+  },
+  {
+   "id": "depenses-fiscales-gf09",
+   "anchor": "S1311:GF09",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 750.0,
+   "nodeCount": 4,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b78a741a2cbbbb5ba57e0c94290eca1060c53222b8da492fb656c9b7e6617137"
+  },
+  {
+   "id": "depenses-fiscales-gf0906",
+   "anchor": "S1311:GF0906",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 750.0,
+   "nodeCount": 4,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b78a741a2cbbbb5ba57e0c94290eca1060c53222b8da492fb656c9b7e6617137"
+  },
+  {
+   "id": "depenses-fiscales-gf10",
+   "anchor": "S1311:GF10",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 12661.0,
+   "nodeCount": 32,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "29e4fbbaefbeb65c4465de142ff7629c161f52984769e4d92e882a1c24ffc5d0"
+  },
+  {
+   "id": "depenses-fiscales-gf1001",
+   "anchor": "S1311:GF1001",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 6890.0,
+   "nodeCount": 18,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "313e131edc133e1b20f0d710b9b1fff100fd0032e5b567ab73b7561cbe6b1461"
+  },
+  {
+   "id": "depenses-fiscales-gf1006",
+   "anchor": "S1311:GF1006",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 199.0,
+   "nodeCount": 3,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "bc1405c53acfdc3e45b8c5a76e26b1cb0fae5b6485a2c25e20a2bd8c78281ddc"
+  },
+  {
+   "id": "depenses-fiscales-gf1007",
+   "anchor": "S1311:GF1007",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 5572.0,
+   "nodeCount": 13,
+   "sourceRows": 483,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27D%C3%A9penses+fiscales%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Cimpot_si_depense_fiscale%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "aef88eeddbf78c5fc2f98835eba67e4b5b683b046a4514d9e92047b74085cd4a"
+  },
+  {
+   "id": "esspros-gf07",
+   "anchor": "S13:GF07",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 267651.26,
+   "nodeCount": 15,
+   "sourceRows": 17,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fsi?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "bcc87c6ff2ba64e4140696ca3fa91c17d4b192eefee492556f2763db970f92db"
+  },
+  {
+   "id": "esspros-gf10",
+   "anchor": "S13:GF10",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 621827.66,
+   "nodeCount": 81,
+   "sourceRows": 91,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fol?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fsu?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fdi?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_ffa?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fun?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fho?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fex?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "914f5e339108536ea34c195678842ab15eb05ba556ea8860369aa5bf62f1109a"
+  },
+  {
+   "id": "esspros-gf1001",
+   "anchor": "S13:GF1001",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 58066.1,
+   "nodeCount": 15,
+   "sourceRows": 17,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fdi?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "6efb006baf902f575b3e77bcc484f0796b37ad40aea4cfd3a6cb9750f15d0d8b"
+  },
+  {
+   "id": "esspros-gf1002",
+   "anchor": "S13:GF1002",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 357486.85,
+   "nodeCount": 11,
+   "sourceRows": 14,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fol?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "5f9650b380053a87715225ebc4d6be6a440583f91c95b9acee4d1c7059df65c9"
+  },
+  {
+   "id": "esspros-gf1003",
+   "anchor": "S13:GF1003",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 43230.73,
+   "nodeCount": 9,
+   "sourceRows": 11,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fsu?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "42d74805ab0658eab958d4ce4b7003710334b2724eff17ca4e7b3c2494fec3bc"
+  },
+  {
+   "id": "esspros-gf1004",
+   "anchor": "S13:GF1004",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 62858.38,
+   "nodeCount": 14,
+   "sourceRows": 16,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_ffa?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "0210007c883c35be3b01798b669070d19aa798fdb90215b20923be9c4c2730d8"
+  },
+  {
+   "id": "esspros-gf1005",
+   "anchor": "S13:GF1005",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 49254.74,
+   "nodeCount": 13,
+   "sourceRows": 17,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fun?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "098d55ac629f43493c954031b41928c3987eb107e4bd36e15402075aacb5d02c"
+  },
+  {
+   "id": "esspros-gf1006",
+   "anchor": "S13:GF1006",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 15751.83,
+   "nodeCount": 3,
+   "sourceRows": 5,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fho?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "b40193e458fa7f05472141085a53ba623f57dcc72f50ee16eeecb9242e871093"
+  },
+  {
+   "id": "esspros-gf1007",
+   "anchor": "S13:GF1007",
+   "basis": "ESSPROS",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 35179.03,
+   "nodeCount": 9,
+   "sourceRows": 11,
+   "source": "Eurostat / spr_exp_f*",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fex?format=JSON&lang=FR&geo=FR&time=2023&unit=MIO_EUR"
+   ],
+   "fingerprint": "edc79beb49e231fc558a9c7cedcbbed841d8786dc9c1b279c7c885fc1dcf1ee3"
+  },
+  {
+   "id": "lolf-gf01",
+   "anchor": "S1311:GF01",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.6849,
+   "amount": 109594.62,
+   "nodeCount": 288,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "d35f43faadd666280634a966e6a28681c2b87f3e8c7d875a41d6c65712acb245"
+  },
+  {
+   "id": "lolf-gf0101",
+   "anchor": "S1311:GF0101",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.458,
+   "amount": 18318.87,
+   "nodeCount": 164,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "dba12478a7d7d3659b439013f202bcea34932548fa654dd1eef85356815ba1a5"
+  },
+  {
+   "id": "lolf-gf0102",
+   "anchor": "S1311:GF0102",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 1.1036,
+   "amount": 5386.74,
+   "nodeCount": 37,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "3bb10c4fdd846dfa5e00516beb3f8795d97732699dc7759a03c886262719acf5"
+  },
+  {
+   "id": "lolf-gf0103",
+   "anchor": "S1311:GF0103",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.5214,
+   "amount": 1285.26,
+   "nodeCount": 43,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "2a4402d717094d090ce4d4bb5618202f7bab984ba13f4b3f22421aab930be438"
+  },
+  {
+   "id": "lolf-gf0104",
+   "anchor": "S1311:GF0104",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.3886,
+   "amount": 7725.91,
+   "nodeCount": 14,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "46073654f83f8def21e7f7189500dd019d80c0551454ddec6aada2dab5ddd965"
+  },
+  {
+   "id": "lolf-gf0108",
+   "anchor": "S1311:GF0108",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 1.1948,
+   "amount": 54601.45,
+   "nodeCount": 27,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "ec49cb2b53b75511349944edcdf38e235382e8ed3ecf0a6c439646dc9b104e67"
+  },
+  {
+   "id": "lolf-gf02",
+   "anchor": "S1311:GF02",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.9196,
+   "amount": 49844.84,
+   "nodeCount": 240,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b46f2fc77ddd4e9dd234250a3b24dae858b1abe18ac8a94e386f528f8eced82f"
+  },
+  {
+   "id": "lolf-gf0201",
+   "anchor": "S1311:GF0201",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.6426,
+   "amount": 30653.11,
+   "nodeCount": 125,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "371705c0999a40585c9d0928c8887aecdefd3304fc6f300176a989b8b99b6590"
+  },
+  {
+   "id": "lolf-gf0204",
+   "anchor": "S1311:GF0204",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.0892,
+   "amount": 150.02,
+   "nodeCount": 5,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "f61286ae0d97353c2df7f5a8cc5c602669612a087f4bd80ed00c075e7fe13872"
+  },
+  {
+   "id": "lolf-gf03",
+   "anchor": "S1311:GF03",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.668,
+   "amount": 28173.42,
+   "nodeCount": 123,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "a0d1cfb3373c43c59f24ae034a98b37067df66fdea895152d57f4b90593b2af9"
+  },
+  {
+   "id": "lolf-gf0301",
+   "anchor": "S1311:GF0301",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.6615,
+   "amount": 17010.58,
+   "nodeCount": 59,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "247d994f2db521cbe9d20c819cc2001c52f2618f82901d4f50067ce5a239f8ef"
+  },
+  {
+   "id": "lolf-gf0302",
+   "anchor": "S1311:GF0302",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.7823,
+   "amount": 877.8,
+   "nodeCount": 7,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "6dc7a80bfa3d2b848b88f4f6a8351106916a4a02a29ce4d6b0858bd4d6d87987"
+  },
+  {
+   "id": "lolf-gf0303",
+   "anchor": "S1311:GF0303",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.6873,
+   "amount": 5740.26,
+   "nodeCount": 40,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "4d19e11bffa6b8e55012eb22f024ac44d7906f0d750bcc4df402415eccb38c81"
+  },
+  {
+   "id": "lolf-gf0304",
+   "anchor": "S1311:GF0304",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.763,
+   "amount": 3906.65,
+   "nodeCount": 8,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "5a99f5e58772eeedea3dfad0794134a325db635f28241c552fb07e8135b808c8"
+  },
+  {
+   "id": "lolf-gf04",
+   "anchor": "S1311:GF04",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.4476,
+   "amount": 55424.68,
+   "nodeCount": 372,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "42fde981afeaf912639f4d05ba52370d2db48e8af45609c09ad883e376ee653d"
+  },
+  {
+   "id": "lolf-gf0401",
+   "anchor": "S1311:GF0401",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.5571,
+   "amount": 28362.79,
+   "nodeCount": 98,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "06e65bb5bb9aaf340b3f14ecab7504cc1c72fc6646c89f5b155bcbef35d0933e"
+  },
+  {
+   "id": "lolf-gf0402",
+   "anchor": "S1311:GF0402",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 1.0526,
+   "amount": 4366.75,
+   "nodeCount": 46,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "695c08ec43369f4a1b8de246a2e279cc7dda690982a24ffbeccd16519c581acd"
+  },
+  {
+   "id": "lolf-gf0403",
+   "anchor": "S1311:GF0403",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.3442,
+   "amount": 4433.07,
+   "nodeCount": 47,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "e26a07573e6ac7c7393d29a0f8fb6c975c656447e4e5c769e3406a74468c7ea4"
+  },
+  {
+   "id": "lolf-gf0405",
+   "anchor": "S1311:GF0405",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.2698,
+   "amount": 6978.72,
+   "nodeCount": 51,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "f0f24d52cd9607c6046a68311f195a23f8632759ae8b8125dea6fb56edd09b47"
+  },
+  {
+   "id": "lolf-gf0406",
+   "anchor": "S1311:GF0406",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.341,
+   "amount": 260.88,
+   "nodeCount": 5,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "adcec32ab62f401beebf584255103d95ea89fe11fdd679287e0a6bf82c8c87d0"
+  },
+  {
+   "id": "lolf-gf0408",
+   "anchor": "S1311:GF0408",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.1864,
+   "amount": 4009.96,
+   "nodeCount": 29,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "334ae08126c292e869bc3f1e16fff086041f31d04013aeba68edc990982b9cb0"
+  },
+  {
+   "id": "lolf-gf05",
+   "anchor": "S1311:GF05",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 1.2714,
+   "amount": 7010.0,
+   "nodeCount": 64,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "f411960a33fd350387e5a99aabe21421cc38c503feff3ad4ff6d1fa659375efc"
+  },
+  {
+   "id": "lolf-gf0504",
+   "anchor": "S1311:GF0504",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.3948,
+   "amount": 370.93,
+   "nodeCount": 11,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "5e19b39e06f189bf0d596551e3bb4de53a937f1d32b2cde109291f833377e525"
+  },
+  {
+   "id": "lolf-gf06",
+   "anchor": "S1311:GF06",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.5073,
+   "amount": 3728.17,
+   "nodeCount": 34,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "cacbc9cdea3571d0cce2d75b3e73d7a19230cea21f9492d9578ac1e5bb511c62"
+  },
+  {
+   "id": "lolf-gf0601",
+   "anchor": "S1311:GF0601",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.4167,
+   "amount": 2281.32,
+   "nodeCount": 14,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "cd3e4260850a720cfa8ad857714067f5737dd101c96bc6dc70a3b5e6d5c71f96"
+  },
+  {
+   "id": "lolf-gf07",
+   "anchor": "S1311:GF07",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.192,
+   "amount": 2669.03,
+   "nodeCount": 17,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "1d39f9f0e803be355a3b4c8f90ebd3fb6969ea1151949cfcf0045a423fb04b1a"
+  },
+  {
+   "id": "lolf-gf0704",
+   "anchor": "S1311:GF0704",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.0253,
+   "amount": 253.39,
+   "nodeCount": 11,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b432f20ca9c33600e82ed7dc8726dccab366340ecd3823111466a6820693dbbb"
+  },
+  {
+   "id": "lolf-gf08",
+   "anchor": "S1311:GF08",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.7071,
+   "amount": 9729.25,
+   "nodeCount": 118,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "0aeaf8a33692b2f4bdd300790c6fc747bb1201d55d508ae35811e8199009ca60"
+  },
+  {
+   "id": "lolf-gf0801",
+   "anchor": "S1311:GF0801",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 1.2355,
+   "amount": 1479.71,
+   "nodeCount": 19,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "3ba5a25e65138ef07a9aeaac20c86d9aabef6ed447e4d716ad99b59c46f63a38"
+  },
+  {
+   "id": "lolf-gf0802",
+   "anchor": "S1311:GF0802",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.5415,
+   "amount": 3278.72,
+   "nodeCount": 26,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "f454f98eb9538582400b62c387a0d1940d3e3ddf57ebfe1388a50366d3939f5e"
+  },
+  {
+   "id": "lolf-gf0803",
+   "anchor": "S1311:GF0803",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.6671,
+   "amount": 4340.34,
+   "nodeCount": 68,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "ff7016276bc821ef548421d2deac007abe374ef5554d3d2034a3d048580c98ea"
+  },
+  {
+   "id": "lolf-gf09",
+   "anchor": "S1311:GF09",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.7811,
+   "amount": 82858.37,
+   "nodeCount": 126,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "021ee3acdc81fbc4cf7837de0e494cfe906f122909b8cb66cfcc496f796ff353"
+  },
+  {
+   "id": "lolf-gf0901",
+   "anchor": "S1311:GF0901",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.6307,
+   "amount": 17625.12,
+   "nodeCount": 12,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "015c31b13c209d49ac7e6325c4e941b7f1cf0e0ea2a810e8c42c49eccaf4a017"
+  },
+  {
+   "id": "lolf-gf0902",
+   "anchor": "S1311:GF0902",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.6192,
+   "amount": 27869.86,
+   "nodeCount": 30,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "ab56b85a5319bb9b5f52d49d5f0a6032d0e188700134b00808844a34f66e790e"
+  },
+  {
+   "id": "lolf-gf0904",
+   "anchor": "S1311:GF0904",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 1.2859,
+   "amount": 15320.35,
+   "nodeCount": 17,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "802f70063e83d62276c27e07faa2b42590d9cbd93bcdd01ca5a6ef6e76043969"
+  },
+  {
+   "id": "lolf-gf0906",
+   "anchor": "S1311:GF0906",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.7028,
+   "amount": 10535.62,
+   "nodeCount": 21,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "7f4b9c5674b22ec1b2c31b6b92a06e6256507c3799ee20460a54be3020dcc008"
+  },
+  {
+   "id": "lolf-gf10",
+   "anchor": "S1311:GF10",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.8757,
+   "amount": 125639.3,
+   "nodeCount": 123,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "e8113ce3c391c698ae255a1566d9cc4d94d8dfb10df528e519977a638403fcd4"
+  },
+  {
+   "id": "lolf-gf1001",
+   "anchor": "S1311:GF1001",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.8462,
+   "amount": 15271.67,
+   "nodeCount": 5,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "53e126524bee31187d27c2abb0e2d9f8894263eb2701fc8dc79e56d615323d4f"
+  },
+  {
+   "id": "lolf-gf1002",
+   "anchor": "S1311:GF1002",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.9607,
+   "amount": 72669.25,
+   "nodeCount": 25,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "4cf7b6c8154942f2325f4dfc663412515a3ced8cf76fcfbfd3c28139ed5885e6"
+  },
+  {
+   "id": "lolf-gf1006",
+   "anchor": "S1311:GF1006",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.8936,
+   "amount": 19247.74,
+   "nodeCount": 11,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "448d0907bf484c8fe22f673e3ecc874c5ccaedbddaae67df3b3cebc35d63d212"
+  },
+  {
+   "id": "lolf-gf1007",
+   "anchor": "S1311:GF1007",
+   "basis": "LOLF",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": 0.7353,
+   "amount": 14323.65,
+   "nodeCount": 14,
+   "sourceRows": 1269,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Cr%C3%A9dits+budg%C3%A9taires%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_action_si_credit_budgetaire%2Caction_si_credit_budgetaire%2Ccode_depense%2Clibelle%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "6bcf69610d6152e8f31a8897a0f1f18e3fb2cd3471e834b8f6432fedf066e8fc"
+  },
+  {
+   "id": "ofgl-collectivites",
+   "anchor": "S1313",
+   "basis": "M57",
+   "year": 2024,
+   "mapping": "dérivé",
+   "coverage": 0.9838,
+   "amount": 324412.25,
+   "nodeCount": 60,
+   "sourceRows": 55,
+   "source": "data.ofgl.fr / comptes des collectivités",
+   "queries": [
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Frais+de+personnel%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Achats+et+charges+externes%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27intervention%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Charges+financi%C3%A8res%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27%C3%A9quipement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Subventions+d%27%C3%A9quipement+vers%C3%A9es%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Remboursements+d%27emprunts+hors+GAD%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Frais+de+personnel%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Achats+et+charges+externes%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27intervention%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Charges+financi%C3%A8res%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27%C3%A9quipement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Subventions+d%27%C3%A9quipement+vers%C3%A9es%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Remboursements+d%27emprunts+hors+GAD%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Frais+de+personnel%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Achats+et+charges+externes%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27intervention%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Charges+financi%C3%A8res%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27%C3%A9quipement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Subventions+d%27%C3%A9quipement+vers%C3%A9es%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Remboursements+d%27emprunts+hors+GAD%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Frais+de+personnel%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Achats+et+charges+externes%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27intervention%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Charges+financi%C3%A8res%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27%C3%A9quipement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Subventions+d%27%C3%A9quipement+vers%C3%A9es%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Remboursements+d%27emprunts+hors+GAD%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Frais+de+personnel%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Achats+et+charges+externes%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27intervention%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Charges+financi%C3%A8res%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+de+fonctionnement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27%C3%A9quipement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Subventions+d%27%C3%A9quipement+vers%C3%A9es%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Remboursements+d%27emprunts+hors+GAD%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22Autres+d%C3%A9penses+d%27investissement%22",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records?limit=1&select=sum%28montant%29+as+m&where=year%28exer%29%3D2024+and+type_de_budget%3D%22Budget+principal%22+and+agregat%3D%22D%C3%A9penses+d%27investissement%22"
+   ],
+   "fingerprint": "4b855d86e42790f08aa625d89637f9e0f0440a288c43b8488a701d2cc5fbedc2"
+  },
+  {
+   "id": "tax-s13-d21x",
+   "anchor": "S13:D21X",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.9991,
+   "amount": 118323.0,
+   "nodeCount": 11,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S13"
+   ],
+   "fingerprint": "78812049f42e66cd1416a70273591b908dc1774cb92258f754566e427d474cce"
+  },
+  {
+   "id": "tax-s13-d29",
+   "anchor": "S13:D29",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 1.0,
+   "amount": 129947.0,
+   "nodeCount": 7,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S13"
+   ],
+   "fingerprint": "8217268c6f89e176d2176d024b229074dec7ef447779c261c71644d99a39cc62"
+  },
+  {
+   "id": "tax-s13-d5x_d91",
+   "anchor": "S13:D5X_D91",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 1.0008,
+   "amount": 28497.0,
+   "nodeCount": 6,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S13"
+   ],
+   "fingerprint": "4535969b667a7c9be6bc5247f3dd95bed3731809dc425f7b41c7ad32fd9733b5"
+  },
+  {
+   "id": "tax-s13-d61",
+   "anchor": "S13:D61",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.9972,
+   "amount": 482281.0,
+   "nodeCount": 8,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S13"
+   ],
+   "fingerprint": "1d6b98e9ba92800ec851e90d99b14e7d6ae7048733f503dae0a8b10af8f7b66e"
+  },
+  {
+   "id": "tax-s1311-d21x",
+   "anchor": "S1311:D21X",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 1.0002,
+   "amount": 41769.0,
+   "nodeCount": 11,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1311"
+   ],
+   "fingerprint": "5edb6b7c7f512b32af3145892789143df45a884ae52138e3ef917a8421696286"
+  },
+  {
+   "id": "tax-s1311-d29",
+   "anchor": "S1311:D29",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 1.0,
+   "amount": 25298.0,
+   "nodeCount": 7,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1311"
+   ],
+   "fingerprint": "6b36c8bf231523c116253d1767a94764861fb13338ed087d619273ac28e80ded"
+  },
+  {
+   "id": "tax-s1311-d5x_d91",
+   "anchor": "S1311:D5X_D91",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 1.0,
+   "amount": 24856.0,
+   "nodeCount": 7,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1311"
+   ],
+   "fingerprint": "5cc3b56e554840665e23cacc173150e43cbe63cabbd488ce265856c2c1fcea72"
+  },
+  {
+   "id": "tax-s1311-d61",
+   "anchor": "S1311:D61",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.9999,
+   "amount": 56929.0,
+   "nodeCount": 5,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1311"
+   ],
+   "fingerprint": "50e9ab6db650506d85b74b7d4490d06c36dbfd6887380c64e7aaa468386982de"
+  },
+  {
+   "id": "tax-s1313-d21x",
+   "anchor": "S1313:D21X",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.9971,
+   "amount": 48610.0,
+   "nodeCount": 9,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1313"
+   ],
+   "fingerprint": "1d463ee820e4110935c4aee559429820744845c21d62b4967f29c0e546a3fbf7"
+  },
+  {
+   "id": "tax-s1313-d29",
+   "anchor": "S1313:D29",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.9997,
+   "amount": 69896.0,
+   "nodeCount": 5,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1313"
+   ],
+   "fingerprint": "d07ab0e41bec1338865648096510210c8e38d1698cf7a8fec72c4b49569f6851"
+  },
+  {
+   "id": "tax-s1313-d5x_d91",
+   "anchor": "S1313:D5X_D91",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 1.0,
+   "amount": 3589.0,
+   "nodeCount": 3,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1313"
+   ],
+   "fingerprint": "c06a71ada00359686f0c4482787ba08846ff4c6189fa4177c0e21dedaf6580e5"
+  },
+  {
+   "id": "tax-s1314-d21x",
+   "anchor": "S1314:D21X",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 1.0009,
+   "amount": 27944.0,
+   "nodeCount": 5,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1314"
+   ],
+   "fingerprint": "b42199b355066704764233aa5f9e8656addaf976bbc1cca1a0b231f5025f3c39"
+  },
+  {
+   "id": "tax-s1314-d29",
+   "anchor": "S1314:D29",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.9999,
+   "amount": 34733.0,
+   "nodeCount": 4,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1314"
+   ],
+   "fingerprint": "cb541aa7f531af68fd907a5051fcb2acd89be4c50dadd1e902f1e579d3aad0fa"
+  },
+  {
+   "id": "tax-s1314-d61",
+   "anchor": "S1314:D61",
+   "basis": "SEC2010",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": 0.9969,
+   "amount": 424447.0,
+   "nodeCount": 8,
+   "sourceRows": 83,
+   "source": "Eurostat / gov_10a_taxag",
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag?format=JSON&lang=FR&geo=FR&time=2024&unit=MIO_EUR&sector=S1314"
+   ],
+   "fingerprint": "d67558b18edab2772255d53f2a42f029fa51d17140572c5dc84f6c8049db4bd2"
+  },
+  {
+   "id": "taxes-affectees",
+   "anchor": "S1311",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "officiel",
+   "coverage": null,
+   "amount": 20788.94,
+   "nodeCount": 97,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "c473ad6a5929403559eee18b7d214151e0e71a2d2fcd3349e8bb0133dd29b028"
+  },
+  {
+   "id": "taxes-affectees-gf01",
+   "anchor": "S1311:GF01",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 286.73,
+   "nodeCount": 6,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "629af140fd91ba95ecfdb0ccf6e14f078a4e46cf4528e78266586c38ddc3b8a7"
+  },
+  {
+   "id": "taxes-affectees-gf0101",
+   "anchor": "S1311:GF0101",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 286.73,
+   "nodeCount": 6,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "629af140fd91ba95ecfdb0ccf6e14f078a4e46cf4528e78266586c38ddc3b8a7"
+  },
+  {
+   "id": "taxes-affectees-gf03",
+   "anchor": "S1311:GF03",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 29.3,
+   "nodeCount": 4,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "76a698aeeb0d4db69d3e1415a70818156884bcf08488ce2cc56a46d7a582a46d"
+  },
+  {
+   "id": "taxes-affectees-gf04",
+   "anchor": "S1311:GF04",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 16632.95,
+   "nodeCount": 61,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "23c0211d32d8487d67d68fcfc3619ef3fa9c6e3d76df08243b1bc5d15d78a120"
+  },
+  {
+   "id": "taxes-affectees-gf0401",
+   "anchor": "S1311:GF0401",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 11749.52,
+   "nodeCount": 16,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "7768f09858a1598e0c0c1126e29191165d2efb6a6c495e3b6649190e45fd3746"
+  },
+  {
+   "id": "taxes-affectees-gf0402",
+   "anchor": "S1311:GF0402",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 496.26,
+   "nodeCount": 18,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b196e0ebe8201a94516bda6381287b4f7436c539de1de2a67291512254a5ae7f"
+  },
+  {
+   "id": "taxes-affectees-gf0403",
+   "anchor": "S1311:GF0403",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 55.0,
+   "nodeCount": 2,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "c7c87589706fdb6d35272d626b6345372b3cbeaa99156fb0d998f3a0e1f94f5f"
+  },
+  {
+   "id": "taxes-affectees-gf0405",
+   "anchor": "S1311:GF0405",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 4092.17,
+   "nodeCount": 23,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "294ca0037945e8ccd2ed666a3732f54de44b4e894d1e21815dfc7d95b176f64f"
+  },
+  {
+   "id": "taxes-affectees-gf0408",
+   "anchor": "S1311:GF0408",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 240.0,
+   "nodeCount": 2,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "c42454345a3fca4aba88df0a587be5cbcc2ec567814c01be98a0e4d32179d740"
+  },
+  {
+   "id": "taxes-affectees-gf05",
+   "anchor": "S1311:GF05",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 2387.62,
+   "nodeCount": 4,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b5d6a62148732e38b7c560b9f5a73891a2263eb82307484efa9e74d1ca994f18"
+  },
+  {
+   "id": "taxes-affectees-gf0504",
+   "anchor": "S1311:GF0504",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 2387.62,
+   "nodeCount": 4,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "b5d6a62148732e38b7c560b9f5a73891a2263eb82307484efa9e74d1ca994f18"
+  },
+  {
+   "id": "taxes-affectees-gf06",
+   "anchor": "S1311:GF06",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 1033.24,
+   "nodeCount": 11,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "c12c126d4dd024f644c21c2dc9ac3f20d9cb1b5271b6141cd763af684c1c6b5c"
+  },
+  {
+   "id": "taxes-affectees-gf0601",
+   "anchor": "S1311:GF0601",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 1033.24,
+   "nodeCount": 11,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "c12c126d4dd024f644c21c2dc9ac3f20d9cb1b5271b6141cd763af684c1c6b5c"
+  },
+  {
+   "id": "taxes-affectees-gf08",
+   "anchor": "S1311:GF08",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 242.1,
+   "nodeCount": 9,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "ecadfa02af0c8a2022c53aaf0b09bcf444a0ea6fa304b304a191ce9ba6954a62"
+  },
+  {
+   "id": "taxes-affectees-gf0801",
+   "anchor": "S1311:GF0801",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 166.1,
+   "nodeCount": 4,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "cc65d05f0c92a34d10a295afd8210beffd3cf4217ee3569b40f13ec16ea60cb6"
+  },
+  {
+   "id": "taxes-affectees-gf0802",
+   "anchor": "S1311:GF0802",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 58.0,
+   "nodeCount": 4,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "bd93f010b531743d048300add85d5318e120cb321ddc900c34a172920f113408"
+  },
+  {
+   "id": "taxes-affectees-gf0803",
+   "anchor": "S1311:GF0803",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 18.0,
+   "nodeCount": 2,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "7ca569b4cacc6910259b24b56b32363d3ca3aab2c890a7851fb7d72b8215ae8b"
+  },
+  {
+   "id": "taxes-affectees-gf09",
+   "anchor": "S1311:GF09",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 177.0,
+   "nodeCount": 2,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "8a3aa324a318e880a6175dbecf73cb63551f5195b48cbd8b12c902353097ad56"
+  },
+  {
+   "id": "taxes-affectees-gf0904",
+   "anchor": "S1311:GF0904",
+   "basis": "FISC",
+   "year": 2024,
+   "mapping": "éditorial",
+   "coverage": null,
+   "amount": 177.0,
+   "nodeCount": 2,
+   "sourceRows": 64,
+   "source": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json?limit=-1&where=type_depense%3D%27Taxes+affect%C3%A9es+plafonn%C3%A9es%27&select=mission%2Cnumero_programme%2Cprogramme%2Ccode_depense%2Clibelle%2Caffectataire_si_taxe_affectee%2Cexecution_2024_cp"
+   ],
+   "fingerprint": "8a3aa324a318e880a6175dbecf73cb63551f5195b48cbd8b12c902353097ad56"
+  }
+ ]
+}

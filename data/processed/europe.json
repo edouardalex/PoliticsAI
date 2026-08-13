@@ -3,7 +3,7 @@
   "source": "Eurostat — dépenses des administrations publiques par fonction (gov_10a_exp)",
   "unit": "PC_GDP",
   "sector": "S13 (consolidé)",
-  "extracted": "2026-08-12",
+  "extracted": "2026-08-13",
   "note": "Millésime le plus récent disponible par pays (2024, sinon 2023)."
  },
  "countries": [

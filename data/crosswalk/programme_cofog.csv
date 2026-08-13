@@ -1,0 +1,191 @@
+﻿# Correspondance programmes LOLF → fonctions COFOG (CFAP)
+#
+# Il n'existe aucune table officielle publiée qui relie les programmes du budget
+# de l'État aux fonctions de la comptabilité nationale : l'Insee opère ce
+# rattachement en interne, sans le diffuser. Cette table est donc UNE
+# CONSTRUCTION ÉDITORIALE de PoliticsAI. Elle est publiée ici pour être
+# contestable ligne à ligne.
+#
+# Règle suivie : on ne descend au niveau 2 (GFxxxx) que lorsque le rattachement
+# est univoque. Dans le doute, on reste au niveau 1 (GFxx), qui est presque
+# toujours certain. La colonne `confiance` dit ce qu'il en est :
+#   haute   — l'objet du programme correspond directement à la fonction
+#   moyenne — rattachement raisonnable, mais le programme est composite
+#   basse   — programme transversal ou de soutien, rattachement conventionnel
+#
+# Les montants, eux, ne sont jamais retouchés : ils viennent tels quels de la
+# source budgétaire. Seul le rangement est de notre fait.
+#
+# Colonnes : programme,cofog,confiance,note
+programme,cofog,confiance,note
+# ————— Retraites et régimes spéciaux —————
+741,GF1002,haute,Pensions civiles et militaires de retraite
+742,GF1002,haute,Ouvriers des établissements industriels de l'État
+198,GF1002,haute,Régimes de retraite des transports terrestres
+195,GF1002,haute,Régimes de retraite des mines et de la SEITA
+197,GF1002,haute,Régimes de retraite des marins
+# ————— Transferts généraux —————
+PSRCT,GF0108,moyenne,Prélèvement sur recettes au profit des collectivités ; une partie (FCTVA notamment) est classée ailleurs en comptabilité nationale
+PSRUE,GF01,moyenne,Contribution au budget de l'Union européenne ; le niveau 2 exact est incertain
+119,GF0108,haute,Concours financiers aux collectivités territoriales
+122,GF0108,haute,Concours spécifiques aux collectivités
+# ————— Enseignement —————
+140,GF0901,haute,Enseignement public du premier degré
+141,GF0902,haute,Enseignement public du second degré
+139,GF09,moyenne,Enseignement privé du premier ET du second degrés : les deux niveaux sont mêlés
+230,GF0906,moyenne,Vie de l'élève : santé scolaire, accompagnement, restauration
+214,GF09,basse,Soutien de la politique de l'éducation nationale (fonction support)
+143,GF0902,haute,Enseignement technique agricole
+150,GF0904,moyenne,Formations supérieures ET recherche universitaire : la comptabilité nationale range la part recherche en recherche fondamentale — d'où une vue qui dépasse la fonction
+231,GF0906,moyenne,Vie étudiante : bourses et œuvres universitaires
+142,GF0904,haute,Enseignement supérieur et recherche agricoles
+421,GF09,moyenne,France 2030 — enseignement et recherche
+# ————— Recherche —————
+172,GF0104,haute,Recherches scientifiques et technologiques pluridisciplinaires
+193,GF0408,moyenne,Recherche spatiale ; rattachée à la R&D des affaires économiques
+190,GF0408,moyenne,Recherche énergie et mobilité durable
+192,GF0408,moyenne,Recherche en matière économique et industrielle
+191,GF0204,haute,Recherche duale civile et militaire
+776,GF0402,haute,Recherche appliquée en agriculture
+775,GF0402,haute,Développement et transfert en agriculture
+# ————— Défense —————
+146,GF0201,haute,Équipement des forces
+178,GF0201,haute,Préparation et emploi des forces
+212,GF02,basse,Soutien de la politique de la défense (fonction support)
+144,GF02,moyenne,Environnement et prospective de la politique de défense
+169,GF02,moyenne,Liens entre la Nation et son armée ; inclut des pensions d'anciens combattants
+158,GF10,moyenne,Indemnisation des victimes de persécutions : prestation de réparation
+# ————— Ordre et sécurité —————
+176,GF0301,haute,Police nationale
+152,GF0301,haute,Gendarmerie nationale
+207,GF0301,moyenne,Sécurité et éducation routières
+751,GF0301,moyenne,Structures et dispositifs de sécurité routière
+753,GF0301,moyenne,Contrôle de la circulation et du stationnement
+161,GF0302,haute,Sécurité civile
+107,GF0304,haute,Administration pénitentiaire
+166,GF0303,haute,Justice judiciaire
+101,GF0303,haute,Accès au droit et à la justice
+182,GF0303,moyenne,Protection judiciaire de la jeunesse
+310,GF03,basse,Conduite et pilotage de la politique de la justice (fonction support)
+335,GF0303,haute,Conseil supérieur de la magistrature
+165,GF0303,haute,Conseil d'État et juridictions administratives
+# ————— Affaires économiques —————
+203,GF0405,haute,Infrastructures et services de transports
+205,GF0405,haute,Affaires maritimes et pêche
+612,GF0405,haute,Navigation aérienne
+613,GF0405,haute,Soutien aux prestations de l'aviation civile
+614,GF0405,haute,Transports aériens et certification
+754,GF0405,moyenne,Contribution à l'équipement des collectivités pour les transports en commun
+134,GF0401,haute,Développement des entreprises et régulations
+305,GF0401,moyenne,Stratégies économiques
+220,GF0401,moyenne,Statistiques et études économiques (Insee)
+302,GF0401,moyenne,Douanes : facilitation et sécurisation des échanges
+343,GF0406,haute,Plan France Très haut débit
+149,GF0402,haute,Compétitivité et durabilité de l'agriculture
+206,GF0402,haute,Sécurité sanitaire de l'alimentation
+215,GF0402,basse,Conduite et pilotage des politiques de l'agriculture (fonction support)
+381,GF0402,haute,Allègements du coût du travail en agriculture
+174,GF0403,haute,Énergie, climat et après-mines
+345,GF0403,haute,Service public de l'énergie
+793,GF0403,haute,Électrification rurale
+794,GF0403,haute,Maîtrise de la demande d'électricité outre-mer
+102,GF0401,haute,Accès et retour à l'emploi
+103,GF0401,haute,Accompagnement des mutations économiques et emploi
+111,GF0401,haute,Qualité de l'emploi et relations du travail
+138,GF0401,haute,Emploi outre-mer : allègements de cotisations
+424,GF04,moyenne,France 2030 — investissements stratégiques
+425,GF04,moyenne,France 2030 — écosystèmes d'innovation
+422,GF04,moyenne,France 2030 — valorisation de la recherche
+423,GF04,moyenne,France 2030 — modernisation des entreprises
+363,GF04,moyenne,Plan de relance — volet compétitivité
+112,GF04,moyenne,Aménagement du territoire
+162,GF04,basse,Interventions territoriales de l'État : programme composite
+# ————— Environnement —————
+113,GF0504,haute,Paysages, eau et biodiversité
+181,GF05,moyenne,Prévention des risques naturels et technologiques
+235,GF05,moyenne,Sûreté nucléaire et radioprotection
+380,GF05,moyenne,Fonds vert : transition écologique dans les territoires
+362,GF05,moyenne,Plan de relance — volet écologie
+159,GF05,basse,Expertise, information géographique et météorologie
+217,GF05,basse,Conduite et pilotage des politiques de l'écologie (fonction support)
+# ————— Logement, ville, outre-mer —————
+109,GF1006,haute,Aides personnelles au logement : prestation sociale de logement
+177,GF1006,haute,Hébergement d'urgence et accès au logement
+135,GF0601,haute,Urbanisme et amélioration de l'habitat
+147,GF06,moyenne,Politique de la ville
+123,GF06,basse,Conditions de vie outre-mer : programme composite (logement, aménagement, social)
+# ————— Santé —————
+204,GF0704,haute,Prévention, sécurité sanitaire et offre de soins
+183,GF07,moyenne,Protection maladie : aide médicale de l'État
+379,GF07,moyenne,Compensations à la sécurité sociale (vaccins, Ségur investissement)
+# ————— Culture, sport, médias —————
+175,GF0802,haute,Patrimoines
+131,GF0802,haute,Création artistique
+361,GF0802,moyenne,Transmission des savoirs et démocratisation de la culture
+224,GF08,basse,Soutien aux politiques du ministère de la culture (fonction support)
+334,GF0802,moyenne,Livre et industries culturelles
+180,GF0803,haute,Presse et médias
+841,GF0803,haute,France Télévisions
+842,GF0803,haute,ARTE France
+843,GF0803,haute,Radio France
+844,GF0803,haute,France Médias Monde
+845,GF0803,haute,Institut national de l'audiovisuel
+847,GF0803,haute,TV5 Monde
+848,GF0803,haute,Audiovisuel public — transformation
+372,GF0803,haute,France Télévisions
+373,GF0803,haute,ARTE France
+374,GF0803,haute,Radio France
+375,GF0803,haute,France Médias Monde
+376,GF0803,haute,Institut national de l'audiovisuel
+377,GF0803,haute,TV5 Monde
+383,GF0803,haute,Audiovisuel public — programme de transformation
+219,GF0801,haute,Sport
+163,GF0801,moyenne,Jeunesse et vie associative
+350,GF0801,haute,Jeux olympiques et paralympiques 2024
+385,GF0801,haute,Jeux olympiques et paralympiques d'hiver
+# ————— Protection sociale —————
+157,GF1001,haute,Handicap et dépendance : AAH et prestations d'invalidité
+304,GF1007,haute,Inclusion sociale : prime d'activité, RSA recentralisé
+137,GF10,moyenne,Égalité entre les femmes et les hommes
+124,GF10,basse,Conduite et soutien des politiques sanitaires et sociales (fonction support)
+104,GF10,moyenne,Intégration et accès à la nationalité française
+303,GF10,moyenne,Immigration et asile : l'essentiel est l'allocation et l'hébergement des demandeurs
+155,GF10,basse,Soutien des ministères sociaux (fonction support)
+364,GF10,moyenne,Plan de relance — volet cohésion
+# ————— Services généraux —————
+156,GF0101,haute,Gestion fiscale et financière de l'État
+218,GF0101,basse,Conduite et pilotage des politiques économiques et financières
+354,GF0101,moyenne,Administration territoriale de l'État (préfectures)
+216,GF0101,basse,Conduite et pilotage des politiques de l'intérieur
+232,GF0101,haute,Vie politique : organisation des élections
+129,GF0101,moyenne,Coordination du travail gouvernemental
+308,GF0101,moyenne,Protection des droits et libertés
+164,GF0101,haute,Haut Conseil des finances publiques
+126,GF0101,haute,Conseil économique, social et environnemental
+501,GF0101,haute,Présidence de la République
+511,GF0101,haute,Assemblée nationale
+521,GF0101,haute,Sénat
+531,GF0101,haute,Conseil constitutionnel
+533,GF0101,haute,Cour de justice de la République
+541,GF0101,haute,La Chaîne parlementaire
+105,GF0101,haute,Action de la France en Europe et dans le monde (affaires étrangères)
+151,GF0101,haute,Français à l'étranger et affaires consulaires
+185,GF0101,moyenne,Diplomatie culturelle et d'influence
+209,GF0102,haute,Solidarité à l'égard des pays en développement
+110,GF0102,haute,Aide économique et financière au développement
+384,GF0102,haute,Fonds de solidarité pour le développement
+365,GF0102,haute,Renforcement des fonds propres de l'AFD
+114,GF0101,moyenne,Appels en garantie de l'État
+145,GF0101,moyenne,Épargne : primes d'épargne logement
+344,GF0101,moyenne,Fonds de soutien aux emprunts structurés à risque
+336,GF0101,moyenne,Dotation du Mécanisme européen de stabilité
+348,GF0103,moyenne,Bâtiments de l'État : performance et résilience
+723,GF0103,moyenne,Opérations immobilières et entretien des bâtiments de l'État
+148,GF0103,basse,Fonds d'accompagnement interministériel RH
+349,GF0103,basse,Transformation publique
+352,GF0103,basse,Innovation et transformation numériques
+368,GF0103,basse,Conduite et pilotage de la transformation publique
+623,GF0103,moyenne,Édition et diffusion des publications officielles
+624,GF0103,basse,Publications officielles — pilotage et ressources humaines
+551,GF0106,basse,Provision relative aux rémunérations publiques (crédits non répartis)
+552,GF0106,basse,Dépenses accidentelles et imprévisibles (crédits non répartis)

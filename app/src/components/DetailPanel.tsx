@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { REDUCED_MOTION } from '../lib/motionPrefs';
-import type { Perimeter, PerimeterId } from '../lib/data';
-import { getFunction, EUROPE } from '../lib/data';
+import type { Nature, Perimeter, PerimeterId } from '../lib/data';
+import { getFunction, EUROPE, FRANCE } from '../lib/data';
 import { fmtAmount, fmtInMode, fmtShare, fmtPct, type DisplayMode, type ModeContext } from '../lib/format';
 import { pickEquivalences } from '../lib/equivalences';
 import { functionColor, REVENUE_COLOR, DEFICIT_COLOR, SPINE_COLOR, SURPLUS_COLOR } from '../lib/palette';
 import { FUNCTION_INFO, REVENUE_INFO, DEFICIT_INFO, SURPLUS_INFO, SPINE_INFO } from '../content/text';
+import { deepViewsForNode, type AnchoredView, type DeepViewSummary } from '../lib/deep';
+import DeepDive from './DeepDive';
 
 interface Props {
   perimeter: Perimeter;
@@ -30,13 +33,14 @@ interface Entity {
   parentLabel?: string;
   merged?: { label: string; value: number }[];
   official?: string;
+  natures?: Nature[];
 }
 
 function resolve(perimeter: Perimeter, id: string): Entity | null {
   if (id === 'SPINE') {
     return {
       kind: 'spine', code: id, label: SPINE_INFO.short, value: perimeter.expenditureTotal,
-      color: SPINE_COLOR, description: SPINE_INFO.description,
+      color: SPINE_COLOR, description: SPINE_INFO.description, natures: perimeter.natures,
     };
   }
   if (id === 'DEFICIT') {
@@ -58,7 +62,7 @@ function resolve(perimeter: Perimeter, id: string): Entity | null {
     return {
       kind: 'function', code: id, label: info?.short ?? f.label, value: f.value,
       color: functionColor(id), description: info?.description, examples: info?.examples,
-      official: f.label,
+      official: f.label, natures: f.natures,
     };
   }
   if (/^GF\d{2}/.test(id)) {
@@ -80,6 +84,7 @@ function resolve(perimeter: Perimeter, id: string): Entity | null {
     return {
       kind: 'child', code: id, label: c.label, value: c.value,
       color: functionColor(parentCode), parentCode, parentLabel: info?.short ?? f.label,
+      natures: c.natures,
     };
   }
   const r = perimeter.revenues.find((rv) => rv.code === id);
@@ -93,9 +98,19 @@ function resolve(perimeter: Perimeter, id: string): Entity | null {
   return null;
 }
 
-export default function DetailPanel({ perimeter, mode, selected, onClose, onZoom, onSelect, onShare }: Props) {
+export default function DetailPanel({ perimeter, perimeterId, mode, selected, onClose, onZoom, onSelect, onShare }: Props) {
   const entity = selected ? resolve(perimeter, selected) : null;
   const ctx: ModeContext = { refTotal: perimeter.expenditureTotal, gdp: perimeter.gdp };
+  const [dive, setDive] = useState<DeepViewSummary | null>(null);
+
+  const drillable =
+    entity?.kind === 'spine' ||
+    entity?.kind === 'function' ||
+    entity?.kind === 'child' ||
+    entity?.kind === 'revenue';
+  const views: AnchoredView[] = drillable
+    ? deepViewsForNode(perimeterId, entity.kind === 'spine' ? null : entity.code)
+    : [];
 
   return (
     <AnimatePresence>
@@ -152,6 +167,14 @@ export default function DetailPanel({ perimeter, mode, selected, onClose, onZoom
 
           {entity.kind === 'deficit' && <DeficitFacts perimeter={perimeter} />}
 
+          {entity.natures && entity.natures.length > 1 && (
+            <NatureBreakdown natures={entity.natures} total={entity.value} />
+          )}
+
+          {views.length > 0 && (
+            <DeepEntry views={views} onOpen={setDive} />
+          )}
+
           <Equivalences value={entity.value} />
 
           <div className="dp-foot">
@@ -164,7 +187,84 @@ export default function DetailPanel({ perimeter, mode, selected, onClose, onZoom
           </div>
         </motion.aside>
       )}
+      {dive && entity && (
+        <DeepDive
+          key={dive.id}
+          view={dive}
+          parentLabel={entity.label}
+          parentColor={entity.color}
+          onClose={() => setDive(null)}
+        />
+      )}
     </AnimatePresence>
+  );
+}
+
+/* — Décomposition par nature : la deuxième dimension, exactement additive —
+   Même source, même millésime, même consolidation que le montant affiché :
+   c'est la seule descente qui ne change pas de référentiel. */
+function NatureBreakdown({ natures, total }: { natures: Nature[]; total: number }) {
+  const max = Math.max(...natures.map((n) => Math.abs(n.value)));
+  return (
+    <div className="dp-block">
+      <h3 className="dp-block-title">Sur quoi part cet argent</h3>
+      <ul className="nat-list">
+        {natures.map((n) => (
+          <li key={n.code} className={n.value < 0 ? 'neg' : ''}>
+            <span className="nat-label" title={n.detail}>{n.label}</span>
+            <span className="nat-track">
+              <span className="nat-bar" style={{ width: `${(Math.abs(n.value) / max) * 100}%` }} />
+            </span>
+            <span className="nat-value">
+              {fmtAmount(n.value)}
+              <em>{fmtShare(Math.abs(n.value), Math.abs(total))}</em>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="dp-eq-note">
+        Nature des opérations (SEC 2010). La somme reconstitue exactement le total ci-dessus.
+      </p>
+    </div>
+  );
+}
+
+/* — Entrée vers les vues qui changent de source — */
+function DeepEntry({
+  views,
+  onOpen,
+}: {
+  views: AnchoredView[];
+  onOpen: (v: DeepViewSummary) => void;
+}) {
+  return (
+    <div className="dp-block">
+      <h3 className="dp-block-title">Descendre plus bas</h3>
+      <ul className="deep-entry">
+        {views.map(({ view: v, fromPerimeter }) => (
+          <li key={v.id}>
+            <button onClick={() => onOpen(v)}>
+              <span className="de-title">{v.title}</span>
+              {fromPerimeter && (
+                <span className="de-scope">
+                  Sur le périmètre « {FRANCE.perimeters[fromPerimeter].label} »
+                </span>
+              )}
+              <span className="de-meta">
+                {v.sourceName.split('(')[0].trim()} · {v.year} ·{' '}
+                {v.nodeCount.toLocaleString('fr-FR')} lignes
+                {v.coverage != null &&
+                  ` · ${Math.round(v.coverage * 100)} % de ${fromPerimeter ? 'ce périmètre' : 'cette ligne'}`}
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      <p className="dp-eq-note">
+        Ces vues viennent d'une autre comptabilité que celle du diagramme : les totaux ne
+        coïncident pas, et c'est normal.
+      </p>
+    </div>
   );
 }
 
