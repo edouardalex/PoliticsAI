@@ -42,6 +42,40 @@
    "fingerprint": "65448a3b90d5e03956719cacc3bedffcf28338f6c14b4c9e5e7e69cd8b22b3d3"
   },
   {
+   "id": "decp-entreprises",
+   "anchor": "S13",
+   "basis": "DECP",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 73025.94,
+   "nodeCount": 31848,
+   "sourceRows": 85945,
+   "source": "data.economie.gouv.fr / decp_augmente",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E0+and+montant%3C%3D1000000000&select=id%2Cobjetmarche%2Cmontant%2Ccodecpv_division%2Creferencecpv%2Cdenominationunitelegale%2Csiretetablissement%2Cnomacheteur%2Ccommuneetablissement%2Cnature%2Cdatenotification",
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E1000000000&select=id%2Cmontant"
+   ],
+   "fingerprint": "b59174bf1c75b3b164d22041eb57d8b31510153e67d06383c05edb26b9e617c0"
+  },
+  {
+   "id": "decp-plus-gros",
+   "anchor": "S13",
+   "basis": "DECP",
+   "year": 2023,
+   "mapping": "dérivé",
+   "coverage": null,
+   "amount": 33249.98,
+   "nodeCount": 500,
+   "sourceRows": 85945,
+   "source": "data.economie.gouv.fr / decp_augmente",
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E0+and+montant%3C%3D1000000000&select=id%2Cobjetmarche%2Cmontant%2Ccodecpv_division%2Creferencecpv%2Cdenominationunitelegale%2Csiretetablissement%2Cnomacheteur%2Ccommuneetablissement%2Cnature%2Cdatenotification",
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E1000000000&select=id%2Cmontant"
+   ],
+   "fingerprint": "ce086d7c97f13b73c7f17effc00e8d54e65ad952524794f81cd65e6370f3b01a"
+  },
+  {
    "id": "depenses-fiscales",
    "anchor": "S1311",
    "basis": "FISC",

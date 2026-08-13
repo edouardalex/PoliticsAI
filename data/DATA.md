@@ -47,6 +47,7 @@ totaux ; ce qui n'est pas expliqué reste affiché comme tel.
 | **OFGL** — `data.ofgl.fr` | Dépense locale par niveau de collectivité et par nature, puis annuaire de 34 869 communes en €/habitant | `dérivé` |
 | **ESSPROS** — Eurostat `spr_exp_f*` | 8 fonctions de protection sociale décomposées en prestations nommées, avec l'axe « sous / sans conditions de ressources » | `dérivé` |
 | **Agrégats fiscaux** — Eurostat `gov_10a_taxag` | Nomenclature fiscale complète du SEC 2010 : accises, taxes sur les assurances, cotisations par type de payeur, droits de succession | `officiel` |
+| **Commande publique** — `decp_augmente` | 72 286 marchés notifiés en 2023, par catégorie d'achat puis par entreprise titulaire nommée | `dérivé` |
 
 `mapping` vaut `officiel` (ventilation publiée telle quelle), `dérivé`
 (recomposée mécaniquement depuis les codes de la source) ou `éditorial`
@@ -109,6 +110,37 @@ l'impôt sur le revenu (275,0 Md€) et l'impôt sur les sociétés (83,7 Md€)
 des recettes — n'ont aucune ventilation de leur produit en donnée ouverte.**
 Le fichier des déclarations 2042 (`ir-declarations-2042-nat`) détaille l'assiette
 et les réductions d'impôt, pas le produit ; il ne comble donc pas ce trou.
+
+### La commande publique (palier 8)
+
+C'est le plancher de la donnée publique française : qui a signé quel marché,
+avec quel acheteur, pour quel montant. C'est aussi **la source la plus sale du
+projet**, et cela s'affiche dans la vue plutôt que de se corriger en silence.
+
+Ce que la source contient réellement, mesuré sur le millésime 2023 :
+
+- 87 340 lignes pour 72 339 identifiants de marché distincts ;
+- 98 % portent une raison sociale dans la version enrichie, contre **11 %** dans
+  la version brute — d'où le choix de `decp_augmente`, bien que son producteur
+  le marque « déprécié » ;
+- **27 lignes totalisent 69 818 Md€**, soit 24 fois le PIB français. Un marché
+  d'entretien d'espaces verts y figure à 100 000 milliards d'euros.
+
+Règle de filtrage, publiée et jamais silencieuse : on ne retient que les
+montants strictement positifs et inférieurs ou égaux à 1 Md€. Les 27 lignes
+écartées et les 13 632 doublons d'identifiant (lots, cotitulaires) sont comptés
+et annoncés dans la vue. Restent **72 286 marchés, 73,0 Md€, 31 512 entreprises
+titulaires**. Les codes de la nomenclature CPV retirée en 2008, encore présents
+dans certaines déclarations, sont regroupés sous un nœud qui les nomme comme
+tels plutôt que d'être déguisés en catégories.
+
+Ce que ces montants ne sont pas : **des paiements**. Un marché notifié est un
+engagement, parfois pluriannuel, parfois jamais consommé jusqu'à son plafond.
+Rien ne se rapproche d'une ligne de dépense exécutée et rien ne se rattache à
+une fonction COFOG. La déclaration n'est obligatoire qu'au-dessus de 40 000 € et
+reste lacunaire. Les raisons sociales viennent d'un rapprochement SIRENE opéré
+par le producteur du fichier, pas par nous : un SIRET mal saisi donne une
+entreprise mal nommée.
 
 ### Chorus
 

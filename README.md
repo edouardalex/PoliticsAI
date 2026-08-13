@@ -117,6 +117,10 @@ rattachement. Ce qui n'est pas expliqué reste visible comme « non détaillé �
 Rien n'est remis à l'échelle pour faire coïncider les totaux — quand une vue
 dépasse son parent, l'application le dit plutôt que de le corriger.
 
+- **Commande publique → entreprise par entreprise** : 72 286 marchés notifiés
+  en 2023, par catégorie d'achat puis par titulaire nommé, plus les 500 plus
+  gros marchés un par un. Source assumée comme la plus sale du projet : la règle
+  de filtrage des montants aberrants est publiée avec la vue.
 - **Recettes → impôt par impôt** : cotisations par type de payeur, accises,
   taxes sur les assurances, droits de succession — la nomenclature fiscale du
   SEC 2010, dans la même source que le diagramme.
@@ -127,7 +131,7 @@ l'arbre publié et un **export CSV** dont l'en-tête reporte les trois. Le
 manifeste `data/processed/deep/manifest.json` récapitule les provenances et
 porte l'empreinte de la table de correspondance.
 
-Total : **5 829 nœuds** dans 120 vues, chargés à la demande.
+Total : **38 177 nœuds** dans 122 vues, chargés à la demande.
 
 ## La V1 — L'Explorateur
 

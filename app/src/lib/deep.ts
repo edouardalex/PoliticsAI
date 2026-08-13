@@ -10,7 +10,7 @@ import deepIndexRaw from '../../../data/processed/deep/index.json';
    ne porte que l'index.
    ———————————————————————————————————————————————— */
 
-export type Basis = 'SEC2010' | 'LOLF' | 'M57' | 'CNAM' | 'FISC' | 'ESSPROS';
+export type Basis = 'SEC2010' | 'LOLF' | 'M57' | 'CNAM' | 'FISC' | 'ESSPROS' | 'DECP';
 export type Mapping = 'officiel' | 'dérivé' | 'éditorial';
 
 export interface UnitCost {
@@ -223,6 +223,7 @@ export const BASIS_LABEL: Record<Basis, string> = {
   M57: 'Comptes des collectivités',
   CNAM: 'Remboursements d’assurance maladie',
   FISC: 'Chiffrage fiscal',
+  DECP: 'Marchés publics notifiés',
 };
 
 export const MAPPING_NOTE: Record<Mapping, string> = {

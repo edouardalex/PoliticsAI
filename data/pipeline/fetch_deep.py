@@ -20,6 +20,7 @@ import sys
 from pathlib import Path
 
 import deep_cnam
+import deep_decp
 import deep_esspros
 import deep_lolf
 import deep_ofgl
@@ -37,6 +38,7 @@ BUILDERS = {
     "taxexp": deep_taxexp.build,
     "ofgl": deep_ofgl.build,
     "tax": deep_tax.build,
+    "decp": deep_decp.build,
 }
 
 
