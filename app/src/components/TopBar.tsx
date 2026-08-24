@@ -21,6 +21,7 @@ const VIEWS: { id: ViewId; label: string }[] = [
   { id: 'simu', label: 'Le simulateur' },
   { id: 'europe', label: 'L’Europe' },
   { id: 'table', label: 'Le tableau' },
+  { id: 'data', label: 'Les données' },
 ];
 
 export default function TopBar({
@@ -76,7 +77,12 @@ export default function TopBar({
         </div>
       </div>
 
-      <div className="tb-row tb-sub" style={view === 'simu' ? { display: 'none' } : undefined}>
+      {/* Ni le simulateur ni la banque de données ne dépendent du périmètre
+          ni de l'unité d'affichage : la barre secondaire s'efface. */}
+      <div
+        className="tb-row tb-sub"
+        style={view === 'simu' || view === 'data' ? { display: 'none' } : undefined}
+      >
         <div className="perimeter-tabs" role="tablist" aria-label="Périmètre">
           {PERIMETER_IDS.map((p) => (
             <button

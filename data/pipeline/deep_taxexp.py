@@ -28,6 +28,10 @@ SOURCE = {
     "name": "Dépenses fiscales et taxes affectées, chiffrage 2024 (annexe « budget vert » au PLF 2026)",
     "dataset": "data.economie.gouv.fr / plf-2026-budget-vert",
     "url": "https://data.economie.gouv.fr/explore/dataset/plf-2026-budget-vert/",
+    "producer": "Direction du budget (ministères économiques et financiers)",
+    "licence": "Licence Ouverte v2.0 (Etalab)",
+    "cadence": "Annuelle, avec le projet de loi de finances (octobre)",
+    "brings": "Le budget invisible : 350 dispositifs fiscaux et 62 taxes affectées, chiffrés un par un.",
 }
 
 KINDS = {

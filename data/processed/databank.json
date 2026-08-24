@@ -1,0 +1,2484 @@
+{
+ "extracted": "2026-08-24",
+ "spineYear": 2024,
+ "stats": {
+  "sources": 7,
+  "views": 122,
+  "nodes": 38012,
+  "terminal": 36601,
+  "medianTerminal": 0.28,
+  "smallestTerminal": 0.01,
+  "maxDepth": 4,
+  "queries": 184,
+  "expenditure": 1671793.8,
+  "revenue": 1503590.1
+ },
+ "sources": [
+  {
+   "name": "Eurostat — comptes des administrations publiques (SEC 2010)",
+   "dataset": "Eurostat / gov_10a_exp · gov_10a_main · nama_10_gdp",
+   "url": "https://ec.europa.eu/eurostat/fr/web/government-finance-statistics",
+   "producer": "Eurostat (Commission européenne), alimenté pour la France par l'Insee",
+   "licence": "Réutilisation autorisée avec mention de la source (politique Eurostat)",
+   "cadence": "Annuelle",
+   "brings": "L'ossature : toute la dépense et toute la recette publiques, consolidées, par fonction et par nature d'opération.",
+   "basis": "SEC2010",
+   "role": "spine",
+   "views": 0,
+   "nodes": 224,
+   "terminal": 1389,
+   "years": [
+    2024
+   ],
+   "mappings": [
+    "officiel"
+   ],
+   "anchors": [],
+   "sourceRows": null,
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/"
+   ],
+   "basisLabel": "Comptabilité nationale, millésime 2024"
+  },
+  {
+   "key": "data.economie.gouv.fr / decp_augmente",
+   "name": "Données essentielles de la commande publique, version enrichie des raisons sociales",
+   "dataset": "data.economie.gouv.fr / decp_augmente",
+   "url": "https://data.economie.gouv.fr/explore/dataset/decp_augmente/",
+   "producer": "Ministères économiques et financiers, à partir des déclarations des acheteurs",
+   "licence": "Licence Ouverte v2.0 (Etalab)",
+   "cadence": "Irrégulière ; jeu marqué « déprécié » par son producteur",
+   "brings": "Le plancher : qui a signé quel marché, avec quel acheteur, pour quel montant.",
+   "basis": "DECP",
+   "basisLabel": "Marchés publics notifiés en 2023 (montants engagés)",
+   "role": "zoom",
+   "views": 2,
+   "nodes": 32183,
+   "terminal": 32120,
+   "years": [
+    2023
+   ],
+   "mappings": [
+    "dérivé"
+   ],
+   "anchors": [
+    "S13"
+   ],
+   "sourceRows": 85945,
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json"
+   ]
+  },
+  {
+   "key": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "name": "Dépenses fiscales et taxes affectées, chiffrage 2024 (annexe « budget vert » au PLF 2026)",
+   "dataset": "data.economie.gouv.fr / plf-2026-budget-vert",
+   "url": "https://data.economie.gouv.fr/explore/dataset/plf-2026-budget-vert/",
+   "producer": "Direction du budget (ministères économiques et financiers)",
+   "licence": "Licence Ouverte v2.0 (Etalab)",
+   "cadence": "Annuelle, avec le projet de loi de finances (octobre)",
+   "brings": "Le budget invisible : 350 dispositifs fiscaux et 62 taxes affectées, chiffrés un par un.",
+   "basis": "FISC",
+   "basisLabel": "Chiffrage 2024 au titre de l'exercice",
+   "role": "zoom",
+   "views": 94,
+   "nodes": 4004,
+   "terminal": 3220,
+   "years": [
+    2024
+   ],
+   "mappings": [
+    "officiel",
+    "éditorial"
+   ],
+   "anchors": [
+    "S1311",
+    "S1311:GF01",
+    "S1311:GF0101",
+    "S1311:GF0102",
+    "S1311:GF0103",
+    "S1311:GF0104",
+    "S1311:GF0108",
+    "S1311:GF02",
+    "S1311:GF0201",
+    "S1311:GF0204",
+    "S1311:GF03",
+    "S1311:GF0301",
+    "S1311:GF0302",
+    "S1311:GF0303",
+    "S1311:GF0304",
+    "S1311:GF04",
+    "S1311:GF0401",
+    "S1311:GF0402",
+    "S1311:GF0403",
+    "S1311:GF0405",
+    "S1311:GF0406",
+    "S1311:GF0408",
+    "S1311:GF05",
+    "S1311:GF0504",
+    "S1311:GF06",
+    "S1311:GF0601",
+    "S1311:GF07",
+    "S1311:GF0704",
+    "S1311:GF08",
+    "S1311:GF0801",
+    "S1311:GF0802",
+    "S1311:GF0803",
+    "S1311:GF09",
+    "S1311:GF0901",
+    "S1311:GF0902",
+    "S1311:GF0904",
+    "S1311:GF0906",
+    "S1311:GF10",
+    "S1311:GF1001",
+    "S1311:GF1002",
+    "S1311:GF1006",
+    "S1311:GF1007"
+   ],
+   "sourceRows": 1269,
+   "queries": [
+    "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/exports/json"
+   ]
+  },
+  {
+   "key": "data.ameli.fr / depenses",
+   "name": "Assurance maladie (CNAM) — cartographie des pathologies et des dépenses",
+   "dataset": "data.ameli.fr / depenses",
+   "url": "https://data.ameli.fr/explore/dataset/depenses/",
+   "producer": "Caisse nationale de l'Assurance Maladie (CNAM)",
+   "licence": "Open Database License (ODbL)",
+   "cadence": "Annuelle",
+   "brings": "La seule ventilation officielle de la dépense de santé par maladie, avec le nombre de patients et le coût moyen par patient.",
+   "basis": "CNAM",
+   "basisLabel": "Dépenses remboursées, tous régimes d'assurance maladie",
+   "role": "zoom",
+   "views": 2,
+   "nodes": 1499,
+   "terminal": 1341,
+   "years": [
+    2024
+   ],
+   "mappings": [
+    "officiel"
+   ],
+   "anchors": [
+    "S1314:GF07",
+    "S1314:GF10"
+   ],
+   "sourceRows": 2160,
+   "queries": [
+    "https://data.ameli.fr/api/explore/v2.1/catalog/datasets/depenses/exports/json"
+   ]
+  },
+  {
+   "key": "Eurostat / spr_exp_f*",
+   "name": "Eurostat — système européen de statistiques intégrées de la protection sociale (ESSPROS)",
+   "dataset": "Eurostat / spr_exp_f*",
+   "url": "https://ec.europa.eu/eurostat/fr/web/social-protection/database",
+   "producer": "Eurostat (Commission européenne), alimenté pour la France par l'Insee",
+   "licence": "Réutilisation autorisée avec mention de la source (politique Eurostat)",
+   "cadence": "Annuelle",
+   "brings": "Les huit fonctions de protection sociale décomposées en prestations nommées, et la part versée sous conditions de ressources — que le COFOG ne dit pas.",
+   "basis": "ESSPROS",
+   "basisLabel": "Prestations de protection sociale, tous régimes, 2023",
+   "role": "zoom",
+   "views": 9,
+   "nodes": 170,
+   "terminal": 107,
+   "years": [
+    2023
+   ],
+   "mappings": [
+    "dérivé"
+   ],
+   "anchors": [
+    "S13:GF07",
+    "S13:GF10",
+    "S13:GF1001",
+    "S13:GF1002",
+    "S13:GF1003",
+    "S13:GF1004",
+    "S13:GF1005",
+    "S13:GF1006",
+    "S13:GF1007"
+   ],
+   "sourceRows": 91,
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fdi",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fex",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_ffa",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fho",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fol",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fsi",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fsu",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/spr_exp_fun"
+   ]
+  },
+  {
+   "key": "Eurostat / gov_10a_taxag",
+   "name": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+   "dataset": "Eurostat / gov_10a_taxag",
+   "url": "https://ec.europa.eu/eurostat/fr/web/government-finance-statistics",
+   "producer": "Eurostat (Commission européenne), alimenté pour la France par l'Insee",
+   "licence": "Réutilisation autorisée avec mention de la source (politique Eurostat)",
+   "cadence": "Annuelle",
+   "brings": "La nomenclature fiscale complète : accises, taxes sur les assurances, cotisations par type de payeur, droits de succession.",
+   "basis": "SEC2010",
+   "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+   "role": "zoom",
+   "views": 14,
+   "nodes": 96,
+   "terminal": 90,
+   "years": [
+    2024
+   ],
+   "mappings": [
+    "officiel"
+   ],
+   "anchors": [
+    "S1311:D21X",
+    "S1311:D29",
+    "S1311:D5X_D91",
+    "S1311:D61",
+    "S1313:D21X",
+    "S1313:D29",
+    "S1313:D5X_D91",
+    "S1314:D21X",
+    "S1314:D29",
+    "S1314:D61",
+    "S13:D21X",
+    "S13:D29",
+    "S13:D5X_D91",
+    "S13:D61"
+   ],
+   "sourceRows": 83,
+   "queries": [
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_taxag"
+   ]
+  },
+  {
+   "key": "data.ofgl.fr / comptes des collectivités",
+   "name": "Observatoire des finances et de la gestion publique locales (OFGL)",
+   "dataset": "data.ofgl.fr / comptes des collectivités",
+   "url": "https://data.ofgl.fr/explore/",
+   "producer": "Observatoire des finances et de la gestion publique locales",
+   "licence": "Licence Ouverte v2.0 (Etalab)",
+   "cadence": "Annuelle (comptes de gestion définitifs)",
+   "brings": "La dépense locale par niveau de collectivité, et les 34 869 communes en euros par habitant.",
+   "basis": "M57",
+   "basisLabel": "Comptes de gestion des collectivités, exercice 2024",
+   "role": "zoom",
+   "views": 1,
+   "nodes": 60,
+   "terminal": 45,
+   "years": [
+    2024
+   ],
+   "mappings": [
+    "dérivé"
+   ],
+   "anchors": [
+    "S1313"
+   ],
+   "sourceRows": 55,
+   "queries": [
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-communes/records",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-departements/records",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-gfp/records",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-regions/records",
+    "https://data.ofgl.fr/api/explore/v2.1/catalog/datasets/ofgl-base-syndicats/records"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "perimeter": "S13",
+   "label": "Toutes administrations publiques",
+   "total": 1671793.8,
+   "covered": 0.0,
+   "share": 0.0
+  },
+  {
+   "perimeter": "S1311",
+   "label": "État et organismes centraux",
+   "total": 670299.3,
+   "covered": 473175.3,
+   "share": 0.7059
+  },
+  {
+   "perimeter": "S1313",
+   "label": "Collectivités locales",
+   "total": 329745.6,
+   "covered": 324412.2,
+   "share": 0.9838
+  },
+  {
+   "perimeter": "S1314",
+   "label": "Administrations de sécurité sociale",
+   "total": 778426.9,
+   "covered": 212579.4,
+   "share": 0.2731
+  }
+ ],
+ "orchestration": [
+  {
+   "anchor": "S13:GF10",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Protection sociale",
+   "parentAmount": 693028.8,
+   "views": [
+    {
+     "id": "esspros-gf10",
+     "title": "Toute la protection sociale, prestation par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 621827.66,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 81,
+     "depth": 4
+    }
+   ]
+  },
+  {
+   "anchor": "S13:D61",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Cotisations sociales",
+   "parentAmount": 483631.0,
+   "views": [
+    {
+     "id": "tax-s13-d61",
+     "title": "Qui paie les cotisations sociales",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 482281.0,
+     "coverage": 0.9972,
+     "mapping": "officiel",
+     "nodes": 8,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1314:D61",
+   "perimeter": "S1314",
+   "perimeterLabel": "Administrations de sécurité sociale",
+   "label": "Cotisations sociales",
+   "parentAmount": 425788.0,
+   "views": [
+    {
+     "id": "tax-s1314-d61",
+     "title": "Qui paie les cotisations sociales",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 424447.0,
+     "coverage": 0.9969,
+     "mapping": "officiel",
+     "nodes": 8,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF1002",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Vieillesse",
+   "parentAmount": 391954.3,
+   "views": [
+    {
+     "id": "esspros-gf1002",
+     "title": "Vieillesse : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 357486.85,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 11,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1313",
+   "perimeter": "S1313",
+   "perimeterLabel": "Collectivités locales",
+   "label": "Collectivités locales",
+   "parentAmount": 329745.6,
+   "views": [
+    {
+     "id": "ofgl-collectivites",
+     "title": "Par niveau de collectivité et par nature",
+     "basis": "M57",
+     "year": 2024,
+     "amount": 324412.25,
+     "coverage": 0.9838,
+     "mapping": "dérivé",
+     "nodes": 60,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF07",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Santé",
+   "parentAmount": 261156.3,
+   "views": [
+    {
+     "id": "esspros-gf07",
+     "title": "Maladie et soins de santé : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 267651.26,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 15,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1314:GF07",
+   "perimeter": "S1314",
+   "perimeterLabel": "Administrations de sécurité sociale",
+   "label": "Santé",
+   "parentAmount": 250596.0,
+   "views": [
+    {
+     "id": "cnam-pathologies",
+     "title": "Par maladie et par type de soin",
+     "basis": "CNAM",
+     "year": 2024,
+     "amount": 180415.32,
+     "coverage": 0.7199,
+     "mapping": "officiel",
+     "nodes": 1240,
+     "depth": 4
+    }
+   ]
+  },
+  {
+   "anchor": "S13:D29",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Impôts sur la production",
+   "parentAmount": 129947.0,
+   "views": [
+    {
+     "id": "tax-s13-d29",
+     "title": "Les impôts sur la production",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 129947.0,
+     "coverage": 1.0,
+     "mapping": "officiel",
+     "nodes": 7,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF10",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Protection sociale",
+   "parentAmount": 143473.4,
+   "views": [
+    {
+     "id": "lolf-gf10",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 125639.3,
+     "coverage": 0.8757,
+     "mapping": "éditorial",
+     "nodes": 123,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf10",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 12661.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 32,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S13:D21X",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Accises et taxes sur les produits",
+   "parentAmount": 118433.0,
+   "views": [
+    {
+     "id": "tax-s13-d21x",
+     "title": "Les accises et taxes sur les produits",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 118323.0,
+     "coverage": 0.9991,
+     "mapping": "officiel",
+     "nodes": 11,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF01",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services généraux des administrations publiques",
+   "parentAmount": 160020.7,
+   "views": [
+    {
+     "id": "lolf-gf01",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 109594.62,
+     "coverage": 0.6849,
+     "mapping": "éditorial",
+     "nodes": 288,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf01",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 15376.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 36,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf01",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 286.73,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 6,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "État et organismes centraux",
+   "parentAmount": 670299.3,
+   "views": [
+    {
+     "id": "depenses-fiscales",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 89405.8,
+     "coverage": null,
+     "mapping": "officiel",
+     "nodes": 359,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 20788.94,
+     "coverage": null,
+     "mapping": "officiel",
+     "nodes": 97,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF09",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Enseignement",
+   "parentAmount": 106078.3,
+   "views": [
+    {
+     "id": "lolf-gf09",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 82858.37,
+     "coverage": 0.7811,
+     "mapping": "éditorial",
+     "nodes": 126,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf09",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 750.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 4,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf09",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 177.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S13",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Toutes administrations publiques",
+   "parentAmount": 1671793.8,
+   "views": [
+    {
+     "id": "decp-entreprises",
+     "title": "La commande publique, entreprise par entreprise",
+     "basis": "DECP",
+     "year": 2023,
+     "amount": 73042.13,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 31683,
+     "depth": 3
+    },
+    {
+     "id": "decp-plus-gros",
+     "title": "Les 500 plus gros marchés publics de 2023",
+     "basis": "DECP",
+     "year": 2023,
+     "amount": 33014.61,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 500,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF1002",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Vieillesse",
+   "parentAmount": 75642.2,
+   "views": [
+    {
+     "id": "lolf-gf1002",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 72669.25,
+     "coverage": 0.9607,
+     "mapping": "éditorial",
+     "nodes": 25,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1313:D29",
+   "perimeter": "S1313",
+   "perimeterLabel": "Collectivités locales",
+   "label": "Impôts sur la production",
+   "parentAmount": 69914.0,
+   "views": [
+    {
+     "id": "tax-s1313-d29",
+     "title": "Les impôts sur la production",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 69896.0,
+     "coverage": 0.9997,
+     "mapping": "officiel",
+     "nodes": 5,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF1004",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Famille et enfants",
+   "parentAmount": 66711.4,
+   "views": [
+    {
+     "id": "esspros-gf1004",
+     "title": "Famille et enfants : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 62858.38,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 14,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF1001",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Maladie et invalidité",
+   "parentAmount": 83898.9,
+   "views": [
+    {
+     "id": "esspros-gf1001",
+     "title": "Invalidité : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 58066.1,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 15,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:D61",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Cotisations sociales",
+   "parentAmount": 56937.0,
+   "views": [
+    {
+     "id": "tax-s1311-d61",
+     "title": "Qui paie les cotisations sociales",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 56929.0,
+     "coverage": 0.9999,
+     "mapping": "officiel",
+     "nodes": 5,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF04",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Affaires économiques",
+   "parentAmount": 123826.5,
+   "views": [
+    {
+     "id": "lolf-gf04",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 55424.68,
+     "coverage": 0.4476,
+     "mapping": "éditorial",
+     "nodes": 372,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf04",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 37629.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 151,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf04",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 16632.95,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 61,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0108",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Transferts de caractère général entre administrations publiques",
+   "parentAmount": 45697.7,
+   "views": [
+    {
+     "id": "lolf-gf0108",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 54601.45,
+     "coverage": 1.1948,
+     "mapping": "éditorial",
+     "nodes": 27,
+     "depth": 4
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF02",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Défense",
+   "parentAmount": 54201.6,
+   "views": [
+    {
+     "id": "lolf-gf02",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 49844.84,
+     "coverage": 0.9196,
+     "mapping": "éditorial",
+     "nodes": 240,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf02",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 736.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 9,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF1005",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Chômage",
+   "parentAmount": 48520.9,
+   "views": [
+    {
+     "id": "esspros-gf1005",
+     "title": "Chômage : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 49254.74,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 13,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1313:D21X",
+   "perimeter": "S1313",
+   "perimeterLabel": "Collectivités locales",
+   "label": "Accises et taxes sur les produits",
+   "parentAmount": 48753.0,
+   "views": [
+    {
+     "id": "tax-s1313-d21x",
+     "title": "Les accises et taxes sur les produits",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 48610.0,
+     "coverage": 0.9971,
+     "mapping": "officiel",
+     "nodes": 9,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF1003",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Survivants",
+   "parentAmount": 40608.3,
+   "views": [
+    {
+     "id": "esspros-gf1003",
+     "title": "Survie : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 43230.73,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 9,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:D21X",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Accises et taxes sur les produits",
+   "parentAmount": 41762.0,
+   "views": [
+    {
+     "id": "tax-s1311-d21x",
+     "title": "Les accises et taxes sur les produits",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 41769.0,
+     "coverage": 1.0002,
+     "mapping": "officiel",
+     "nodes": 11,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF1007",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Exclusion sociale n.c.a.",
+   "parentAmount": 36460.8,
+   "views": [
+    {
+     "id": "esspros-gf1007",
+     "title": "Exclusion sociale : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 35179.03,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 9,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1314:D29",
+   "perimeter": "S1314",
+   "perimeterLabel": "Administrations de sécurité sociale",
+   "label": "Impôts sur la production",
+   "parentAmount": 34735.0,
+   "views": [
+    {
+     "id": "tax-s1314-d29",
+     "title": "Les impôts sur la production",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 34733.0,
+     "coverage": 0.9999,
+     "mapping": "officiel",
+     "nodes": 4,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1314:GF10",
+   "perimeter": "S1314",
+   "perimeterLabel": "Administrations de sécurité sociale",
+   "label": "Protection sociale",
+   "parentAmount": 519366.7,
+   "views": [
+    {
+     "id": "cnam-especes",
+     "title": "Arrêts de travail, invalidité et rentes, par maladie",
+     "basis": "CNAM",
+     "year": 2024,
+     "amount": 32164.09,
+     "coverage": 0.0619,
+     "mapping": "officiel",
+     "nodes": 259,
+     "depth": 4
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0201",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Défense militaire",
+   "parentAmount": 47701.9,
+   "views": [
+    {
+     "id": "lolf-gf0201",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 30653.11,
+     "coverage": 0.6426,
+     "mapping": "éditorial",
+     "nodes": 125,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0201",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 121.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 3,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S13:D5X_D91",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Autres impôts (patrimoine, successions…)",
+   "parentAmount": 28473.0,
+   "views": [
+    {
+     "id": "tax-s13-d5x_d91",
+     "title": "Patrimoine, successions et autres impôts",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 28497.0,
+     "coverage": 1.0008,
+     "mapping": "officiel",
+     "nodes": 6,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0401",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Tutelle de l'économie générale, des échanges et de l'emploi",
+   "parentAmount": 50912.2,
+   "views": [
+    {
+     "id": "lolf-gf0401",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 28362.79,
+     "coverage": 0.5571,
+     "mapping": "éditorial",
+     "nodes": 98,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0401",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 24781.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 68,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0401",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 11749.52,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 16,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF03",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Ordre et sécurité publics",
+   "parentAmount": 42175.9,
+   "views": [
+    {
+     "id": "lolf-gf03",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 28173.42,
+     "coverage": 0.668,
+     "mapping": "éditorial",
+     "nodes": 123,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf03",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 107.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 5,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf03",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 29.3,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 4,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1314:D21X",
+   "perimeter": "S1314",
+   "perimeterLabel": "Administrations de sécurité sociale",
+   "label": "Accises et taxes sur les produits",
+   "parentAmount": 27918.0,
+   "views": [
+    {
+     "id": "tax-s1314-d21x",
+     "title": "Les accises et taxes sur les produits",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 27944.0,
+     "coverage": 1.0009,
+     "mapping": "officiel",
+     "nodes": 5,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0902",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Enseignement secondaire",
+   "parentAmount": 45012.9,
+   "views": [
+    {
+     "id": "lolf-gf0902",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 27869.86,
+     "coverage": 0.6192,
+     "mapping": "éditorial",
+     "nodes": 30,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:D29",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Impôts sur la production",
+   "parentAmount": 25298.0,
+   "views": [
+    {
+     "id": "tax-s1311-d29",
+     "title": "Les impôts sur la production",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 25298.0,
+     "coverage": 1.0,
+     "mapping": "officiel",
+     "nodes": 7,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:D5X_D91",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Autres impôts (patrimoine, successions…)",
+   "parentAmount": 24856.0,
+   "views": [
+    {
+     "id": "tax-s1311-d5x_d91",
+     "title": "Patrimoine, successions et autres impôts",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 24856.0,
+     "coverage": 1.0,
+     "mapping": "officiel",
+     "nodes": 7,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF1006",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Logement",
+   "parentAmount": 21539.9,
+   "views": [
+    {
+     "id": "lolf-gf1006",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 19247.74,
+     "coverage": 0.8936,
+     "mapping": "éditorial",
+     "nodes": 11,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf1006",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 199.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 3,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0101",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Fonctionnement des organes exécutifs et législatifs, affaires financières et fiscales, affaires étrangères",
+   "parentAmount": 40000.4,
+   "views": [
+    {
+     "id": "lolf-gf0101",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 18318.87,
+     "coverage": 0.458,
+     "mapping": "éditorial",
+     "nodes": 164,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0101",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 7516.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 31,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0101",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 286.73,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 6,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0901",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Enseignement préélémentaire et primaire",
+   "parentAmount": 27944.1,
+   "views": [
+    {
+     "id": "lolf-gf0901",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 17625.12,
+     "coverage": 0.6307,
+     "mapping": "éditorial",
+     "nodes": 12,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0301",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services de police",
+   "parentAmount": 25717.1,
+   "views": [
+    {
+     "id": "lolf-gf0301",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 17010.58,
+     "coverage": 0.6615,
+     "mapping": "éditorial",
+     "nodes": 59,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0301",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 15.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S13:GF1006",
+   "perimeter": "S13",
+   "perimeterLabel": "Toutes administrations publiques",
+   "label": "Logement",
+   "parentAmount": 21146.7,
+   "views": [
+    {
+     "id": "esspros-gf1006",
+     "title": "Logement : par prestation",
+     "basis": "ESSPROS",
+     "year": 2023,
+     "amount": 15751.83,
+     "coverage": null,
+     "mapping": "dérivé",
+     "nodes": 3,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0904",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Enseignement supérieur",
+   "parentAmount": 11914.4,
+   "views": [
+    {
+     "id": "lolf-gf0904",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 15320.35,
+     "coverage": 1.2859,
+     "mapping": "éditorial",
+     "nodes": 17,
+     "depth": 3
+    },
+    {
+     "id": "taxes-affectees-gf0904",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 177.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF1001",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Maladie et invalidité",
+   "parentAmount": 18047.1,
+   "views": [
+    {
+     "id": "depenses-fiscales-gf1001",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 6890.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 18,
+     "depth": 2
+    },
+    {
+     "id": "lolf-gf1001",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 15271.67,
+     "coverage": 0.8462,
+     "mapping": "éditorial",
+     "nodes": 5,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF06",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Logements et équipements collectifs",
+   "parentAmount": 7349.4,
+   "views": [
+    {
+     "id": "depenses-fiscales-gf06",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 14510.8,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 82,
+     "depth": 2
+    },
+    {
+     "id": "lolf-gf06",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 3728.17,
+     "coverage": 0.5073,
+     "mapping": "éditorial",
+     "nodes": 34,
+     "depth": 4
+    },
+    {
+     "id": "taxes-affectees-gf06",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 1033.24,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 11,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF1007",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Exclusion sociale n.c.a.",
+   "parentAmount": 19481.3,
+   "views": [
+    {
+     "id": "lolf-gf1007",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 14323.65,
+     "coverage": 0.7353,
+     "mapping": "éditorial",
+     "nodes": 14,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf1007",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 5572.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 13,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0906",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services annexes à l'enseignement",
+   "parentAmount": 14990.1,
+   "views": [
+    {
+     "id": "lolf-gf0906",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 10535.62,
+     "coverage": 0.7028,
+     "mapping": "éditorial",
+     "nodes": 21,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf0906",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 750.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 4,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF08",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Loisirs, culture et culte",
+   "parentAmount": 13758.7,
+   "views": [
+    {
+     "id": "lolf-gf08",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 9729.25,
+     "coverage": 0.7071,
+     "mapping": "éditorial",
+     "nodes": 118,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf08",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 6204.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 52,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf08",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 242.1,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 9,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0601",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Logements",
+   "parentAmount": 5474.6,
+   "views": [
+    {
+     "id": "depenses-fiscales-gf0601",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 9658.8,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 54,
+     "depth": 2
+    },
+    {
+     "id": "lolf-gf0601",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 2281.32,
+     "coverage": 0.4167,
+     "mapping": "éditorial",
+     "nodes": 14,
+     "depth": 4
+    },
+    {
+     "id": "taxes-affectees-gf0601",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 1033.24,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 11,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0104",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Recherche fondamentale",
+   "parentAmount": 19881.3,
+   "views": [
+    {
+     "id": "lolf-gf0104",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 7725.91,
+     "coverage": 0.3886,
+     "mapping": "éditorial",
+     "nodes": 14,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf0104",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 7859.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 5,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF05",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Protection de l'environnement",
+   "parentAmount": 5513.6,
+   "views": [
+    {
+     "id": "lolf-gf05",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 7010.0,
+     "coverage": 1.2714,
+     "mapping": "éditorial",
+     "nodes": 64,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf05",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 118.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 13,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf05",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 2387.62,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 4,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0405",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Transports",
+   "parentAmount": 25866.4,
+   "views": [
+    {
+     "id": "lolf-gf0405",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 6978.72,
+     "coverage": 0.2698,
+     "mapping": "éditorial",
+     "nodes": 51,
+     "depth": 4
+    },
+    {
+     "id": "taxes-affectees-gf0405",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 4092.17,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 23,
+     "depth": 2
+    },
+    {
+     "id": "depenses-fiscales-gf0405",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 2320.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 16,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0403",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Combustibles et énergie",
+   "parentAmount": 12880.6,
+   "views": [
+    {
+     "id": "lolf-gf0403",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 4433.07,
+     "coverage": 0.3442,
+     "mapping": "éditorial",
+     "nodes": 47,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0403",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 5923.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 32,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0403",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 55.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0303",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Tribunaux",
+   "parentAmount": 8351.9,
+   "views": [
+    {
+     "id": "lolf-gf0303",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 5740.26,
+     "coverage": 0.6873,
+     "mapping": "éditorial",
+     "nodes": 40,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf0303",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 13.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0102",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Aide économique extérieure",
+   "parentAmount": 4880.9,
+   "views": [
+    {
+     "id": "lolf-gf0102",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 5386.74,
+     "coverage": 1.1036,
+     "mapping": "éditorial",
+     "nodes": 37,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0102",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 1.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0402",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Agriculture, sylviculture, pêche et chasse",
+   "parentAmount": 4148.6,
+   "views": [
+    {
+     "id": "lolf-gf0402",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 4366.75,
+     "coverage": 1.0526,
+     "mapping": "éditorial",
+     "nodes": 46,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0402",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 3391.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 35,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0402",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 496.26,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 18,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0803",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services de radiodiffusion, de télévision et d'édition",
+   "parentAmount": 6506.3,
+   "views": [
+    {
+     "id": "lolf-gf0803",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 4340.34,
+     "coverage": 0.6671,
+     "mapping": "éditorial",
+     "nodes": 68,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0803",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 218.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 6,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0803",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 18.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0801",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services récréatifs et sportifs",
+   "parentAmount": 1197.7,
+   "views": [
+    {
+     "id": "lolf-gf0801",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 1479.71,
+     "coverage": 1.2355,
+     "mapping": "éditorial",
+     "nodes": 19,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf0801",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 4303.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 18,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0801",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 166.1,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 4,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0408",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "R & D concernant les affaires économiques",
+   "parentAmount": 21508.0,
+   "views": [
+    {
+     "id": "lolf-gf0408",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 4009.96,
+     "coverage": 0.1864,
+     "mapping": "éditorial",
+     "nodes": 29,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0408",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 396.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 7,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0408",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 240.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0304",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Administration pénitentiaire",
+   "parentAmount": 5120.0,
+   "views": [
+    {
+     "id": "lolf-gf0304",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 3906.65,
+     "coverage": 0.763,
+     "mapping": "éditorial",
+     "nodes": 8,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1313:D5X_D91",
+   "perimeter": "S1313",
+   "perimeterLabel": "Collectivités locales",
+   "label": "Autres impôts (patrimoine, successions…)",
+   "parentAmount": 3589.0,
+   "views": [
+    {
+     "id": "tax-s1313-d5x_d91",
+     "title": "Patrimoine, successions et autres impôts",
+     "basis": "SEC2010",
+     "year": 2024,
+     "amount": 3589.0,
+     "coverage": 1.0,
+     "mapping": "officiel",
+     "nodes": 3,
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0802",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services culturels",
+   "parentAmount": 6054.7,
+   "views": [
+    {
+     "id": "depenses-fiscales-gf0802",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 1683.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 34,
+     "depth": 2
+    },
+    {
+     "id": "lolf-gf0802",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 3278.72,
+     "coverage": 0.5415,
+     "mapping": "éditorial",
+     "nodes": 26,
+     "depth": 3
+    },
+    {
+     "id": "taxes-affectees-gf0802",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 58.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 4,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF07",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Santé",
+   "parentAmount": 13901.2,
+   "views": [
+    {
+     "id": "lolf-gf07",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 2669.03,
+     "coverage": 0.192,
+     "mapping": "éditorial",
+     "nodes": 17,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf07",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 1314.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 10,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0504",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Préservation de la diversité biologique et protection de la nature",
+   "parentAmount": 939.6,
+   "views": [
+    {
+     "id": "lolf-gf0504",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 370.93,
+     "coverage": 0.3948,
+     "mapping": "éditorial",
+     "nodes": 11,
+     "depth": 4
+    },
+    {
+     "id": "depenses-fiscales-gf0504",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 14.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 6,
+     "depth": 2
+    },
+    {
+     "id": "taxes-affectees-gf0504",
+     "title": "Les taxes qui ne passent pas par le budget",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 2387.62,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 4,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0103",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services généraux",
+   "parentAmount": 2465.1,
+   "views": [
+    {
+     "id": "lolf-gf0103",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 1285.26,
+     "coverage": 0.5214,
+     "mapping": "éditorial",
+     "nodes": 43,
+     "depth": 4
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0302",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services de protection civile",
+   "parentAmount": 1122.1,
+   "views": [
+    {
+     "id": "lolf-gf0302",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 877.8,
+     "coverage": 0.7823,
+     "mapping": "éditorial",
+     "nodes": 7,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf0302",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 79.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 2,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0704",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Services de santé publique",
+   "parentAmount": 10017.8,
+   "views": [
+    {
+     "id": "lolf-gf0704",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 253.39,
+     "coverage": 0.0253,
+     "mapping": "éditorial",
+     "nodes": 11,
+     "depth": 3
+    },
+    {
+     "id": "depenses-fiscales-gf0704",
+     "title": "Les impôts auxquels l'État renonce",
+     "basis": "FISC",
+     "year": 2024,
+     "amount": 785.0,
+     "coverage": null,
+     "mapping": "éditorial",
+     "nodes": 8,
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0406",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "Communications",
+   "parentAmount": 765.1,
+   "views": [
+    {
+     "id": "lolf-gf0406",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 260.88,
+     "coverage": 0.341,
+     "mapping": "éditorial",
+     "nodes": 5,
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "anchor": "S1311:GF0204",
+   "perimeter": "S1311",
+   "perimeterLabel": "État et organismes centraux",
+   "label": "R & D concernant la défense",
+   "parentAmount": 1682.0,
+   "views": [
+    {
+     "id": "lolf-gf0204",
+     "title": "Dans le budget de l'État, ligne par ligne",
+     "basis": "LOLF",
+     "year": 2024,
+     "amount": 150.02,
+     "coverage": 0.0892,
+     "mapping": "éditorial",
+     "nodes": 5,
+     "depth": 3
+    }
+   ]
+  }
+ ],
+ "wall": [
+  {
+   "amount": 341057.4,
+   "path": "Vieillesse › Prestations en espèces › Prestations périodiques en espèces › Pension de vieillesse",
+   "label": "Pension de vieillesse",
+   "context": "Prestations en espèces › Prestations périodiques en espèces",
+   "basis": "ESSPROS",
+   "viewId": "esspros-gf10",
+   "viewTitle": "Toute la protection sociale, prestation par prestation",
+   "source": "Eurostat — système européen de statistiques intégrées de la protection sociale (ESSPROS)",
+   "year": 2023
+  },
+  {
+   "amount": 293148.0,
+   "path": "À la charge des employeurs › Cotisations obligatoires",
+   "label": "Cotisations obligatoires",
+   "context": "À la charge des employeurs",
+   "basis": "SEC2010",
+   "viewId": "tax-s13-d61",
+   "viewTitle": "Qui paie les cotisations sociales",
+   "source": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+   "year": 2024
+  },
+  {
+   "amount": 124157.6,
+   "path": "Prestations en nature › Soins avec hospitalisation › Fourniture directe",
+   "label": "Fourniture directe",
+   "context": "Prestations en nature › Soins avec hospitalisation",
+   "basis": "ESSPROS",
+   "viewId": "esspros-gf07",
+   "viewTitle": "Maladie et soins de santé : par prestation",
+   "source": "Eurostat — système européen de statistiques intégrées de la protection sociale (ESSPROS)",
+   "year": 2023
+  },
+  {
+   "amount": 104256.0,
+   "path": "À la charge des ménages › Salariés",
+   "label": "Salariés",
+   "context": "À la charge des ménages",
+   "basis": "SEC2010",
+   "viewId": "tax-s13-d61",
+   "viewTitle": "Qui paie les cotisations sociales",
+   "source": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+   "year": 2024
+  },
+  {
+   "amount": 74029.6,
+   "path": "Prestations en nature › Soins sans hospitalisation › Autres remboursements",
+   "label": "Autres remboursements",
+   "context": "Prestations en nature › Soins sans hospitalisation",
+   "basis": "ESSPROS",
+   "viewId": "esspros-gf07",
+   "viewTitle": "Maladie et soins de santé : par prestation",
+   "source": "Eurostat — système européen de statistiques intégrées de la protection sociale (ESSPROS)",
+   "year": 2023
+  },
+  {
+   "amount": 61440.0,
+   "path": "Impôts sur les terrains, bâtiments et autres constructions",
+   "label": "Impôts sur les terrains, bâtiments et autres constructions",
+   "context": "",
+   "basis": "SEC2010",
+   "viewId": "tax-s13-d29",
+   "viewTitle": "Les impôts sur la production",
+   "source": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+   "year": 2024
+  },
+  {
+   "amount": 59113.0,
+   "path": "Droits d'accise et impôts de consommation",
+   "label": "Droits d'accise et impôts de consommation",
+   "context": "",
+   "basis": "SEC2010",
+   "viewId": "tax-s13-d21x",
+   "viewTitle": "Les accises et taxes sur les produits",
+   "source": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+   "year": 2024
+  },
+  {
+   "amount": 57972.0,
+   "path": "Impôts sur la masse salariale et les effectifs",
+   "label": "Impôts sur la masse salariale et les effectifs",
+   "context": "",
+   "basis": "SEC2010",
+   "viewId": "tax-s13-d29",
+   "viewTitle": "Les impôts sur la production",
+   "source": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+   "year": 2024
+  },
+  {
+   "amount": 53228.9,
+   "path": "Pensions › Pensions civiles et militaires de retraite et allocations temporaires d'invalidité › Fonctionnaires civils relevant du code des pensions civiles et militaires de retraite",
+   "label": "Fonctionnaires civils relevant du code des pensions civiles et militaires de retraite",
+   "context": "Pensions › Pensions civiles et militaires de retraite et allocations temporaires d'invalidité",
+   "basis": "LOLF",
+   "viewId": "lolf-gf10",
+   "viewTitle": "Dans le budget de l'État, ligne par ligne",
+   "source": "Budget de l'État — exécution 2024 en crédits de paiement (annexe « budget vert » au PLF 2026)",
+   "year": 2024
+  },
+  {
+   "amount": 51216.0,
+   "path": "Cotisations imputées",
+   "label": "Cotisations imputées",
+   "context": "",
+   "basis": "SEC2010",
+   "viewId": "tax-s13-d61",
+   "viewTitle": "Qui paie les cotisations sociales",
+   "source": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+   "year": 2024
+  },
+  {
+   "amount": 50042.0,
+   "path": "Départements › Fonctionnement › Dépenses d'intervention",
+   "label": "Dépenses d'intervention",
+   "context": "Départements › Fonctionnement",
+   "basis": "M57",
+   "viewId": "ofgl-collectivites",
+   "viewTitle": "Par niveau de collectivité et par nature",
+   "source": "Observatoire des finances et de la gestion publique locales (OFGL)",
+   "year": 2024
+  },
+  {
+   "amount": 45456.8,
+   "path": "PSRCT › PSR Collectivités territoriales › PSR-CT",
+   "label": "PSR-CT",
+   "context": "PSRCT › PSR Collectivités territoriales",
+   "basis": "LOLF",
+   "viewId": "lolf-gf01",
+   "viewTitle": "Dans le budget de l'État, ligne par ligne",
+   "source": "Budget de l'État — exécution 2024 en crédits de paiement (annexe « budget vert » au PLF 2026)",
+   "year": 2024
+  }
+ ],
+ "unreached": [
+  {
+   "code": "GF0703",
+   "label": "Santé › Services hospitaliers",
+   "amount": 109338.1,
+   "inherited": "Maladie et soins de santé : par prestation"
+  },
+  {
+   "code": "GF0702",
+   "label": "Santé › Services ambulatoires",
+   "amount": 91789.0,
+   "inherited": "Maladie et soins de santé : par prestation"
+  },
+  {
+   "code": "GF0107",
+   "label": "Services généraux des administrations publiques › Opérations concernant la dette publique",
+   "amount": 58870.2,
+   "inherited": "Dans le budget de l'État, ligne par ligne"
+  },
+  {
+   "code": "GF0701",
+   "label": "Santé › Produits, appareils et matériels médicaux",
+   "amount": 43714.6,
+   "inherited": "Maladie et soins de santé : par prestation"
+  },
+  {
+   "code": "GF0602",
+   "label": "Logements et équipements collectifs › Équipements collectifs",
+   "amount": 27229.9,
+   "inherited": "Dans le budget de l'État, ligne par ligne"
+  },
+  {
+   "code": "GF0501",
+   "label": "Protection de l'environnement › Gestion des déchets",
+   "amount": 15862.4,
+   "inherited": "Dans le budget de l'État, ligne par ligne"
+  },
+  {
+   "code": "GF0407",
+   "label": "Affaires économiques › Autres branches d'activité",
+   "amount": 11183.0,
+   "inherited": "Dans le budget de l'État, ligne par ligne"
+  },
+  {
+   "code": "GF0905",
+   "label": "Enseignement › Enseignement non défini par niveau",
+   "amount": 8622.3,
+   "inherited": "Dans le budget de l'État, ligne par ligne"
+  },
+  {
+   "code": "GF0705",
+   "label": "Santé › R & D dans le domaine de la santé",
+   "amount": 6708.3,
+   "inherited": "Maladie et soins de santé : par prestation"
+  },
+  {
+   "code": "GF0502",
+   "label": "Protection de l'environnement › Gestion des eaux usées",
+   "amount": 5200.0,
+   "inherited": "Dans le budget de l'État, ligne par ligne"
+  }
+ ]
+}

@@ -40,6 +40,10 @@ SOURCE = {
     "name": "Données essentielles de la commande publique, version enrichie des raisons sociales",
     "dataset": f"data.economie.gouv.fr / {DATASET}",
     "url": "https://data.economie.gouv.fr/explore/dataset/decp_augmente/",
+    "producer": "Ministères économiques et financiers, à partir des déclarations des acheteurs",
+    "licence": "Licence Ouverte v2.0 (Etalab)",
+    "cadence": "Irrégulière ; jeu marqué « déprécié » par son producteur",
+    "brings": "Le plancher : qui a signé quel marché, avec quel acheteur, pour quel montant.",
 }
 
 # Divisions de la nomenclature européenne CPV (deux premiers chiffres du code).
@@ -137,6 +141,15 @@ def build(parent_amounts: dict[str, float], years: list[int]) -> list[dict]:
         select="id,montant",
     )
     dropped_amount = sum((r.get("montant") or 0) / 1e6 for r in dropped)
+
+    # L'ordre d'export n'est pas garanti par la source : sans tri, la ligne
+    # retenue pour un identifiant donné change d'une exécution à l'autre et
+    # l'empreinte de la vue devient instable. On trie donc sur une clé stable
+    # avant de dédupliquer.
+    rows.sort(key=lambda r: (str(r.get("id") or ""),
+                             str(r.get("siretetablissement") or ""),
+                             -(r.get("montant") or 0),
+                             str(r.get("objetmarche") or "")))
 
     # Un identifiant de marché peut revenir (lots, cotitulaires) : on ne compte
     # son montant qu'une fois.

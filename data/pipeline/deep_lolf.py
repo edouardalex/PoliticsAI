@@ -32,6 +32,10 @@ SOURCE = {
     "name": "Budget de l'État — exécution 2024 en crédits de paiement (annexe « budget vert » au PLF 2026)",
     "dataset": "data.economie.gouv.fr / plf-2026-budget-vert",
     "url": "https://data.economie.gouv.fr/explore/dataset/plf-2026-budget-vert/",
+    "producer": "Direction du budget (ministères économiques et financiers)",
+    "licence": "Licence Ouverte v2.0 (Etalab)",
+    "cadence": "Annuelle, avec le projet de loi de finances (octobre)",
+    "brings": "Le seul jeu ouvert donnant l'exécution du budget de l'État ligne à ligne : mission, programme, action.",
 }
 
 CAVEATS = [

@@ -1,0 +1,22 @@
+{
+ "note": "Une entrée par exécution du pipeline. Sert à voir la profondeur du projet s'étendre au fil des millésimes.",
+ "snapshots": [
+  {
+   "date": "2026-08-24",
+   "sources": 7,
+   "views": 122,
+   "nodes": 38012,
+   "terminal": 36601,
+   "spineYear": 2024,
+   "sourceKeys": [
+    "Eurostat / gov_10a_exp · gov_10a_main · nama_10_gdp",
+    "Eurostat / gov_10a_taxag",
+    "Eurostat / spr_exp_f*",
+    "data.ameli.fr / depenses",
+    "data.economie.gouv.fr / decp_augmente",
+    "data.economie.gouv.fr / plf-2026-budget-vert",
+    "data.ofgl.fr / comptes des collectivités"
+   ]
+  }
+ ]
+}

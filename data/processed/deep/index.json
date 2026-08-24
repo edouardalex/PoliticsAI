@@ -1,35 +1,241 @@
 {
- "extracted": "2026-08-13",
+ "extracted": "2026-08-24",
  "anchors": {
-  "S13": [
+  "S13:D61": [
    {
-    "id": "decp-entreprises",
-    "title": "La commande publique, entreprise par entreprise",
-    "subtitle": "Marchés notifiés en 2023, par catégorie d'achat puis par titulaire",
-    "basis": "DECP",
-    "basisLabel": "Marchés publics notifiés en 2023 (montants engagés)",
-    "year": 2023,
-    "amount": 73025.94,
-    "parentAmount": 1671793.8,
-    "coverage": null,
-    "mapping": "dérivé",
-    "sourceName": "Données essentielles de la commande publique, version enrichie des raisons sociales",
-    "nodeCount": 31848,
-    "depth": 3
-   },
+    "id": "tax-s13-d61",
+    "title": "Qui paie les cotisations sociales",
+    "subtitle": "Employeurs, salariés, indépendants, retraités",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 482281.0,
+    "parentAmount": 483631.0,
+    "coverage": 0.9972,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 8,
+    "depth": 2
+   }
+  ],
+  "S13:D21X": [
    {
-    "id": "decp-plus-gros",
-    "title": "Les 500 plus gros marchés publics de 2023",
-    "subtitle": "Objet, titulaire et acheteur, marché par marché",
-    "basis": "DECP",
-    "basisLabel": "Marchés publics notifiés en 2023 (montants engagés)",
-    "year": 2023,
-    "amount": 33249.98,
-    "parentAmount": 1671793.8,
-    "coverage": null,
-    "mapping": "dérivé",
-    "sourceName": "Données essentielles de la commande publique, version enrichie des raisons sociales",
-    "nodeCount": 500,
+    "id": "tax-s13-d21x",
+    "title": "Les accises et taxes sur les produits",
+    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 118323.0,
+    "parentAmount": 118433.0,
+    "coverage": 0.9991,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 11,
+    "depth": 1
+   }
+  ],
+  "S13:D29": [
+   {
+    "id": "tax-s13-d29",
+    "title": "Les impôts sur la production",
+    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 129947.0,
+    "parentAmount": 129947.0,
+    "coverage": 1.0,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 7,
+    "depth": 1
+   }
+  ],
+  "S13:D5X_D91": [
+   {
+    "id": "tax-s13-d5x_d91",
+    "title": "Patrimoine, successions et autres impôts",
+    "subtitle": "Ce qui est prélevé sur le capital détenu ou transmis",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 28497.0,
+    "parentAmount": 28473.0,
+    "coverage": 1.0008,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 6,
+    "depth": 1
+   }
+  ],
+  "S1311:D61": [
+   {
+    "id": "tax-s1311-d61",
+    "title": "Qui paie les cotisations sociales",
+    "subtitle": "Employeurs, salariés, indépendants, retraités",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 56929.0,
+    "parentAmount": 56937.0,
+    "coverage": 0.9999,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 5,
+    "depth": 2
+   }
+  ],
+  "S1311:D21X": [
+   {
+    "id": "tax-s1311-d21x",
+    "title": "Les accises et taxes sur les produits",
+    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 41769.0,
+    "parentAmount": 41762.0,
+    "coverage": 1.0002,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 11,
+    "depth": 1
+   }
+  ],
+  "S1311:D29": [
+   {
+    "id": "tax-s1311-d29",
+    "title": "Les impôts sur la production",
+    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 25298.0,
+    "parentAmount": 25298.0,
+    "coverage": 1.0,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 7,
+    "depth": 1
+   }
+  ],
+  "S1311:D5X_D91": [
+   {
+    "id": "tax-s1311-d5x_d91",
+    "title": "Patrimoine, successions et autres impôts",
+    "subtitle": "Ce qui est prélevé sur le capital détenu ou transmis",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 24856.0,
+    "parentAmount": 24856.0,
+    "coverage": 1.0,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 7,
+    "depth": 1
+   }
+  ],
+  "S1313:D21X": [
+   {
+    "id": "tax-s1313-d21x",
+    "title": "Les accises et taxes sur les produits",
+    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 48610.0,
+    "parentAmount": 48753.0,
+    "coverage": 0.9971,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 9,
+    "depth": 1
+   }
+  ],
+  "S1313:D29": [
+   {
+    "id": "tax-s1313-d29",
+    "title": "Les impôts sur la production",
+    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 69896.0,
+    "parentAmount": 69914.0,
+    "coverage": 0.9997,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 5,
+    "depth": 1
+   }
+  ],
+  "S1313:D5X_D91": [
+   {
+    "id": "tax-s1313-d5x_d91",
+    "title": "Patrimoine, successions et autres impôts",
+    "subtitle": "Ce qui est prélevé sur le capital détenu ou transmis",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 3589.0,
+    "parentAmount": 3589.0,
+    "coverage": 1.0,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 3,
+    "depth": 1
+   }
+  ],
+  "S1314:D61": [
+   {
+    "id": "tax-s1314-d61",
+    "title": "Qui paie les cotisations sociales",
+    "subtitle": "Employeurs, salariés, indépendants, retraités",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 424447.0,
+    "parentAmount": 425788.0,
+    "coverage": 0.9969,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 8,
+    "depth": 2
+   }
+  ],
+  "S1314:D21X": [
+   {
+    "id": "tax-s1314-d21x",
+    "title": "Les accises et taxes sur les produits",
+    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 27944.0,
+    "parentAmount": 27918.0,
+    "coverage": 1.0009,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 5,
+    "depth": 1
+   }
+  ],
+  "S1314:D29": [
+   {
+    "id": "tax-s1314-d29",
+    "title": "Les impôts sur la production",
+    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
+    "basis": "SEC2010",
+    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
+    "year": 2024,
+    "amount": 34733.0,
+    "parentAmount": 34735.0,
+    "coverage": 0.9999,
+    "mapping": "officiel",
+    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
+    "nodeCount": 4,
     "depth": 1
    }
   ],
@@ -65,6 +271,38 @@
     "sourceName": "Assurance maladie (CNAM) — cartographie des pathologies et des dépenses",
     "nodeCount": 1240,
     "depth": 4
+   }
+  ],
+  "S13": [
+   {
+    "id": "decp-entreprises",
+    "title": "La commande publique, entreprise par entreprise",
+    "subtitle": "Marchés notifiés en 2023, par catégorie d'achat puis par titulaire",
+    "basis": "DECP",
+    "basisLabel": "Marchés publics notifiés en 2023 (montants engagés)",
+    "year": 2023,
+    "amount": 73042.13,
+    "parentAmount": 1671793.8,
+    "coverage": null,
+    "mapping": "dérivé",
+    "sourceName": "Données essentielles de la commande publique, version enrichie des raisons sociales",
+    "nodeCount": 31683,
+    "depth": 3
+   },
+   {
+    "id": "decp-plus-gros",
+    "title": "Les 500 plus gros marchés publics de 2023",
+    "subtitle": "Objet, titulaire et acheteur, marché par marché",
+    "basis": "DECP",
+    "basisLabel": "Marchés publics notifiés en 2023 (montants engagés)",
+    "year": 2023,
+    "amount": 33014.61,
+    "parentAmount": 1671793.8,
+    "coverage": null,
+    "mapping": "dérivé",
+    "sourceName": "Données essentielles de la commande publique, version enrichie des raisons sociales",
+    "nodeCount": 500,
+    "depth": 1
    }
   ],
   "S1311:GF01": [
@@ -1729,244 +1967,6 @@
     "sourceName": "Observatoire des finances et de la gestion publique locales (OFGL)",
     "nodeCount": 60,
     "depth": 3
-   }
-  ],
-  "S13:D21X": [
-   {
-    "id": "tax-s13-d21x",
-    "title": "Les accises et taxes sur les produits",
-    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 118323.0,
-    "parentAmount": 118433.0,
-    "coverage": 0.9991,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 11,
-    "depth": 1
-   }
-  ],
-  "S13:D29": [
-   {
-    "id": "tax-s13-d29",
-    "title": "Les impôts sur la production",
-    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 129947.0,
-    "parentAmount": 129947.0,
-    "coverage": 1.0,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 7,
-    "depth": 1
-   }
-  ],
-  "S13:D5X_D91": [
-   {
-    "id": "tax-s13-d5x_d91",
-    "title": "Patrimoine, successions et autres impôts",
-    "subtitle": "Ce qui est prélevé sur le capital détenu ou transmis",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 28497.0,
-    "parentAmount": 28473.0,
-    "coverage": 1.0008,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 6,
-    "depth": 1
-   }
-  ],
-  "S13:D61": [
-   {
-    "id": "tax-s13-d61",
-    "title": "Qui paie les cotisations sociales",
-    "subtitle": "Employeurs, salariés, indépendants, retraités",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 482281.0,
-    "parentAmount": 483631.0,
-    "coverage": 0.9972,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 8,
-    "depth": 2
-   }
-  ],
-  "S1311:D21X": [
-   {
-    "id": "tax-s1311-d21x",
-    "title": "Les accises et taxes sur les produits",
-    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 41769.0,
-    "parentAmount": 41762.0,
-    "coverage": 1.0002,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 11,
-    "depth": 1
-   }
-  ],
-  "S1311:D29": [
-   {
-    "id": "tax-s1311-d29",
-    "title": "Les impôts sur la production",
-    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 25298.0,
-    "parentAmount": 25298.0,
-    "coverage": 1.0,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 7,
-    "depth": 1
-   }
-  ],
-  "S1311:D5X_D91": [
-   {
-    "id": "tax-s1311-d5x_d91",
-    "title": "Patrimoine, successions et autres impôts",
-    "subtitle": "Ce qui est prélevé sur le capital détenu ou transmis",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 24856.0,
-    "parentAmount": 24856.0,
-    "coverage": 1.0,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 7,
-    "depth": 1
-   }
-  ],
-  "S1311:D61": [
-   {
-    "id": "tax-s1311-d61",
-    "title": "Qui paie les cotisations sociales",
-    "subtitle": "Employeurs, salariés, indépendants, retraités",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 56929.0,
-    "parentAmount": 56937.0,
-    "coverage": 0.9999,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 5,
-    "depth": 2
-   }
-  ],
-  "S1313:D21X": [
-   {
-    "id": "tax-s1313-d21x",
-    "title": "Les accises et taxes sur les produits",
-    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 48610.0,
-    "parentAmount": 48753.0,
-    "coverage": 0.9971,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 9,
-    "depth": 1
-   }
-  ],
-  "S1313:D29": [
-   {
-    "id": "tax-s1313-d29",
-    "title": "Les impôts sur la production",
-    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 69896.0,
-    "parentAmount": 69914.0,
-    "coverage": 0.9997,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 5,
-    "depth": 1
-   }
-  ],
-  "S1313:D5X_D91": [
-   {
-    "id": "tax-s1313-d5x_d91",
-    "title": "Patrimoine, successions et autres impôts",
-    "subtitle": "Ce qui est prélevé sur le capital détenu ou transmis",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 3589.0,
-    "parentAmount": 3589.0,
-    "coverage": 1.0,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 3,
-    "depth": 1
-   }
-  ],
-  "S1314:D21X": [
-   {
-    "id": "tax-s1314-d21x",
-    "title": "Les accises et taxes sur les produits",
-    "subtitle": "Tout ce qui frappe un produit ou un service en dehors de la TVA",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 27944.0,
-    "parentAmount": 27918.0,
-    "coverage": 1.0009,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 5,
-    "depth": 1
-   }
-  ],
-  "S1314:D29": [
-   {
-    "id": "tax-s1314-d29",
-    "title": "Les impôts sur la production",
-    "subtitle": "Ce que les entreprises paient parce qu'elles produisent, pas parce qu'elles gagnent",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 34733.0,
-    "parentAmount": 34735.0,
-    "coverage": 0.9999,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 4,
-    "depth": 1
-   }
-  ],
-  "S1314:D61": [
-   {
-    "id": "tax-s1314-d61",
-    "title": "Qui paie les cotisations sociales",
-    "subtitle": "Employeurs, salariés, indépendants, retraités",
-    "basis": "SEC2010",
-    "basisLabel": "Agrégats fiscaux des comptes nationaux, 2024",
-    "year": 2024,
-    "amount": 424447.0,
-    "parentAmount": 425788.0,
-    "coverage": 0.9969,
-    "mapping": "officiel",
-    "sourceName": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
-    "nodeCount": 8,
-    "depth": 2
    }
   ]
  }

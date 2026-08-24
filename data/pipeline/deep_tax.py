@@ -38,6 +38,10 @@ SOURCE = {
     "name": "Eurostat — agrégats d'impôts et de cotisations sociales des comptes nationaux",
     "dataset": f"Eurostat / {DATASET}",
     "url": "https://ec.europa.eu/eurostat/fr/web/government-finance-statistics",
+    "producer": "Eurostat (Commission européenne), alimenté pour la France par l'Insee",
+    "licence": "Réutilisation autorisée avec mention de la source (politique Eurostat)",
+    "cadence": "Annuelle",
+    "brings": "La nomenclature fiscale complète : accises, taxes sur les assurances, cotisations par type de payeur, droits de succession.",
 }
 
 # Arbres rattachés à chaque poste de recettes de l'application.

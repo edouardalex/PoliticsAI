@@ -36,6 +36,10 @@ SOURCE = {
     "name": "Assurance maladie (CNAM) — cartographie des pathologies et des dépenses",
     "dataset": "data.ameli.fr / depenses",
     "url": "https://data.ameli.fr/explore/dataset/depenses/",
+    "producer": "Caisse nationale de l'Assurance Maladie (CNAM)",
+    "licence": "Open Database License (ODbL)",
+    "cadence": "Annuelle",
+    "brings": "La seule ventilation officielle de la dépense de santé par maladie, avec le nombre de patients et le coût moyen par patient.",
 }
 
 

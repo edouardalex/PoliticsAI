@@ -1,7 +1,7 @@
 import type { DisplayMode } from './format';
 import type { PerimeterId } from './data';
 
-export type ViewId = 'explore' | 'simu' | 'europe' | 'table';
+export type ViewId = 'explore' | 'simu' | 'europe' | 'table' | 'data';
 
 export interface AppState {
   perimeter: PerimeterId;
@@ -29,7 +29,7 @@ export const DEFAULT_STATE: AppState = {
 
 const PERIMETERS = new Set(['S13', 'S1311', 'S1314', 'S1313']);
 const MODES = new Set(['eur', 'per1000', 'pctGdp']);
-const VIEWS = new Set(['explore', 'simu', 'europe', 'table']);
+const VIEWS = new Set(['explore', 'simu', 'europe', 'table', 'data']);
 
 export function parseHash(hash: string): Partial<AppState> {
   const out: Partial<AppState> = {};

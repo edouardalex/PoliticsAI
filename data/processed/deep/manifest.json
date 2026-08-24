@@ -1,5 +1,5 @@
 {
- "extracted": "2026-08-13",
+ "extracted": "2026-08-24",
  "note": "Manifeste d'audit. Chaque vue publie la ou les URL exactement interrogées, le nombre de lignes lues à la source et l'empreinte SHA-256 de l'arbre publié. Rejouer une requête doit redonner les mêmes montants.",
  "inputs": [
   {
@@ -48,15 +48,15 @@
    "year": 2023,
    "mapping": "dérivé",
    "coverage": null,
-   "amount": 73025.94,
-   "nodeCount": 31848,
+   "amount": 73042.13,
+   "nodeCount": 31683,
    "sourceRows": 85945,
    "source": "data.economie.gouv.fr / decp_augmente",
    "queries": [
     "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E0+and+montant%3C%3D1000000000&select=id%2Cobjetmarche%2Cmontant%2Ccodecpv_division%2Creferencecpv%2Cdenominationunitelegale%2Csiretetablissement%2Cnomacheteur%2Ccommuneetablissement%2Cnature%2Cdatenotification",
     "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E1000000000&select=id%2Cmontant"
    ],
-   "fingerprint": "b59174bf1c75b3b164d22041eb57d8b31510153e67d06383c05edb26b9e617c0"
+   "fingerprint": "a859e23ff953bea57b188dfa1f1a75f9d0793fb8f30b2f241456c6cfbe20a2a3"
   },
   {
    "id": "decp-plus-gros",
@@ -65,7 +65,7 @@
    "year": 2023,
    "mapping": "dérivé",
    "coverage": null,
-   "amount": 33249.98,
+   "amount": 33014.61,
    "nodeCount": 500,
    "sourceRows": 85945,
    "source": "data.economie.gouv.fr / decp_augmente",
@@ -73,7 +73,7 @@
     "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E0+and+montant%3C%3D1000000000&select=id%2Cobjetmarche%2Cmontant%2Ccodecpv_division%2Creferencecpv%2Cdenominationunitelegale%2Csiretetablissement%2Cnomacheteur%2Ccommuneetablissement%2Cnature%2Cdatenotification",
     "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/decp_augmente/exports/json?limit=-1&where=anneenotification%3D%222023%22+and+montant%3E1000000000&select=id%2Cmontant"
    ],
-   "fingerprint": "ce086d7c97f13b73c7f17effc00e8d54e65ad952524794f81cd65e6370f3b01a"
+   "fingerprint": "0857ed31fa77e4574e55a6f3aae5679f6deb3cf4d2dec06fe04d9ed08418fc81"
   },
   {
    "id": "depenses-fiscales",

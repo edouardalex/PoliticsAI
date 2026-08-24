@@ -160,6 +160,26 @@ elle mélange tous les acheteurs publics et ne se rattache à aucune fonction
 COFOG. Elle nomme aussi des entreprises : son usage relève d'une décision
 éditoriale, pas technique.
 
+## La banque de données
+
+`build_databank.py` produit `data/processed/databank.json`, consommé par l'écran
+« Les données ». Rien n'y est saisi à la main : producteur, licence, cadence,
+millésimes et apport de chaque source sont lus depuis les fichiers de vue, et
+la couverture, le mur des lignes indivisibles et les lignes sans vue dédiée sont
+recalculés à chaque passage. Le générateur est appelé automatiquement à la fin
+de `fetch_deep.py`.
+
+`databank-history.json` est un journal append-only, une entrée par exécution
+(date, nombre de sources, de vues, de lignes, millésime de référence). C'est ce
+qui permettra de voir la profondeur du projet s'étendre au fil des années — ou
+une source disparaître.
+
+**Point de vigilance juridique** : la cartographie des pathologies de la CNAM
+est diffusée sous **Open Database License (ODbL)**, et non sous Licence Ouverte
+comme les autres sources. L'ODbL comporte une obligation de partage à
+l'identique qui peut contraindre la licence du projet. La question de la licence
+n'étant pas tranchée, elle est signalée ici.
+
 ## Traçabilité
 
 Chaque vue publie de quoi refaire le chemin sans nous croire :

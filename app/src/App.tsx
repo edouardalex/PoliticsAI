@@ -7,6 +7,7 @@ import MobileFlow from './components/MobileFlow';
 import DetailPanel from './components/DetailPanel';
 import EuropeView from './components/EuropeView';
 import TableView from './components/TableView';
+import DataBankView from './components/DataBankView';
 import SearchPalette, { type SearchPick } from './components/SearchPalette';
 import AboutModal from './components/AboutModal';
 import IntroOverlay from './components/IntroOverlay';
@@ -175,6 +176,8 @@ export default function App() {
         )}
 
         {state.view === 'table' && <TableView perimeter={perimeter} perimeterId={state.perimeter} />}
+
+        {state.view === 'data' && <DataBankView />}
       </main>
 
       {state.view === 'explore' && (

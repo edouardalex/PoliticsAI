@@ -153,6 +153,14 @@ il va, sur les données Eurostat/Insee les plus récentes (millésime 2024) :
   L'export CSV emporte les vues dépliées avec leurs colonnes de provenance
   (référentiel, millésime, source), l'URL exacte de chaque requête et
   l'empreinte de chaque arbre.
+- **Les données** : l'inventaire de tout ce que l'application consomme —
+  producteur, licence, cadence de mise à jour, millésime et apport réel de
+  chaque source ; comment les sources s'accrochent les unes aux autres ; la
+  couverture atteinte par périmètre ; et « le mur », c'est-à-dire les plus
+  grosses lignes qu'aucune source publique ne sait diviser. Cette page est
+  **générée par le pipeline** : ajouter une source l'y fait apparaître sans
+  qu'on écrive une ligne. Un journal append-only garde une entrée par exécution
+  pour voir la profondeur s'étendre au fil des années.
 - **Recherche** (⌘K), état de l'app encodé dans l'URL (chaque vue est partageable),
   responsive (layout mobile dédié), `prefers-reduced-motion` respecté.
 
@@ -168,7 +176,8 @@ Rafraîchir les données (aucune dépendance, Python ≥ 3.9) :
 
 ```bash
 python3 data/pipeline/fetch_data.py   # Eurostat : fonctions × natures
-python3 data/pipeline/fetch_deep.py   # vues de zoom (CNAM, ESSPROS, LOLF, fiscal, OFGL)
+python3 data/pipeline/fetch_deep.py   # vues de zoom (CNAM, ESSPROS, LOLF, fiscal, OFGL, DECP)
+                                      # régénère aussi la page « Les données »
 ```
 
 ## Structure

@@ -79,6 +79,10 @@ SOURCE = {
     "name": "Observatoire des finances et de la gestion publique locales (OFGL)",
     "dataset": "data.ofgl.fr / comptes des collectivités",
     "url": "https://data.ofgl.fr/explore/",
+    "producer": "Observatoire des finances et de la gestion publique locales",
+    "licence": "Licence Ouverte v2.0 (Etalab)",
+    "cadence": "Annuelle (comptes de gestion définitifs)",
+    "brings": "La dépense locale par niveau de collectivité, et les 34 869 communes en euros par habitant.",
 }
 
 CAVEATS = [

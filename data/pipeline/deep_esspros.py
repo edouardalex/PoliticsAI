@@ -61,6 +61,10 @@ SOURCE = {
     "name": "Eurostat — système européen de statistiques intégrées de la protection sociale (ESSPROS)",
     "dataset": "Eurostat / spr_exp_f*",
     "url": "https://ec.europa.eu/eurostat/fr/web/social-protection/database",
+    "producer": "Eurostat (Commission européenne), alimenté pour la France par l'Insee",
+    "licence": "Réutilisation autorisée avec mention de la source (politique Eurostat)",
+    "cadence": "Annuelle",
+    "brings": "Les huit fonctions de protection sociale décomposées en prestations nommées, et la part versée sous conditions de ressources — que le COFOG ne dit pas.",
 }
 
 PERIMETER_NOTE = (

@@ -26,6 +26,7 @@ import deep_lolf
 import deep_ofgl
 import deep_tax
 import deep_taxexp
+import build_databank
 from deep_model import write_views
 
 PROCESSED = Path(__file__).resolve().parent.parent / "processed"
@@ -80,6 +81,10 @@ def main(argv: list[str]) -> int:
                 views.append(payload)
 
     write_views(views)
+
+    # La banque de données est un produit dérivé du pipeline : elle se
+    # régénère à chaque passage, pour qu'aucun inventaire ne soit tenu à la main.
+    build_databank.main()
     return 0
 
 
