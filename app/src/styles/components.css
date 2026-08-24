@@ -4132,3 +4132,182 @@
   color: var(--ink-muted);
   font-variant-numeric: tabular-nums;
 }
+
+/* — Tableau : dépliage des vues de zoom — */
+.tv-expand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tv-expand:hover {
+  color: var(--accent);
+}
+
+.tv-chevron {
+  display: inline-block;
+  font-size: 9px;
+  color: var(--ink-muted);
+  transition: transform 0.15s ease;
+}
+
+.tv-expand.open .tv-chevron {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+.tv-expand-hint {
+  font-size: 10px;
+  color: var(--ink-muted);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.tv-expand:hover .tv-expand-hint {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.tv-csv-badge {
+  margin-left: 6px;
+  font-size: 10px;
+  color: var(--accent);
+}
+
+/* Bandeau de changement de source, en pleine largeur du tableau */
+.tv-relay-row > td {
+  padding: 0 0 6px !important;
+}
+
+.tv-relay {
+  padding: 9px 12px;
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: #ffffff08;
+}
+
+.tv-relay-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 11px;
+  margin: 0;
+}
+
+.tv-basis-from,
+.tv-basis-to {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  color: var(--ink-secondary);
+}
+
+.tv-basis-to {
+  border-color: var(--accent);
+  color: var(--ink-primary);
+}
+
+.tv-relay-year,
+.tv-mapping {
+  font-size: 10.5px;
+  color: var(--ink-muted);
+}
+
+.tv-mapping {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #ffffff0d;
+}
+
+.tv-mapping-éditorial {
+  color: #e8b64c;
+  background: #e8b64c1f;
+}
+
+.tv-relay-note {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.tv-relay-pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 0;
+}
+
+.tv-pick {
+  font-size: 10.5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: none;
+  color: var(--ink-secondary);
+  cursor: pointer;
+}
+
+.tv-pick.on {
+  border-color: var(--accent);
+  color: var(--ink-primary);
+}
+
+/* Lignes issues d'une vue : indentées, et visuellement distinctes des lignes
+   de comptabilité nationale — elles ne s'additionnent pas aux mêmes totaux. */
+.tv-deep > th {
+  padding-left: calc(22px + var(--deep-depth, 0) * 15px) !important;
+  font-weight: 400;
+  color: var(--ink-secondary);
+}
+
+.tv-deep > th::before {
+  content: '';
+  position: absolute;
+  left: calc(14px + var(--deep-depth, 0) * 15px);
+  top: 50%;
+  width: 6px;
+  height: 1px;
+  background: var(--hairline-strong);
+}
+
+.tv-deep > th {
+  position: relative;
+}
+
+.tv-deep td {
+  color: var(--ink-secondary);
+}
+
+.tv-deep .tv-na {
+  color: var(--ink-muted);
+}
+
+.tv-deep-leaf {
+  color: var(--ink-secondary);
+}
+
+.tv-unit,
+.tv-means {
+  margin-left: 8px;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+.tv-unit {
+  color: var(--accent);
+}
+
+.tv-means {
+  color: #e8b64c;
+}

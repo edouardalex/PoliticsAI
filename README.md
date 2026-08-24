@@ -147,8 +147,12 @@ il va, sur les données Eurostat/Insee les plus récentes (millésime 2024) :
 - **Fiches par poste** : montant, part, comparaison européenne, description neutre,
   équivalences concrètes (« ≈ 580 avions Rafale »), lien partageable.
 - **L'Europe** : chaque fonction comparée à 14 pays (dot plot, % du PIB).
-- **Le tableau** : toutes les valeurs accessibles et exportables (CSV) — le jumeau
-  WCAG du diagramme.
+- **Le tableau** : le miroir complet de l'application, et son jumeau WCAG.
+  Chaque ligne qui porte une vue de zoom se déplie sur place — bandeau de
+  changement de source, part expliquée, arbre indenté jusqu'au coût unitaire.
+  L'export CSV emporte les vues dépliées avec leurs colonnes de provenance
+  (référentiel, millésime, source), l'URL exacte de chaque requête et
+  l'empreinte de chaque arbre.
 - **Recherche** (⌘K), état de l'app encodé dans l'URL (chaque vue est partageable),
   responsive (layout mobile dédié), `prefers-reduced-motion` respecté.
 

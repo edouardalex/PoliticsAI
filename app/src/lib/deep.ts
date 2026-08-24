@@ -113,14 +113,32 @@ export interface AnchoredView {
 export function deepViewsForNode(perimeterId: string, code: string | null): AnchoredView[] {
   const anchor = code ? `${perimeterId}:${code}` : perimeterId;
   const own = deepViewsFor(anchor).map((view) => ({ view, fromPerimeter: null }));
-  if (own.length > 0 || perimeterId !== 'S13') return own;
+  if (perimeterId !== 'S13') return own;
 
-  const fallback: AnchoredView[] = [];
+  // Depuis le périmètre consolidé, on ajoute TOUJOURS les vues des sous-secteurs
+  // aux vues propres. S'arrêter aux premières masquerait la plus fine : la
+  // cartographie des pathologies (ancrée sur la sécurité sociale) disparaissait
+  // derrière la vue européenne des prestations, ancrée au même endroit.
+  const merged: AnchoredView[] = [...own];
+  const seen = new Set(own.map((o) => o.view.id));
   for (const p of SUB_PERIMETERS) {
     const a = code ? `${p}:${code}` : p;
-    for (const view of deepViewsFor(a)) fallback.push({ view, fromPerimeter: p });
+    for (const view of deepViewsFor(a)) {
+      if (seen.has(view.id)) continue;
+      seen.add(view.id);
+      merged.push({ view, fromPerimeter: p });
+    }
   }
-  return fallback;
+  // La vue proposée en premier est celle qui explique vraiment une part de la
+  // ligne, et à défaut la plus fine. Sans cela, la cartographie des pathologies
+  // — de loin la plus parlante sous « Santé » — arrivait en dernier.
+  merged.sort((a, b) => {
+    const ca = a.view.coverage == null ? 1 : 0;
+    const cb = b.view.coverage == null ? 1 : 0;
+    if (ca !== cb) return ca - cb;
+    return b.view.nodeCount - a.view.nodeCount;
+  });
+  return merged;
 }
 
 export function loadDeepView(id: string): Promise<DeepView> {
